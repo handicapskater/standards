@@ -1,19 +1,30 @@
 :root {
   color-scheme: light;
+
   --ink: #142128;
   --muted: #51646d;
   --paper: #f7faf8;
   --panel: #ffffff;
+  --panel-alt: #eef5f4;
   --line: #d5e0df;
   --blue: #15415a;
   --teal: #0b7280;
   --gold: #a86b12;
   --green: #2f6f54;
+
+  --radius: 10px;
+  --shadow: 0 18px 42px rgba(20, 33, 40, 0.08);
+  --content: 1120px;
+
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -26,7 +37,12 @@ body {
 
 a {
   color: var(--teal);
-  font-weight: 700;
+  font-weight: 750;
+}
+
+a:hover,
+a:focus {
+  color: var(--blue);
 }
 
 .skip-link {
@@ -36,68 +52,14 @@ a {
   padding: 0.75rem 1rem;
   position: absolute;
   top: -100px;
-  z-index: 20;
+  z-index: 30;
 }
 
 .skip-link:focus {
   top: 1rem;
 }
 
-.site-header {
-  background: rgba(247, 250, 248, 0.97);
-  border-bottom: 1px solid var(--line);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.nav-wrap,
-.section,
-.hero-inner,
-.footer-inner {
-  margin: 0 auto;
-  max-width: 1120px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.nav-wrap {
-  align-items: center;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  padding-bottom: 0.85rem;
-  padding-top: 0.85rem;
-}
-
-.brand {
-  color: var(--ink);
-  font-size: 1rem;
-  font-weight: 900;
-  text-decoration: none;
-}
-
-.site-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  justify-content: flex-end;
-}
-
-.site-nav a {
-  border-radius: 999px;
-  color: var(--ink);
-  font-size: 0.86rem;
-  padding: 0.42rem 0.66rem;
-  text-decoration: none;
-}
-
-.site-nav a:hover,
-.site-nav a:focus,
-.site-nav a[aria-current="page"] {
-  background: var(--blue);
-  color: #fff;
-}
+/* Layout */
 
 .hero {
   background: linear-gradient(120deg, var(--blue), var(--teal));
@@ -108,6 +70,19 @@ a {
 .section {
   padding-bottom: 4rem;
   padding-top: 4rem;
+}
+
+.alt {
+  background: var(--panel-alt);
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+  max-width: 860px;
+}
+
+.section-header > :last-child {
+  margin-bottom: 0;
 }
 
 .eyebrow {
@@ -127,7 +102,7 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2.7rem, 7vw, 5.8rem);
+  font-size: clamp(2.65rem, 7vw, 5.65rem);
   max-width: 960px;
 }
 
@@ -136,7 +111,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.22rem;
+}
+
+p {
+  margin: 0.85rem 0 0;
 }
 
 .lead {
@@ -144,10 +123,7 @@ h3 {
   max-width: 820px;
 }
 
-.section-header {
-  margin-bottom: 1.5rem;
-  max-width: 850px;
-}
+/* Components */
 
 .grid {
   display: grid;
@@ -166,16 +142,63 @@ h3 {
 .notice {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   padding: 1.2rem;
+}
+
+.card {
+  box-shadow: var(--shadow);
+}
+
+.card > :first-child,
+.notice > :first-child {
+  margin-top: 0;
+}
+
+.card > a {
+  display: inline-block;
+  margin-top: 0.9rem;
 }
 
 .notice {
   border-left: 5px solid var(--gold);
 }
 
-.alt {
-  background: #eef5f4;
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.btn {
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 850;
+  padding: 0.72rem 1rem;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.btn.primary:hover,
+.btn.primary:focus {
+  background: var(--teal);
+  color: #fff;
+}
+
+.btn.secondary {
+  border: 1px solid var(--blue);
+  color: var(--blue);
+}
+
+.btn.secondary:hover,
+.btn.secondary:focus {
+  background: var(--blue);
+  color: #fff;
 }
 
 .timeline {
@@ -188,7 +211,7 @@ h3 {
 .timeline article {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   padding: 1rem;
 }
 
@@ -202,6 +225,8 @@ h3 {
   font-weight: 800;
   padding: 0.1rem 0.35rem;
 }
+
+/* Footer */
 
 .site-footer {
   background: var(--ink);
@@ -217,10 +242,17 @@ h3 {
   color: #fff;
 }
 
+/* Responsive */
+
 @media (max-width: 760px) {
-  .nav-wrap {
-    align-items: flex-start;
-    flex-direction: column;
+  body {
+    font-size: 17px;
+  }
+
+  .hero-inner,
+  .section {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
   }
 
   .grid.three,

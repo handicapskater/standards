@@ -1,0 +1,214 @@
+/* Shared site chrome: begin */
+:root {
+  --chrome-ink: var(--ink, #142128);
+  --chrome-muted: var(--muted, #51646d);
+  --chrome-paper: var(--paper, #f7faf8);
+  --chrome-panel: var(--panel, #ffffff);
+  --chrome-line: var(--line, #d5e0df);
+  --chrome-blue: var(--blue, #15415a);
+  --chrome-teal: var(--teal, #0b7280);
+  --chrome-focus: rgba(11, 114, 128, 0.35);
+  --chrome-max: 1240px;
+  --chrome-nav-font: 0.9rem;
+  --chrome-brand-font: 1rem;
+  --chrome-nav-pad-y: 0.62rem;
+  --chrome-nav-pad-x: 0.86rem;
+  --chrome-hero-h1: clamp(2.7rem, 7vw, 5.8rem);
+  --chrome-hero-lead: clamp(1.18rem, 2vw, 1.45rem);
+  --chrome-section-y: 4rem;
+}
+
+.site-header {
+  background: rgba(247, 250, 248, 0.97);
+  border-bottom: 1px solid var(--chrome-line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.nav-wrap,
+.section,
+.hero-inner,
+.footer-inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--chrome-max);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.nav-wrap {
+  align-items: center;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: space-between;
+  padding-bottom: 0.85rem;
+  padding-top: 0.85rem;
+}
+
+.brand {
+  color: var(--chrome-ink);
+  flex: 0 0 auto;
+  font-size: var(--chrome-brand-font);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.42rem;
+  justify-content: flex-end;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  white-space: nowrap;
+}
+
+.site-nav a {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--chrome-ink);
+  flex: 0 0 auto;
+  font-size: var(--chrome-nav-font);
+  font-weight: 800;
+  line-height: 1;
+  padding: var(--chrome-nav-pad-y) var(--chrome-nav-pad-x);
+  text-decoration: none;
+  transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
+}
+
+.site-nav a[aria-current="page"] {
+  background: var(--chrome-blue);
+  border-color: var(--chrome-blue);
+  color: #fff;
+}
+
+.site-nav a.external-link,
+.site-nav a.external-link:visited,
+.site-nav a.external-link:active,
+.site-nav a.external-link:focus {
+  background: transparent;
+  border-color: var(--chrome-line);
+  color: var(--chrome-ink);
+}
+
+.site-nav a:hover {
+  background: var(--chrome-blue);
+  border-color: var(--chrome-blue);
+  color: #fff;
+}
+
+.site-nav a:focus,
+.site-nav a:focus-visible {
+  background: transparent;
+  border-color: var(--chrome-teal);
+  color: var(--chrome-ink);
+  outline: 3px solid var(--chrome-focus);
+  outline-offset: 2px;
+}
+
+.site-nav a[aria-current="page"]:focus,
+.site-nav a[aria-current="page"]:focus-visible {
+  background: var(--chrome-blue);
+  border-color: var(--chrome-blue);
+  color: #fff;
+}
+
+.site-nav a.external-link:focus,
+.site-nav a.external-link:focus-visible,
+.site-nav a.external-link:active {
+  background: transparent;
+  border-color: var(--chrome-teal);
+  color: var(--chrome-ink);
+  outline: 3px solid var(--chrome-focus);
+  outline-offset: 2px;
+}
+
+.hero {
+  background: linear-gradient(120deg, var(--chrome-blue), var(--chrome-teal));
+  color: #fff;
+}
+
+.hero-inner,
+.section {
+  padding-bottom: var(--chrome-section-y);
+  padding-top: var(--chrome-section-y);
+}
+
+.eyebrow {
+  color: #d9eef0;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: var(--chrome-hero-h1);
+  line-height: 1.08;
+  max-width: 960px;
+}
+
+.lead {
+  font-size: var(--chrome-hero-lead);
+  max-width: 820px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.08;
+  margin-top: 0;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 800;
+  padding: 0.72rem 1rem;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: var(--chrome-blue);
+  border-color: var(--chrome-blue);
+  color: #fff;
+}
+
+.btn.secondary {
+  background: transparent;
+  border-color: var(--chrome-line);
+  color: var(--chrome-ink);
+}
+
+.btn:hover {
+  background: var(--chrome-teal);
+  border-color: var(--chrome-teal);
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  .nav-wrap {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+/* Shared site chrome: end */
