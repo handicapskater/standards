@@ -10,6 +10,9 @@ REQUIRED_PAGES = [
     "index.html",
     "standards.html",
     "non-traditional-mobility-aids.html",
+    "evidence-standards.html",
+    "reviewer-guidance.html",
+    "public-record.html",
     "dot-fta-doj-timeline.html",
     "accommodation-framework.html",
     "direct-threat-analysis.html",
@@ -94,6 +97,9 @@ class StandardsSiteTests(unittest.TestCase):
         for link in (
             "standards.html",
             "non-traditional-mobility-aids.html",
+            "evidence-standards.html",
+            "reviewer-guidance.html",
+            "public-record.html",
             "dot-fta-doj-timeline.html",
             "accommodation-framework.html",
             "direct-threat-analysis.html",
@@ -108,6 +114,9 @@ class StandardsSiteTests(unittest.TestCase):
 
         self.assertIn('label: "Home"', js)
         self.assertIn('label: "Mobility Aids"', js)
+        self.assertIn('label: "Evidence"', js)
+        self.assertIn('label: "Reviewers"', js)
+        self.assertIn('label: "Public Record"', js)
         self.assertIn('label: "Timeline"', js)
         self.assertIn('label: "Framework"', js)
         self.assertIn('label: "Direct Threat"', js)
@@ -220,6 +229,26 @@ class StandardsSiteTests(unittest.TestCase):
             self.assertNotIn("TODO:", html, page)
             self.assertNotIn("Sources being prepared", html)
 
+    def test_phase_five_standards_site_structure(self) -> None:
+        home = read("index.html").lower()
+        evidence = read("evidence-standards.html").lower()
+        reviewers = read("reviewer-guidance.html").lower()
+        public_record = read("public-record.html").lower()
+
+        self.assertIn("public standards and policy site", home)
+        self.assertIn("standards vocabulary for source-linked wearable mobility evidence", home)
+        self.assertIn("handicapskater.org separates standards from case evidence", home)
+
+        for term in ("records", "labels", "surrogate labels", "duplicates", "baselines", "uncertainty", "caveats"):
+            self.assertIn(term, evidence)
+
+        for reviewer in ("clinicians", "agencies", "employers", "courts", "platforms"):
+            self.assertIn(reviewer, reviewers)
+
+        self.assertIn("selected public record context", public_record)
+        self.assertIn("legal caution", public_record)
+        self.assertIn("not be overstated as a universal access rule", public_record)
+
     def test_accommodation_framework_questions_exist(self) -> None:
         lower = read("accommodation-framework.html").lower()
         self.assertIn("because of a mobility disability", lower)
@@ -238,6 +267,9 @@ class StandardsSiteTests(unittest.TestCase):
         js = read("common/site-header.js")
 
         self.assertIn('label: "Mobility Aids"', js)
+        self.assertIn('label: "Evidence"', js)
+        self.assertIn('label: "Reviewers"', js)
+        self.assertIn('label: "Public Record"', js)
         self.assertIn('label: "Timeline"', js)
         self.assertIn('label: "Framework"', js)
         self.assertIn('label: "Case Study"', js)
