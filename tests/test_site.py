@@ -11,6 +11,7 @@ REQUIRED_PAGES = [
     "standards.html",
     "non-traditional-mobility-aids.html",
     "evidence-standards.html",
+    "fsi-css-platform.html",
     "reviewer-guidance.html",
     "public-record.html",
     "dot-fta-doj-timeline.html",
@@ -98,6 +99,7 @@ class StandardsSiteTests(unittest.TestCase):
             "standards.html",
             "non-traditional-mobility-aids.html",
             "evidence-standards.html",
+            "fsi-css-platform.html",
             "reviewer-guidance.html",
             "public-record.html",
             "dot-fta-doj-timeline.html",
@@ -115,6 +117,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('label: "Home"', js)
         self.assertIn('label: "Mobility Aids"', js)
         self.assertIn('label: "Evidence"', js)
+        self.assertIn('label: "FSI/CSS"', js)
         self.assertIn('label: "Reviewers"', js)
         self.assertIn('label: "Public Record"', js)
         self.assertIn('label: "Timeline"', js)
@@ -248,6 +251,29 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("selected public record context", public_record)
         self.assertIn("legal caution", public_record)
         self.assertIn("not be overstated as a universal access rule", public_record)
+
+    def test_fsi_css_platform_page_is_standards_safe(self) -> None:
+        html = read("fsi-css-platform.html")
+        lower = html.lower()
+
+        self.assertIn("fsi/css evidence platform positioning", lower)
+        self.assertIn("fsi stability", lower)
+        self.assertIn("css similarity", lower)
+        self.assertIn("pice burden", lower)
+        self.assertIn("fme efficiency", lower)
+        self.assertIn("decision-support layer", lower)
+        self.assertIn("qdrant retrieval", lower)
+        self.assertIn("optional neo4j context", lower)
+        self.assertIn("kubios / polar h10", lower)
+        self.assertIn("whoop", lower)
+        self.assertIn("strava", lower)
+        self.assertIn("fsi_css", html)
+        self.assertIn("fsicss_rag", html)
+        self.assertIn("fsicss_agents", html)
+        self.assertIn("source-linked evidence", lower)
+        self.assertIn("presumptive/directional where sample size is small", lower)
+        self.assertIn("private invention-origin narrative", lower)
+        self.assertIn("https://handicapskater.com/platform.html#evidence-observatory", html)
 
     def test_accommodation_framework_questions_exist(self) -> None:
         lower = read("accommodation-framework.html").lower()
