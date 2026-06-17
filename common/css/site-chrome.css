@@ -1,4 +1,7 @@
-/* Shared site chrome: begin */
+/* HandicapSkater shared chrome.
+   Install this exact file on BOTH sites:
+   /common/css/site-chrome.css
+*/
 :root {
   --chrome-ink: var(--ink, #142128);
   --chrome-muted: var(--muted, #51646d);
@@ -9,75 +12,98 @@
   --chrome-teal: var(--teal, #0b7280);
   --chrome-focus: rgba(11, 114, 128, 0.35);
   --chrome-max: 1240px;
+  --chrome-header-height: 64px;
+  --chrome-nav-control-height: 42px;
   --chrome-nav-font: 0.9rem;
   --chrome-brand-font: 1rem;
-  --chrome-nav-pad-y: 0.62rem;
-  --chrome-nav-pad-x: 0.86rem;
   --chrome-hero-h1: clamp(2.7rem, 7vw, 5.8rem);
   --chrome-hero-lead: clamp(1.18rem, 2vw, 1.45rem);
+  --chrome-hero-y: 4rem;
   --chrome-section-y: 4rem;
+  --hs-header-text: #f7fbff;
+  --hs-header-menu-bg: #0d1f38;
+  --hs-header-border: rgba(255, 255, 255, 0.16);
+  --hs-header-menu-hover: rgba(154, 215, 255, 0.12);
+  --hs-header-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
 }
 
 .site-header {
-  background: rgba(247, 250, 248, 0.97);
-  border-bottom: 1px solid var(--chrome-line);
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 9999;
+  min-height: var(--chrome-header-height);
+  overflow: visible;
+  background: rgba(247, 250, 248, 0.97);
+  border-bottom: 1px solid var(--chrome-line);
 }
 
 .nav-wrap,
 .section,
 .hero-inner,
 .footer-inner {
+  max-width: var(--chrome-max);
   margin-left: auto;
   margin-right: auto;
-  max-width: var(--chrome-max);
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
 .nav-wrap {
-  align-items: center;
+  min-height: var(--chrome-header-height);
   display: flex;
-  gap: 1.2rem;
+  align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.85rem;
-  padding-top: 0.85rem;
+  gap: 1.2rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: visible;
 }
 
 .brand {
-  color: var(--chrome-ink);
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--chrome-nav-control-height);
+  color: var(--chrome-ink);
   font-size: var(--chrome-brand-font);
   font-weight: 900;
   letter-spacing: -0.02em;
+  line-height: 1;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .site-nav {
-  align-items: center;
   display: flex;
-  flex-wrap: nowrap;
-  gap: 0.42rem;
+  align-items: center;
   justify-content: flex-end;
-  overflow-x: auto;
-  scrollbar-width: thin;
+  gap: 0.42rem;
+  flex-wrap: nowrap;
+  overflow: visible;
   white-space: nowrap;
+  font-size: var(--chrome-nav-font);
 }
 
-.site-nav a {
-  background: transparent;
+.site-nav a,
+.hs-more-summary {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  height: var(--chrome-nav-control-height);
+  min-height: var(--chrome-nav-control-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.9rem;
   border: 1px solid transparent;
   border-radius: 999px;
+  background: transparent;
   color: var(--chrome-ink);
-  flex: 0 0 auto;
-  font-size: var(--chrome-nav-font);
+  font: inherit;
   font-weight: 800;
   line-height: 1;
-  padding: var(--chrome-nav-pad-y) var(--chrome-nav-pad-x);
   text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
   transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
 }
 
@@ -87,56 +113,110 @@
   color: #fff;
 }
 
-.site-nav a.external-link,
-.site-nav a.external-link:visited,
-.site-nav a.external-link:active,
-.site-nav a.external-link:focus {
-  background: transparent;
+.site-nav a:hover,
+.hs-more-summary:hover,
+.hs-more[open] .hs-more-summary {
+  background: var(--chrome-blue);
+  border-color: var(--chrome-blue);
+  color: #fff;
+}
+
+.hs-more-summary {
   border-color: var(--chrome-line);
-  color: var(--chrome-ink);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.35);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  list-style: none;
+  user-select: none;
 }
 
-.site-nav a:hover {
-  background: var(--chrome-blue);
-  border-color: var(--chrome-blue);
-  color: #fff;
+.hs-more-summary::-webkit-details-marker {
+  display: none;
 }
 
-.site-nav a:focus,
-.site-nav a:focus-visible {
+.hs-more-summary::after {
+  content: " ▾";
+  font-size: 0.82em;
+  line-height: 1;
+  margin-left: 0.12rem;
+}
+
+.hs-more[open] .hs-more-summary::after {
+  content: " ▴";
+}
+
+.hs-more {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: var(--chrome-nav-control-height);
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.hs-more-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 10000;
+  display: grid;
+  gap: 0.25rem;
+  min-width: 14rem;
+  max-width: min(22rem, calc(100vw - 2rem));
+  padding: 0.65rem;
+  border: 1px solid var(--hs-header-border);
+  border-radius: 0.85rem;
+  background: var(--hs-header-menu-bg);
+  box-shadow: var(--hs-header-shadow);
+}
+
+.hs-more-menu a,
+.hs-more-menu a:visited,
+.hs-more-menu a.external-link,
+.hs-more-menu a.external-link:visited {
+  display: block;
+  height: auto;
+  min-height: auto;
+  padding: 0.58rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 0.55rem;
   background: transparent;
-  border-color: var(--chrome-teal);
-  color: var(--chrome-ink);
-  outline: 3px solid var(--chrome-focus);
-  outline-offset: 2px;
+  color: var(--hs-header-text);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.site-nav a[aria-current="page"]:focus,
-.site-nav a[aria-current="page"]:focus-visible {
-  background: var(--chrome-blue);
-  border-color: var(--chrome-blue);
-  color: #fff;
+.hs-more-menu a:hover,
+.hs-more-menu a:focus-visible,
+.hs-more-menu a[aria-current="page"] {
+  background: var(--hs-header-menu-hover);
+  border-color: rgba(154, 215, 255, 0.24);
+  color: var(--hs-header-text);
+  outline: none;
 }
 
-.site-nav a.external-link:focus,
-.site-nav a.external-link:focus-visible,
-.site-nav a.external-link:active {
-  background: transparent;
-  border-color: var(--chrome-teal);
-  color: var(--chrome-ink);
+.site-nav a:focus-visible,
+.hs-more-summary:focus-visible {
   outline: 3px solid var(--chrome-focus);
   outline-offset: 2px;
 }
 
 .hero {
+  padding: 0;
   background: linear-gradient(120deg, var(--chrome-blue), var(--chrome-teal));
   color: #fff;
 }
 
 .hero-inner,
+.hero > .container {
+  padding-top: var(--chrome-hero-y);
+  padding-bottom: var(--chrome-hero-y);
+}
+
 .section {
-  padding-bottom: var(--chrome-section-y);
   padding-top: var(--chrome-section-y);
+  padding-bottom: var(--chrome-section-y);
 }
 
 .eyebrow {
@@ -173,176 +253,63 @@ h3 {
   margin-top: 1rem;
 }
 
-.btn {
+.btn,
+.button,
+.button-secondary {
   border: 1px solid transparent;
   border-radius: 999px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
   font-weight: 800;
   padding: 0.72rem 1rem;
   text-decoration: none;
 }
 
-.btn.primary {
+.btn.primary,
+.button {
   background: var(--chrome-blue);
   border-color: var(--chrome-blue);
   color: #fff;
 }
 
-.btn.secondary {
+.btn.secondary,
+.button-secondary {
   background: transparent;
   border-color: var(--chrome-line);
   color: var(--chrome-ink);
 }
 
-.btn:hover {
+.btn:hover,
+.button:hover,
+.button-secondary:hover {
   background: var(--chrome-teal);
   border-color: var(--chrome-teal);
   color: #fff;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .nav-wrap {
     align-items: flex-start;
     flex-direction: column;
+    justify-content: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
-
   .site-nav {
     justify-content: flex-start;
+    flex-wrap: wrap;
     width: 100%;
   }
-}
-/* Shared site chrome: end */
-
-/* More menu dropdown containment fix.
-   Keeps the supplemental menu out of the nav layout flow without changing
-   the existing .com color scheme, typography, or hero styles. */
-
-.site-header,
-.nav-wrap,
-.site-nav {
-  overflow: visible;
-}
-
-.site-header {
-  z-index: 9999;
-}
-
-.nav-wrap {
-  position: relative;
-}
-
-.site-nav {
-  position: relative;
-}
-
-.hs-more {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-  overflow: visible;
-}
-
-.hs-more-summary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.2rem;
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
-  white-space: nowrap;
-}
-
-.hs-more-summary::-webkit-details-marker {
-  display: none;
-}
-
-.hs-more-summary::after {
-  content: " ▾";
-  font-size: 0.82em;
-  line-height: 1;
-}
-
-.hs-more[open] .hs-more-summary::after {
-  content: " ▴";
-}
-
-.hs-more-menu {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  z-index: 10000;
-
-  display: grid;
-  gap: 0.25rem;
-
-  min-width: 14rem;
-  max-width: min(22rem, calc(100vw - 2rem));
-
-  padding: 0.65rem;
-  border-radius: 0.85rem;
-
-  background: var(--hs-header-menu-bg, #0d1f38);
-  border: 1px solid var(--hs-header-border, rgba(255, 255, 255, 0.16));
-  box-shadow: var(--hs-header-shadow, 0 18px 42px rgba(0, 0, 0, 0.38));
-}
-
-.hs-more-menu a {
-  display: block;
-  min-height: auto;
-  padding: 0.58rem 0.7rem;
-  border-radius: 0.55rem;
-  white-space: nowrap;
-}
-
-.hs-more-menu a:hover,
-.hs-more-menu a:focus-visible {
-  background: var(--hs-header-menu-hover, rgba(154, 215, 255, 0.12));
-}
-
-@media (max-width: 900px) {
   .hs-more-menu {
     left: 0;
     right: auto;
   }
 }
 
-/* More dropdown text contrast fix for .com dark menu */
-.hs-more-menu a,
-.hs-more-menu a:visited {
-  color: var(--hs-header-text, #f7fbff);
-  background: transparent;
-  border: 1px solid transparent;
-  text-decoration: none;
-}
-
-.hs-more-menu a:hover,
-.hs-more-menu a:focus-visible {
-  color: var(--hs-header-text, #f7fbff);
-  background: var(--hs-header-menu-hover, rgba(154, 215, 255, 0.12));
-  border-color: rgba(154, 215, 255, 0.24);
-  outline: none;
-}
-
-.hs-more-menu a[aria-current="page"] {
-  color: var(--hs-header-text, #f7fbff);
-  background: rgba(154, 215, 255, 0.16);
-  border-color: rgba(154, 215, 255, 0.36);
-}
-
-.hs-more-menu a.external-link,
-.hs-more-menu a.external-link:visited,
-.hs-more-menu a.external-link:active,
-.hs-more-menu a.external-link:focus,
-.hs-more-menu a.external-link:focus-visible {
-  color: var(--hs-header-text, #f7fbff);
-  background: transparent;
-  border-color: transparent;
-}
-
-.hs-more-menu a.external-link:hover {
-  color: var(--hs-header-text, #f7fbff);
-  background: var(--hs-header-menu-hover, rgba(154, 215, 255, 0.12));
-  border-color: rgba(154, 215, 255, 0.24);
+@media (max-width: 760px) {
+  :root {
+    --chrome-hero-y: 3rem;
+  }
 }

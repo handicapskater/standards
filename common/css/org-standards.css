@@ -1,125 +1,32 @@
-/* HandicapSkater.org standards layout helpers.
-   This file intentionally does NOT define body colors, backgrounds, fonts,
-   header colors, or global theme variables. Those come from the working .com CSS.
+/* HandicapSkater.org standards helpers.
+   Optional on .org only.
+   No colors, no fonts, no body, no header, no hero padding.
 */
-
-main {
-    display: block;
-}
-
-.container {
-    width: min(1120px, calc(100% - 2rem));
-    margin-inline: auto;
-}
-
-.hero {
-    padding-block: clamp(4rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
-}
-
-.section {
-    padding-block: clamp(3rem, 6vw, 5.25rem);
-}
-
-.section-alt {
-    border-block: 1px solid rgba(255, 255, 255, 0.10);
-}
-
 .section-cta {
-    padding-block: clamp(3.5rem, 7vw, 5.75rem);
+  padding-top: var(--chrome-section-y, 4rem);
+  padding-bottom: var(--chrome-section-y, 4rem);
 }
 
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.card {
-    min-height: 100%;
-    padding: clamp(1.05rem, 2vw, 1.35rem);
-    border-radius: 1rem;
+  margin-top: 1.5rem;
 }
 
 .card p {
-    margin-top: 0.7rem;
-}
-
-.button-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
-}
-
-.table-wrap {
-    overflow-x: auto;
-    margin-top: 1.4rem;
-    border-radius: 1rem;
-}
-
-table {
-    width: 100%;
-    min-width: 760px;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    padding: 0.95rem 1rem;
-    text-align: left;
-    vertical-align: top;
+  margin-top: 0.7rem;
 }
 
 .checklist {
-    max-width: 82ch;
-    margin: 1.4rem 0 0;
-    padding-left: 1.4rem;
-}
-
-.checklist li + li {
-    margin-top: 0.55rem;
-}
-
-/* Safety net for older .org pages that are not fully wrapped yet. */
-main > h1,
-main > h2,
-main > h3,
-main > p,
-main > ol,
-main > ul,
-main > .table-wrap {
-    width: min(1120px, calc(100% - 2rem));
-    margin-inline: auto;
-}
-
-main > h2 {
-    margin-top: clamp(3rem, 6vw, 5rem);
-}
-
-main > h3 {
-    margin-top: 1.4rem;
+  max-width: 82ch;
 }
 
 @media (max-width: 900px) {
-    .card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 620px) {
-    .container,
-    main > h1,
-    main > h2,
-    main > h3,
-    main > p,
-    main > ol,
-    main > ul,
-    main > .table-wrap {
-        width: min(100% - 1rem, 1120px);
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,21 +1,19 @@
-/* HandicapSkater.org layout fix
-   Install: /common/css/site.css
-   Purpose: make .org readable even when pages are simple HTML.
-   Header/menu stays in /common/css/site-chrome.css.
-*/
-
 :root {
-  --org-bg: #071426;
-  --org-bg-2: #0b1c33;
-  --org-text: #f7fbff;
-  --org-muted: rgba(247, 251, 255, 0.78);
-  --org-soft: rgba(255, 255, 255, 0.055);
-  --org-soft-2: rgba(255, 255, 255, 0.085);
-  --org-border: rgba(255, 255, 255, 0.16);
-  --org-accent: #9ad7ff;
-  --org-accent-2: #c7f3ff;
-  --org-max: 1120px;
-  --org-radius: 1rem;
+  color-scheme: light;
+  --ink: #142128;
+  --muted: #51646d;
+  --paper: #f7faf8;
+  --panel: #ffffff;
+  --panel-alt: #eef5f4;
+  --line: #d5e0df;
+  --blue: #15415a;
+  --teal: #0b7280;
+  --gold: #a86b12;
+  --green: #2f6f54;
+  --radius: 10px;
+  --shadow: 0 18px 42px rgba(20, 33, 40, 0.08);
+  --content: 1120px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 *,
@@ -25,273 +23,147 @@
 }
 
 html {
-  background: var(--org-bg);
+  scroll-padding-top: 5rem;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
-  color: var(--org-text);
-  background:
-    radial-gradient(circle at 18% 0%, rgba(70, 166, 255, 0.18), transparent 30rem),
-    linear-gradient(180deg, var(--org-bg), var(--org-bg-2) 50%, var(--org-bg));
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-  font-size: 17px;
-  line-height: 1.65;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 main {
   display: block;
-  width: 100%;
 }
 
-/* Works with the existing site classes. */
-.container {
-  width: min(var(--org-max), calc(100% - 2rem));
-  margin-inline: auto;
+a {
+  color: var(--teal);
+  font-weight: 750;
 }
 
-.hero {
-  padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+a:hover,
+a:focus {
+  color: var(--blue);
 }
 
-.section {
-  padding: clamp(3rem, 6vw, 5.25rem) 0;
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10001;
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: #fff;
 }
 
+.skip-link:focus {
+  top: 1rem;
+}
+
+.container,
+.hero-inner,
+.section,
+.footer-inner {
+  max-width: var(--content);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.alt,
 .section-alt {
-  background: rgba(255, 255, 255, 0.035);
-  border-block: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--panel-alt);
 }
 
-.section-cta {
-  padding: clamp(3.5rem, 7vw, 5.75rem) 0;
+.section-header {
+  margin-bottom: 1.5rem;
+  max-width: 860px;
 }
 
-/* Fallback for pages that are missing hero/section/container wrappers.
-   This is the important safety net for the current .org pages. */
-main > :not(script):not(style) {
-  width: min(var(--org-max), calc(100% - 2rem));
-  margin-inline: auto;
-}
-
-main > p,
-main > h1,
-main > h2,
-main > h3,
-main > ol,
-main > ul,
-main > table,
-main > .table-wrap {
-  width: min(var(--org-max), calc(100% - 2rem));
-  margin-inline: auto;
-}
-
-main > h2 {
-  margin-top: clamp(3rem, 6vw, 5rem);
-  padding-top: clamp(2rem, 4vw, 3rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-}
-
-main > h2:first-of-type {
-  margin-top: 0;
-  border-top: 0;
-}
-
-main > h3 {
-  margin-top: 1.4rem;
-}
-
-/* Typography */
-.eyebrow,
-main > p:first-child {
-  color: var(--org-accent);
-  font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.11em;
-  line-height: 1.25;
-  text-transform: uppercase;
+.section-header > :last-child {
+  margin-bottom: 0;
 }
 
 h1,
 h2,
 h3 {
-  margin: 0;
-  color: var(--org-text);
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  margin: 0;
 }
 
 h1 {
-  max-width: 15ch;
-  font-size: clamp(2.65rem, 7vw, 5.5rem);
+  font-size: clamp(2.65rem, 7vw, 5.65rem);
+  max-width: 960px;
 }
 
 h2 {
-  max-width: 20ch;
-  font-size: clamp(2rem, 4.25vw, 3.4rem);
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 h3 {
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-size: 1.22rem;
 }
 
 p {
-  max-width: 78ch;
-  margin: 0;
-  color: var(--org-muted);
-}
-
-h1 + p,
-h2 + p,
-h3 + p,
-p + p,
-p + .button-row,
-p + .card-grid {
-  margin-top: 1rem;
+  margin: 0.85rem 0 0;
 }
 
 .lead {
-  max-width: 74ch;
-  margin-top: 1.35rem;
-  color: rgba(247, 251, 255, 0.92);
-  font-size: clamp(1.15rem, 2vw, 1.38rem);
-  line-height: 1.55;
+  font-size: clamp(1.18rem, 2vw, 1.45rem);
+  max-width: 820px;
 }
 
-a {
-  color: var(--org-accent-2);
-}
-
-/* Buttons */
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 1.6rem;
-}
-
-.button,
-.button-secondary,
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.65rem;
-  border-radius: 999px;
-  font-weight: 800;
-  line-height: 1.1;
-  text-decoration: none;
-}
-
-.button {
-  padding: 0.78rem 1.1rem;
-  color: #06111f;
-  background: var(--org-accent-2);
-  border: 1px solid transparent;
-}
-
-.button-secondary {
-  padding: 0.78rem 1.1rem;
-  color: var(--org-text);
-  background: rgba(255, 255, 255, 0.075);
-  border: 1px solid var(--org-border);
-}
-
-.text-link {
-  min-height: auto;
-  justify-content: flex-start;
-  margin-top: 1rem;
-  color: var(--org-accent-2);
-  border-radius: 0;
-}
-
-.button:hover,
-.button:focus-visible,
-.button-secondary:hover,
-.button-secondary:focus-visible,
-.text-link:hover,
-.text-link:focus-visible {
-  filter: brightness(1.08);
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-
-/* Cards */
+.grid,
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  margin-top: 1.6rem;
+}
+
+.grid.three,
+.card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .card,
-article.card,
-section article {
-  min-height: 100%;
-  padding: clamp(1.05rem, 2vw, 1.35rem);
-  border: 1px solid var(--org-border);
-  border-radius: var(--org-radius);
-  background: linear-gradient(180deg, var(--org-soft-2), var(--org-soft));
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+.notice {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem;
 }
 
-.card p,
-article.card p,
-section article p {
-  margin-top: 0.7rem;
-  font-size: 0.98rem;
+.card {
+  box-shadow: var(--shadow);
 }
 
-/* Fallback card look when the page has naked h3 blocks. */
-main > h3 {
-  max-width: 78ch;
-  padding: 1rem 1.1rem 0;
-  border-top: 1px solid var(--org-border);
-  border-left: 1px solid var(--org-border);
-  border-right: 1px solid var(--org-border);
-  border-radius: var(--org-radius) var(--org-radius) 0 0;
-  background: var(--org-soft-2);
+.card > :first-child,
+.notice > :first-child {
+  margin-top: 0;
 }
 
-main > h3 + p {
-  max-width: 78ch;
-  padding: 0.65rem 1.1rem 1rem;
-  border-left: 1px solid var(--org-border);
-  border-right: 1px solid var(--org-border);
-  border-bottom: 1px solid var(--org-border);
-  border-radius: 0 0 var(--org-radius) var(--org-radius);
-  background: var(--org-soft);
+.card > a,
+.text-link {
+  display: inline-block;
+  margin-top: 0.9rem;
 }
 
-/* Callouts */
-.callout {
-  max-width: 82ch;
-  margin-top: 1.4rem;
-  padding: 1rem 1.1rem;
-  border-left: 4px solid var(--org-accent);
-  border-radius: 0.85rem;
-  color: rgba(247, 251, 255, 0.92);
-  background: rgba(154, 215, 255, 0.095);
+.notice {
+  border-left: 5px solid var(--gold);
 }
 
-/* Tables */
 .table-wrap {
   overflow-x: auto;
   margin-top: 1.4rem;
-  border: 1px solid var(--org-border);
-  border-radius: var(--org-radius);
-  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
 }
 
 table {
@@ -305,109 +177,71 @@ td {
   padding: 0.95rem 1rem;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+  border-bottom: 1px solid var(--line);
 }
 
 th {
-  color: var(--org-text);
   font-size: 0.9rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-td {
-  color: var(--org-muted);
 }
 
 tbody tr:last-child td {
   border-bottom: 0;
 }
 
-/* Lists */
-ol,
-ul {
-  max-width: 82ch;
-  color: var(--org-muted);
-}
-
-li + li {
-  margin-top: 0.55rem;
-}
-
 .checklist {
   max-width: 82ch;
-  margin: 1.4rem auto 0;
+  margin: 1.4rem 0 0;
   padding-left: 1.4rem;
 }
 
-/* Footer */
-.site-footer {
-  margin-top: clamp(3rem, 6vw, 5rem);
-  padding: 2rem 1rem;
-  color: var(--org-muted);
-  text-align: center;
-  background: rgba(0, 0, 0, 0.16);
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
+.checklist li + li {
+  margin-top: 0.55rem;
 }
 
-.site-footer div {
-  width: min(var(--org-max), calc(100% - 2rem));
-  margin-inline: auto;
+.site-footer {
+  background: var(--ink);
+  color: #d9e6e4;
+}
+
+.footer-inner,
+.site-footer > div {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .site-footer a {
-  color: var(--org-accent-2);
-  text-decoration: none;
+  color: #fff;
 }
 
-.site-footer a:hover,
-.site-footer a:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
+main > h1,
+main > h2,
+main > h3,
+main > p,
+main > ol,
+main > ul,
+main > .table-wrap {
+  width: min(var(--content), calc(100% - 2rem));
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+main > h2 {
+  margin-top: 3rem;
+}
+
+main > h3 {
+  margin-top: 1.4rem;
+}
+
+@media (max-width: 760px) {
   body {
-    font-size: 16px;
+    font-size: 17px;
   }
-
-  .card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  h1 {
-    max-width: 12ch;
-  }
-
-  h2 {
-    max-width: 16ch;
-  }
-}
-
-@media (max-width: 620px) {
-  .container,
-  main > :not(script):not(style),
-  main > p,
-  main > h1,
-  main > h2,
-  main > h3,
-  main > ol,
-  main > ul,
-  main > table,
-  main > .table-wrap {
-    width: min(100% - 1rem, var(--org-max));
-  }
-
-  .hero {
-    padding-top: 3rem;
-  }
-
+  .grid.three,
+  .grid.two,
   .card-grid {
     grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: clamp(2.35rem, 13vw, 3.5rem);
   }
 }
