@@ -212,3 +212,137 @@ h3 {
   }
 }
 /* Shared site chrome: end */
+
+/* More menu dropdown containment fix.
+   Keeps the supplemental menu out of the nav layout flow without changing
+   the existing .com color scheme, typography, or hero styles. */
+
+.site-header,
+.nav-wrap,
+.site-nav {
+  overflow: visible;
+}
+
+.site-header {
+  z-index: 9999;
+}
+
+.nav-wrap {
+  position: relative;
+}
+
+.site-nav {
+  position: relative;
+}
+
+.hs-more {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.hs-more-summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.2rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.hs-more-summary::-webkit-details-marker {
+  display: none;
+}
+
+.hs-more-summary::after {
+  content: " ▾";
+  font-size: 0.82em;
+  line-height: 1;
+}
+
+.hs-more[open] .hs-more-summary::after {
+  content: " ▴";
+}
+
+.hs-more-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 10000;
+
+  display: grid;
+  gap: 0.25rem;
+
+  min-width: 14rem;
+  max-width: min(22rem, calc(100vw - 2rem));
+
+  padding: 0.65rem;
+  border-radius: 0.85rem;
+
+  background: var(--hs-header-menu-bg, #0d1f38);
+  border: 1px solid var(--hs-header-border, rgba(255, 255, 255, 0.16));
+  box-shadow: var(--hs-header-shadow, 0 18px 42px rgba(0, 0, 0, 0.38));
+}
+
+.hs-more-menu a {
+  display: block;
+  min-height: auto;
+  padding: 0.58rem 0.7rem;
+  border-radius: 0.55rem;
+  white-space: nowrap;
+}
+
+.hs-more-menu a:hover,
+.hs-more-menu a:focus-visible {
+  background: var(--hs-header-menu-hover, rgba(154, 215, 255, 0.12));
+}
+
+@media (max-width: 900px) {
+  .hs-more-menu {
+    left: 0;
+    right: auto;
+  }
+}
+
+/* More dropdown text contrast fix for .com dark menu */
+.hs-more-menu a,
+.hs-more-menu a:visited {
+  color: var(--hs-header-text, #f7fbff);
+  background: transparent;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.hs-more-menu a:hover,
+.hs-more-menu a:focus-visible {
+  color: var(--hs-header-text, #f7fbff);
+  background: var(--hs-header-menu-hover, rgba(154, 215, 255, 0.12));
+  border-color: rgba(154, 215, 255, 0.24);
+  outline: none;
+}
+
+.hs-more-menu a[aria-current="page"] {
+  color: var(--hs-header-text, #f7fbff);
+  background: rgba(154, 215, 255, 0.16);
+  border-color: rgba(154, 215, 255, 0.36);
+}
+
+.hs-more-menu a.external-link,
+.hs-more-menu a.external-link:visited,
+.hs-more-menu a.external-link:active,
+.hs-more-menu a.external-link:focus,
+.hs-more-menu a.external-link:focus-visible {
+  color: var(--hs-header-text, #f7fbff);
+  background: transparent;
+  border-color: transparent;
+}
+
+.hs-more-menu a.external-link:hover {
+  color: var(--hs-header-text, #f7fbff);
+  background: var(--hs-header-menu-hover, rgba(154, 215, 255, 0.12));
+  border-color: rgba(154, 215, 255, 0.24);
+}

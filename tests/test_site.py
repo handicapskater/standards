@@ -292,6 +292,8 @@ class StandardsSiteTests(unittest.TestCase):
     def test_navigation_labels_are_compact(self) -> None:
         js = read("common/site-header.js")
 
+        self.assertIn('primaryLinks', js)
+        self.assertIn('moreLinks', js)
         self.assertIn('label: "Mobility Aids"', js)
         self.assertIn('label: "Evidence"', js)
         self.assertIn('label: "Reviewers"', js)
@@ -299,6 +301,9 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('label: "Timeline"', js)
         self.assertIn('label: "Framework"', js)
         self.assertIn('label: "Case Study"', js)
+        self.assertIn('class="nav-more-button"', js)
+        self.assertIn('class="nav-more-menu"', js)
+        self.assertIn('wireMoreMenu', js)
 
         self.assertNotIn('label: "Non-Traditional Mobility Aids"', js)
         self.assertNotIn('label: "DOT/FTA/DOJ Timeline"', js)
@@ -326,6 +331,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('!external && link.match.includes(path)', js)
         self.assertIn('target="_blank"', js)
         self.assertIn('rel="noopener noreferrer"', js)
+        self.assertIn('link.href.startsWith("http")', js)
 
     def test_org_header_identity_and_cross_site_link(self) -> None:
         js = read("common/site-header.js")
