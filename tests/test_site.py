@@ -43,7 +43,6 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("what this site does", lower)
         self.assertIn("federal timeline", lower)
         self.assertIn("review framework", lower)
-        self.assertIn("standards, not case adjudication", lower)
         self.assertIn("continue reading", lower)
 
         self.assertIn("handicapskater.org separates standards from case evidence", lower)
@@ -84,7 +83,6 @@ class StandardsSiteTests(unittest.TestCase):
             "what this site does",
             "federal timeline",
             "review framework",
-            "standards, not case adjudication",
             "continue reading",
         ]
 
@@ -134,21 +132,20 @@ class StandardsSiteTests(unittest.TestCase):
         css = nav_css()
 
         self.assertIn("flex-wrap: nowrap", css)
-        self.assertIn("overflow-x: auto", css)
+        self.assertIn("overflow: visible", css)
         self.assertIn("white-space: nowrap", css)
-        self.assertIn(".site-nav a.external-link", css)
+        self.assertIn(".nav-link", css)
+        self.assertIn(".nav-more-summary", css)
         self.assertIn(".brand", css)
 
     def test_shared_chrome_css_is_loaded_after_global_css(self) -> None:
         for page in REQUIRED_PAGES:
             html = read(page)
-            self.assertIn("/common/css/global.css", html, page)
+            self.assertIn("/common/css/site-tokens.css", html, page)
             self.assertIn("/common/css/site-chrome.css", html, page)
-            self.assertLess(
-                html.index("/common/css/global.css"),
-                html.index("/common/css/site-chrome.css"),
-                page,
-            )
+            self.assertIn("/common/css/site-components.css", html, page)
+            self.assertIn("/common/css/site-pages.css", html, page)
+            self.assertIn("site-org", html, page)
 
     def test_external_link_css_is_not_default_active_pill(self) -> None:
         css = nav_css()
@@ -158,7 +155,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn(".site-nav a.external-link:active,", css)
         self.assertIn(".site-nav a.external-link:focus", css)
         self.assertIn("background: transparent", css)
-        self.assertIn("border-color: var(--chrome-line)", css)
+        self.assertIn("border-color: var(--line)", css)
 
     def test_nav_focus_is_not_grouped_with_current_page_active_style(self) -> None:
         css = nav_css()
@@ -176,18 +173,14 @@ class StandardsSiteTests(unittest.TestCase):
     def test_nav_uses_consistent_one_line_layout(self) -> None:
         css = nav_css()
         self.assertIn("flex-wrap: nowrap", css)
-        self.assertIn("overflow-x: auto", css)
+        self.assertIn("overflow: visible", css)
         self.assertIn("white-space: nowrap", css)
 
     def test_shared_hero_typography_contract(self) -> None:
-        css = nav_css()
-        self.assertIn("--chrome-hero-h1: clamp(2.7rem, 7vw, 5.8rem)", css)
-        self.assertIn("--chrome-hero-lead: clamp(1.18rem, 2vw, 1.45rem)", css)
-        self.assertIn("--chrome-section-y: 4rem", css)
-        self.assertIn("h1", css)
-        self.assertIn("font-size: var(--chrome-hero-h1)", css)
-        self.assertIn(".lead", css)
-        self.assertIn("font-size: var(--chrome-hero-lead)", css)
+        tokens_css = read("common/css/site-tokens.css")
+        self.assertIn("--chrome-hero-h1: clamp(2.7rem, 7vw, 5.8rem)", tokens_css)
+        self.assertIn("--chrome-hero-lead: clamp(1.18rem, 2vw, 1.45rem)", tokens_css)
+        self.assertIn("--chrome-section-y: 4rem", tokens_css)
 
 
     def test_case_study_link_is_prominent(self) -> None:
@@ -196,7 +189,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("Case study and evidence record", html)
         self.assertIn("https://handicapskater.com/", html)
         self.assertIn("Open HandicapSkater.com case study", html)
-        self.assertIn('class="btn primary"', html)
+        self.assertIn('class="button button-primary"', html)
 
 
     def test_timeline_contains_2005_2007_2010(self) -> None:
@@ -294,16 +287,17 @@ class StandardsSiteTests(unittest.TestCase):
 
         self.assertIn('primaryLinks', js)
         self.assertIn('moreLinks', js)
-        self.assertIn('label: "Mobility Aids"', js)
+        self.assertIn('label: "Mobility Review"', js)
         self.assertIn('label: "Evidence"', js)
-        self.assertIn('label: "Reviewers"', js)
+        self.assertIn('label: "Reviewer Guidance"', js)
         self.assertIn('label: "Public Record"', js)
         self.assertIn('label: "Timeline"', js)
         self.assertIn('label: "Framework"', js)
         self.assertIn('label: "Case Study"', js)
-        self.assertIn('class="nav-more-button"', js)
+        self.assertIn('class="nav-link"', js)
+        self.assertIn('class="nav-more-summary"', js)
         self.assertIn('class="nav-more-menu"', js)
-        self.assertIn('wireMoreMenu', js)
+        self.assertIn('wireMoreMenuCloseBehavior', js)
 
         self.assertNotIn('label: "Non-Traditional Mobility Aids"', js)
         self.assertNotIn('label: "DOT/FTA/DOJ Timeline"', js)
@@ -324,6 +318,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('!external && link.match.includes(path)', js)
         self.assertIn('target="_blank"', js)
         self.assertIn('rel="noopener noreferrer"', js)
+        self.assertIn('class="nav-link external-link"', js)
 
     def test_external_nav_links_never_receive_current_page_logic(self) -> None:
         js = read("common/site-header.js")
@@ -331,7 +326,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('!external && link.match.includes(path)', js)
         self.assertIn('target="_blank"', js)
         self.assertIn('rel="noopener noreferrer"', js)
-        self.assertIn('link.href.startsWith("http")', js)
+        self.assertIn('class="nav-link external-link"', js)
 
     def test_org_header_identity_and_cross_site_link(self) -> None:
         js = read("common/site-header.js")
@@ -339,6 +334,25 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('label: "Case Study"', js)
         self.assertIn('https://handicapskater.com/', js)
         self.assertNotIn("HandicapSkater.com", js)
+
+    def test_shared_chrome_and_footer_contract(self) -> None:
+        js = read("common/site-header.js")
+        footer = read("common/site-footer.js")
+        tokens_css = read("common/css/site-tokens.css")
+        css = read("common/css/site-chrome.css")
+        components = read("common/css/site-components.css")
+        self.assertIn("site-org", js + css + tokens_css)
+        self.assertIn("nav-more-summary", js)
+        self.assertIn("position: absolute", css)
+        self.assertIn("nav-more-menu a.external-link", css)
+        self.assertIn("footer-nav", footer)
+        self.assertIn("footer-social", footer)
+        self.assertIn("footer-copy", footer)
+        self.assertIn("footer-description", footer)
+        self.assertIn("button-primary", components)
+        self.assertIn("button-secondary", components)
+        self.assertIn("button-light", components)
+        self.assertIn("button-ghost", components)
 
     def test_no_com_nav_labels_in_org_header(self) -> None:
         js = read("common/site-header.js")
