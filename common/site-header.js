@@ -1,40 +1,24 @@
 (function () {
-  const host = window.location.hostname.replace(/^www\./, "");
-
-  const menus = {
-    "handicapskater.org": {
-      brand: "HandicapSkater.org",
-      primaryLinks: [
-        { href: "/", label: "Home", match: ["/"] },
-        { href: "/standards.html", label: "Standards", match: ["/standards.html"] },
-        { href: "/non-traditional-mobility-aids.html", label: "Mobility Review", match: ["/non-traditional-mobility-aids.html"] },
-        { href: "/transportation-accommodation.html", label: "Transport", match: ["/transportation-accommodation.html"] },
-        { href: "/evidence-standards.html", label: "Evidence", match: ["/evidence-standards.html"] },
-        { href: "/accommodation-framework.html", label: "Framework", match: ["/accommodation-framework.html"] }
-      ],
-      moreLinks: [
-        { href: "/dot-fta-doj-timeline.html", label: "Timeline", match: ["/dot-fta-doj-timeline.html"] },
-        { href: "/direct-threat-analysis.html", label: "Direct Threat", match: ["/direct-threat-analysis.html"] },
-        { href: "/reviewer-guidance.html", label: "Reviewer Guidance", match: ["/reviewer-guidance.html"] },
-        { href: "/fsi-css-platform.html", label: "FSI/CSS", match: ["/fsi-css-platform.html"] },
-        { href: "/public-record.html", label: "Public Record", match: ["/public-record.html"] },
-        { href: "/references.html", label: "References", match: ["/references.html", "/references.htm"] },
-        { href: "https://handicapskater.com/", label: "Case Study", match: [] }
-      ]
-    }
+  const config = {
+    brand: "HandicapSkater.org",
+    primaryLinks: [
+      { href: "/", label: "Home", match: ["/"] },
+      { href: "/standards.html", label: "Standards", match: ["/standards.html"] },
+      { href: "/non-traditional-mobility-aids.html", label: "Mobility Review", match: ["/non-traditional-mobility-aids.html"] },
+      { href: "/transportation-accommodation.html", label: "Transport", match: ["/transportation-accommodation.html"] },
+      { href: "/evidence-standards.html", label: "Evidence", match: ["/evidence-standards.html"] },
+      { href: "/accommodation-framework.html", label: "Framework", match: ["/accommodation-framework.html"] }
+    ],
+    moreLinks: [
+      { href: "/dot-fta-doj-timeline.html", label: "Timeline", match: ["/dot-fta-doj-timeline.html"] },
+      { href: "/direct-threat-analysis.html", label: "Direct Threat", match: ["/direct-threat-analysis.html"] },
+      { href: "/reviewer-guidance.html", label: "Reviewer Guidance", match: ["/reviewer-guidance.html"] },
+      { href: "/fsi-css-platform.html", label: "FSI/CSS", match: ["/fsi-css-platform.html"] },
+      { href: "/public-record.html", label: "Public Record", match: ["/public-record.html"] },
+      { href: "/references.html", label: "References", match: ["/references.html", "/references.htm"] },
+      { href: "https://handicapskater.com/", label: "Case Study", match: [] }
+    ]
   };
-
-  const config = menus["handicapskater.org"];
-
-  function ensureChromeStylesheet() {
-    const href = "/common/css/site-chrome.css";
-    if (document.querySelector('link[href="' + href + '"]')) return;
-
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  }
 
   function normalizePath(pathname) {
     if (!pathname || pathname === "/index.html" || pathname === "/index.htm") return "/";
@@ -43,20 +27,16 @@
     return pathname;
   }
 
-  function isExternal(link) {
-    return /^https?:\/\//i.test(link.href);
-  }
-
   function isActive(link, path) {
-    if (isExternal(link)) return false;
-    return link.match.includes(path);
+    const external = link.href.startsWith("http");
+    return !external && link.match.includes(path);
   }
 
   function renderNavLink(link, path) {
-    const external = isExternal(link);
+    const external = link.href.startsWith("http");
     const active = isActive(link, path) ? ' aria-current="page"' : "";
     const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
-    const className = external ? ' class="external-link"' : "";
+    const className = external ? ' class="nav-link external-link"' : ' class="nav-link"';
     return `<a${className} href="${link.href}"${active}${attrs}>${link.label}</a>`;
   }
 
@@ -66,9 +46,9 @@
     const menuLinks = links.map((link) => renderNavLink(link, path)).join("");
 
     return `
-      <details class="hs-more${activeClass}">
-        <summary class="hs-more-summary">More</summary>
-        <div class="hs-more-menu">
+      <details class="nav-more${activeClass}">
+        <summary class="nav-more-summary">More</summary>
+        <div class="nav-more-menu">
           ${menuLinks}
         </div>
       </details>
@@ -76,11 +56,11 @@
   }
 
   function wireMoreMenuCloseBehavior() {
-    const details = document.querySelector(".hs-more");
+    const details = document.querySelector(".nav-more");
     if (!details) return;
 
-    const summary = details.querySelector(".hs-more-summary");
-    const menu = details.querySelector(".hs-more-menu");
+    const summary = details.querySelector(".nav-more-summary");
+    const menu = details.querySelector(".nav-more-menu");
     if (!summary || !menu) return;
 
     function closeMoreMenu() {
@@ -114,8 +94,6 @@
   }
 
   function renderSiteHeader() {
-    ensureChromeStylesheet();
-
     const mount = document.getElementById("site-header");
     if (!mount) return;
 
@@ -124,10 +102,10 @@
     const moreNav = renderMoreMenu(config.moreLinks, path);
 
     mount.outerHTML = `
-      <header class="site-header" data-site-host="${host}">
+      <header class="site-header" data-site-host="handicapskater.org">
         <div class="nav-wrap">
           <a class="brand" href="/">${config.brand}</a>
-          <nav class="site-nav" aria-label="Main navigation">
+          <nav class="site-nav" aria-label="Primary navigation">
             ${primaryNav}
             ${moreNav}
           </nav>

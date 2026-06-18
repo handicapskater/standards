@@ -1,0 +1,30 @@
+:root {
+  color-scheme: light;
+  --ink: #142128;
+  --muted: #51646d;
+  --paper: #f7faf8;
+  --panel: #ffffff;
+  --panel-alt: #eef5f4;
+  --line: #d5e0df;
+  --blue: #1b4e3f;
+  --teal: #145e63;
+  --gold: #a86b12;
+  --green: #2f6f54;
+  --radius: 10px;
+  --shadow: 0 18px 42px rgba(20, 33, 40, 0.08);
+  --content: 1120px;
+  --chrome-menu-bg: #0d1f38;
+  --chrome-menu-text: #f7fbff;
+  --chrome-menu-line: rgba(255, 255, 255, 0.14);
+  --chrome-menu-hover: rgba(154, 215, 255, 0.12);
+  --chrome-focus: rgba(11, 114, 128, 0.35);
+  --chrome-hero-h1: clamp(2.7rem, 7vw, 5.8rem);
+  --chrome-hero-lead: clamp(1.18rem, 2vw, 1.45rem);
+  --chrome-section-y: 4rem;
+}
+
+body.site-org {
+  --blue: #1b4e3f;
+  --teal: #145e63;
+  --panel-alt: #edf5f2;
+}
