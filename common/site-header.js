@@ -4,18 +4,18 @@
     primaryLinks: [
       { href: "/", label: "Home", match: ["/"] },
       { href: "/standards.html", label: "Standards", match: ["/standards.html"] },
-      { href: "/non-traditional-mobility-aids.html", label: "Mobility Review", match: ["/non-traditional-mobility-aids.html"] },
-      { href: "/transportation-accommodation.html", label: "Transport", match: ["/transportation-accommodation.html"] },
+      { href: "/transportation-accommodation.html", label: "Transportation", match: ["/transportation-accommodation.html"] },
       { href: "/evidence-standards.html", label: "Evidence", match: ["/evidence-standards.html"] },
-      { href: "/accommodation-framework.html", label: "Framework", match: ["/accommodation-framework.html"] }
+      { href: "/reviewer-guidance.html", label: "Reviewers", match: ["/reviewer-guidance.html"] },
+      { href: "/fsi-css-platform.html", label: "Platform", match: ["/fsi-css-platform.html"] }
     ],
     moreLinks: [
+      { href: "/non-traditional-mobility-aids.html", label: "Mobility Review", match: ["/non-traditional-mobility-aids.html"] },
+      { href: "/accommodation-framework.html", label: "Framework", match: ["/accommodation-framework.html"] },
       { href: "/dot-fta-doj-timeline.html", label: "Timeline", match: ["/dot-fta-doj-timeline.html"] },
       { href: "/direct-threat-analysis.html", label: "Direct Threat", match: ["/direct-threat-analysis.html"] },
-      { href: "/reviewer-guidance.html", label: "Reviewer Guidance", match: ["/reviewer-guidance.html"] },
-      { href: "/fsi-css-platform.html", label: "FSI/CSS", match: ["/fsi-css-platform.html"] },
       { href: "/public-record.html", label: "Public Record", match: ["/public-record.html"] },
-      { href: "/references.html", label: "References", match: ["/references.html", "/references.htm"] },
+      { href: "/references.html", label: "References", match: ["/references.html"] },
       { href: "https://handicapskater.com/", label: "Case Study", match: [] }
     ]
   };
