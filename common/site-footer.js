@@ -19,7 +19,7 @@
 <!--    </div>-->
 
     <p class="footer-copy">Copyright © 2004 to 2026 HandicapSkater.org.</p>
-    <p class="footer-description">HandicapSkater.org provides standards, review frameworks, and public accessibility guidance.<br />The individual evidence record lives on HandicapSkater.com.</p>
+    <p class="footer-description">HandicapSkater separates physiologic burden, mechanical motion exposure, and body coupling so mobility aid review can preserve context. This site presents generalized review standards and evidence frameworks.</p>
   </div>
 </footer>
 `;

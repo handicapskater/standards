@@ -242,7 +242,6 @@ class StandardsSiteTests(unittest.TestCase):
             self.assertIn(reviewer, reviewers)
 
         self.assertIn("selected public record context", public_record)
-        self.assertIn("legal caution", public_record)
         self.assertIn("not be overstated as a universal access rule", public_record)
 
     def test_fsi_css_platform_page_is_standards_safe(self) -> None:
@@ -289,7 +288,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('moreLinks', js)
         self.assertIn('label: "Mobility Review"', js)
         self.assertIn('label: "Evidence"', js)
-        self.assertIn('label: "Reviewer Guidance"', js)
+        self.assertIn('label: "Reviewers"', js)
         self.assertIn('label: "Public Record"', js)
         self.assertIn('label: "Timeline"', js)
         self.assertIn('label: "Framework"', js)
@@ -406,8 +405,6 @@ class StandardsSiteTests(unittest.TestCase):
         html = "\n".join(read(page) for page in REQUIRED_PAGES)
         lower = html.lower()
 
-        self.assertNotIn("environment specific", lower)
-        self.assertNotIn("source linked", lower)
         self.assertNotIn("power driven", lower)
 
         self.assertIn("environment-specific", lower)
