@@ -4,19 +4,19 @@
     primaryLinks: [
       { href: "/", label: "Home", match: ["/"] },
       { href: "/standards.html", label: "Standards", match: ["/standards.html"] },
+      { href: "/non-standard-mobility-aids.html", label: "Mobility Review", match: ["/non-standard-mobility-aids.html"] },
       { href: "/transportation-accommodation.html", label: "Transportation", match: ["/transportation-accommodation.html"] },
-      { href: "/evidence-standards.html", label: "Evidence", match: ["/evidence-standards.html"] },
-      { href: "/reviewer-guidance.html", label: "Reviewers", match: ["/reviewer-guidance.html"] },
-      { href: "/fsi-css-platform.html", label: "Platform", match: ["/fsi-css-platform.html"] }
-    ],
-    moreLinks: [
-      { href: "/non-traditional-mobility-aids.html", label: "Mobility Review", match: ["/non-traditional-mobility-aids.html"] },
-      { href: "/accommodation-framework.html", label: "Framework", match: ["/accommodation-framework.html"] },
-      { href: "/dot-fta-doj-timeline.html", label: "Timeline", match: ["/dot-fta-doj-timeline.html"] },
       { href: "/direct-threat-analysis.html", label: "Direct Threat", match: ["/direct-threat-analysis.html"] },
-      { href: "/public-record.html", label: "Public Record", match: ["/public-record.html"] },
+      // { href: "/evidence-standards.html", label: "Evidence", match: ["/evidence-standards.html"] },
+      { href: "/dot-fta-doj-timeline.html", label: "Timeline", match: ["/dot-fta-doj-timeline.html"] },
       { href: "/references.html", label: "References", match: ["/references.html"] },
       { href: "https://handicapskater.com/", label: "Case Study", match: [] }
+      // { href: "/fsi-css-platform.html", label: "Platform", match: ["/fsi-css-platform.html"] }
+    ],
+    moreLinks: [
+      { href: "/accommodation-framework.html", label: "Framework", match: ["/accommodation-framework.html"] },
+      // { href: "/public-record.html", label: "Public Record", match: ["/public-record.html"] },
+      // { href: "/reviewer-guidance.html", label: "Reviewers", match: ["/reviewer-guidance.html"] },
     ]
   };
 

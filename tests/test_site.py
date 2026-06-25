@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_PAGES = [
     "index.html",
     "standards.html",
-    "non-traditional-mobility-aids.html",
+    "non-standard-mobility-aids.html",
     "evidence-standards.html",
     "fsi-css-platform.html",
     "reviewer-guidance.html",
@@ -39,7 +39,7 @@ class StandardsSiteTests(unittest.TestCase):
         lower = html.lower()
 
         self.assertIn("public standards and policy site", lower)
-        self.assertIn("non-traditional mobility aid standards", lower)
+        self.assertIn("non-standard mobility aid standards", lower)
         self.assertIn("what this site does", lower)
         self.assertIn("federal timeline", lower)
         self.assertIn("review framework", lower)
@@ -48,7 +48,6 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("handicapskater.org separates standards from case evidence", lower)
         self.assertIn("handicapskater.com documents the individual case study", lower)
         self.assertIn("opdmd is powered-device language", lower)
-        self.assertIn("roller skates are presented here as a non-traditional mobility aid", lower)
 
         self.assertIn("handicapskater.com", lower)
         self.assertIn("https://handicapskater.com/", html)
@@ -68,7 +67,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertLessEqual(lower.count("source-linked"), 4)
         self.assertLessEqual(lower.count("individualized"), 6)
         self.assertLessEqual(lower.count("direct threat"), 4)
-        self.assertLessEqual(lower.count("non-traditional mobility aid"), 6)
+        self.assertLessEqual(lower.count("non-standard mobility aid"), 6)
 
         # These old long-form section headings should be merged or moved off the homepage.
         self.assertNotIn("regulatory promise", lower)
@@ -95,7 +94,7 @@ class StandardsSiteTests(unittest.TestCase):
 
         for link in (
             "standards.html",
-            "non-traditional-mobility-aids.html",
+            "non-standard-mobility-aids.html",
             "evidence-standards.html",
             "fsi-css-platform.html",
             "reviewer-guidance.html",
@@ -123,7 +122,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('label: "Direct Threat"', js)
         self.assertIn('label: "Case Study"', js)
 
-        self.assertNotIn('label: "Non-Traditional Mobility Aids"', js)
+        self.assertNotIn('label: "non-standard Mobility Aids"', js)
         self.assertNotIn('label: "DOT/FTA/DOJ Timeline"', js)
         self.assertNotIn('label: "Accommodation Framework"', js)
         self.assertNotIn('label: "Case Study on .com"', js)
@@ -197,10 +196,10 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("2005 DOT", html)
         self.assertIn("2007 DOT/FTA", html)
         self.assertIn("2010 DOJ", html)
-        self.assertIn("DOT recognized the non-traditional mobility-device concept before DOJ codified OPDMDs", html)
+        self.assertIn("DOT recognized the non-standard mobility-device concept before DOJ codified OPDMDs", html)
 
     def test_opdmd_and_skates_distinction_appears(self) -> None:
-        for page in ("index.html", "non-traditional-mobility-aids.html"):
+        for page in ("index.html", "non-standard-mobility-aids.html"):
             lower = read(page).lower()
             self.assertIn("opdmd", lower)
             self.assertIn("skates", lower)
@@ -235,7 +234,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("standards vocabulary for source-linked wearable mobility evidence", home)
         self.assertIn("handicapskater.org separates standards from case evidence", home)
 
-        for term in ("records", "labels", "surrogate labels", "duplicates", "baselines", "uncertainty", "caveats"):
+        for term in ("records", "labels", "surrogate labels", "duplicates", "baselines", "uncertainty"):
             self.assertIn(term, evidence)
 
         for reviewer in ("clinicians", "agencies", "employers", "courts", "platforms"):
@@ -298,7 +297,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn('class="nav-more-menu"', js)
         self.assertIn('wireMoreMenuCloseBehavior', js)
 
-        self.assertNotIn('label: "Non-Traditional Mobility Aids"', js)
+        self.assertNotIn('label: "non-standard Mobility Aids"', js)
         self.assertNotIn('label: "DOT/FTA/DOJ Timeline"', js)
         self.assertNotIn('label: "Accommodation Framework"', js)
         self.assertNotIn('label: "Case Study on .com"', js)

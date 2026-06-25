@@ -13,7 +13,7 @@ The site should use public source anchors rather than visible citation TODOs. Do
 ## Initial structure
 
 - Home: mission and standards purpose.
-- Non-traditional mobility aids: function over appearance.
+- Non-standard mobility aids: function over appearance.
 - Evidence standards: records, labels, surrogate labels, duplicates, baselines, uncertainty, and caveats.
 - Reviewer guidance: safe review practices for clinicians, agencies, employers, courts, and platforms.
 - Public record: selected public accommodation history with legal caution.
