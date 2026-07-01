@@ -1,18 +1,22 @@
 :root {
   color-scheme: light;
+
   --ink: #142128;
   --muted: #51646d;
   --paper: #f7faf8;
   --panel: #ffffff;
   --panel-alt: #eef5f4;
   --line: #d5e0df;
-  --blue: #1b4e3f;
-  --teal: #145e63;
+
+  --blue: #15415a;
+  --teal: #0b7280;
   --gold: #a86b12;
   --green: #2f6f54;
+
   --radius: 10px;
   --shadow: 0 18px 42px rgba(20, 33, 40, 0.08);
   --content: 1120px;
+
   --chrome-menu-bg: #0d1f38;
   --chrome-menu-text: #f7fbff;
   --chrome-menu-line: rgba(255, 255, 255, 0.14);
@@ -21,10 +25,27 @@
   --chrome-hero-h1: clamp(2.7rem, 7vw, 5.8rem);
   --chrome-hero-lead: clamp(1.18rem, 2vw, 1.45rem);
   --chrome-section-y: 4rem;
+
+  /* Compatibility aliases used by the modern shared CSS. */
+  --surface: var(--panel);
+  --surface-alt: var(--panel-alt);
+  --accent-strong: var(--teal);
+  --accent-deep: #075866;
+  --border: var(--line);
+
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.site-com {
+  --blue: #15415a;
+  --teal: #0b7280;
+  --panel-alt: #eef5f4;
+  --surface-alt: var(--panel-alt);
 }
 
 body.site-org {
-  --blue: #1b4e3f;
-  --teal: #145e63;
-  --panel-alt: #edf5f2;
+  --blue: #173b56;
+  --teal: #0a6f74;
+  --panel-alt: #eef4f7;
+  --surface-alt: var(--panel-alt);
 }
