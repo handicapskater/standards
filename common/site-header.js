@@ -37,6 +37,11 @@
         href: "/accommodation-framework.html",
         label: "Framework",
         match: ["/accommodation-framework.html"]
+      },
+      {
+        href: "/precedent-standards.html",
+        label: "Precedent Standards",
+        match: ["/precedent-standards.html"]
       }
     ]
   };

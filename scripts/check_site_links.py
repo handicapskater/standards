@@ -17,6 +17,7 @@ PUBLIC_PAGES = [
     Path("direct-threat-analysis.html"),
     Path("reviewer-guidance.html"),
     Path("dot-fta-doj-timeline.html"),
+    Path("precedent-standards.html"),
     Path("non-standard-mobility-aids.html"),
     Path("standards.html"),
     Path("standards.html"),
