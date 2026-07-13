@@ -118,6 +118,7 @@ p {
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
+  font-variant: small-caps;
 }
 
 .site-nav {
