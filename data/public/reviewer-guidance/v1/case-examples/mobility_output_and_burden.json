@@ -1,0 +1,327 @@
+{
+  "accessible_table": [
+    {
+      "absolute_burden": 132.5473346239453,
+      "absolute_burden_unit": "g*s",
+      "burden_per_mile": 565.5651079569027,
+      "burden_per_mile_unit": "g*s/mile",
+      "burden_per_minute": 5.7112189370490425,
+      "burden_per_minute_unit": "g*s/min",
+      "burden_sample_count": 15,
+      "cohort": "walking",
+      "data_through_date": "2026-07-13",
+      "distance_miles": 0.235,
+      "distance_sample_count": 6,
+      "duration_minutes": 5.9,
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "fsi": 0.3198144301470399,
+      "fsi_formula_version": "fsi_tensor_v0_3_msk_autonomic_gated_burden",
+      "fsi_sample_count": 9,
+      "functional_output_per_burden": 0.001775485464308457,
+      "functional_output_per_burden_unit": "miles/(g*s)",
+      "functional_output_sample_count": 6,
+      "label": "Walking",
+      "quality": "kubios|kubios+strava+whoop|kubios+whoop"
+    },
+    {
+      "absolute_burden": 287.58790259244915,
+      "absolute_burden_unit": "g*s",
+      "burden_per_mile": 96.6771696415732,
+      "burden_per_mile_unit": "g*s/mile",
+      "burden_per_minute": 2.1340065337131304,
+      "burden_per_minute_unit": "g*s/min",
+      "burden_sample_count": 14,
+      "cohort": "mall_skating",
+      "data_through_date": "2026-07-13",
+      "distance_miles": 3.035,
+      "distance_sample_count": 8,
+      "duration_minutes": 34.325,
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "fsi": 0.174258973931154,
+      "fsi_formula_version": "fsi_tensor_v0_3_msk_autonomic_gated_burden",
+      "fsi_sample_count": 8,
+      "functional_output_per_burden": 0.010330414125415249,
+      "functional_output_per_burden_unit": "miles/(g*s)",
+      "functional_output_sample_count": 8,
+      "label": "Mall skating",
+      "quality": "kubios|kubios+strava+whoop|kubios+whoop"
+    },
+    {
+      "absolute_burden": 407.9838516624019,
+      "absolute_burden_unit": "g*s",
+      "burden_per_mile": 139.58864514467683,
+      "burden_per_mile_unit": "g*s/mile",
+      "burden_per_minute": 5.905874126938405,
+      "burden_per_minute_unit": "g*s/min",
+      "burden_sample_count": 38,
+      "cohort": "pt_skating",
+      "data_through_date": "2026-07-13",
+      "distance_miles": 2.93,
+      "distance_sample_count": 30,
+      "duration_minutes": 17.116666666666667,
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "fsi": 0.2513641736370124,
+      "fsi_formula_version": "fsi_tensor_v0_3_msk_autonomic_gated_burden",
+      "fsi_sample_count": 31,
+      "functional_output_per_burden": 0.007163908245605798,
+      "functional_output_per_burden_unit": "miles/(g*s)",
+      "functional_output_sample_count": 30,
+      "label": "PT skating",
+      "quality": "kubios|kubios+strava+whoop|kubios+whoop"
+    },
+    {
+      "absolute_burden": 2881.5017764714325,
+      "absolute_burden_unit": "g*s",
+      "burden_per_mile": 147.30223466525183,
+      "burden_per_mile_unit": "g*s/mile",
+      "burden_per_minute": 4.635215821802628,
+      "burden_per_minute_unit": "g*s/min",
+      "burden_sample_count": 15,
+      "cohort": "fns_sns_skating",
+      "data_through_date": "2026-07-11",
+      "distance_miles": 19.43,
+      "distance_sample_count": 13,
+      "duration_minutes": 179.23333333333332,
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "fsi": 0.3012970333074775,
+      "fsi_formula_version": "fsi_tensor_v0_3_msk_autonomic_gated_burden",
+      "fsi_sample_count": 13,
+      "functional_output_per_burden": 0.0067887632680693945,
+      "functional_output_per_burden_unit": "miles/(g*s)",
+      "functional_output_sample_count": 13,
+      "label": "FNS/SNS skating",
+      "quality": "kubios|kubios+strava+whoop"
+    }
+  ],
+  "alt_text": "Four aligned panels compare walking, Mall skating, PT skating, and FNS/SNS skating. Walking has the shortest median distance and the highest median cumulative shock per mile.",
+  "canonical_case_route": "https://handicapskater.com/evidence/mobility-comparison/",
+  "case_example_label": "Individual case-study example",
+  "content_hash": "0224f9e3237e14d3aa8dfebecfc3806b682c1e8e0dbbf9d925ad929423036a1c",
+  "data_through_date": "2026-07-09",
+  "destination": "handicapskater.org",
+  "formula_identities": [
+    "body_coupling_mapping.v1",
+    "fsi_tensor_v0_3_msk_autonomic_gated_burden",
+    "kubios_acc_session_metrics.v1",
+    "metric_specific_distance_normalization.v1|kubios_acc_session_metrics.v1",
+    "metric_specific_functional_output_per_burden.v1|kubios_acc_session_metrics.v1",
+    "scientific_evidence_persistence.v1.0.0"
+  ],
+  "graph_contract_version": "fsi_publication_graph.v1",
+  "graph_id": "mobility_output_and_burden",
+  "intended_route": "/evidence-review/",
+  "interpretation": "Walking accomplished far less useful distance and carried greater cumulative dynamic shock per useful mile than Mall, PT, and FNS/SNS skating in the displayed established summaries.",
+  "limitations": [
+    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are within-person evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+  ],
+  "long_description": "Walking accomplished far less useful distance and carried greater cumulative dynamic shock per useful mile than Mall, PT, and FNS/SNS skating in the displayed established summaries. Walking may show lower total burden because the activity ended after very little mobility. The functional comparison is the burden required to accomplish useful movement. Distance denominators and sample counts remain explicit; unequal exposure is not hidden. Individual case-study example This individual case-study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/mobility-comparison/ Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are within-person evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof.",
+  "method_disclosure": "This individual case-study example illustrates a review method and is not universal.",
+  "output_asset_names": [
+    "case-examples/mobility_output_and_burden.json"
+  ],
+  "qualifications": [
+    "Walking may show lower total burden because the activity ended after very little mobility.",
+    "The functional comparison is the burden required to accomplish useful movement.",
+    "Distance denominators and sample counts remain explicit; unequal exposure is not hidden.",
+    "Individual case-study example",
+    "This individual case-study example illustrates a review method and is not universal.",
+    "Canonical case evidence: https://handicapskater.com/evidence/mobility-comparison/"
+  ],
+  "relation_identities": [
+    "v_body_coupling_cohort_comparison",
+    "v_fsi_summary"
+  ],
+  "sample_counts": {
+    "fns_sns_skating": 15,
+    "mall_skating": 14,
+    "pt_skating": 38,
+    "walking": 15
+  },
+  "series": [
+    {
+      "points": [
+        {
+          "id": "walking",
+          "label": "Walking",
+          "sample_count": 6,
+          "status": "available",
+          "unit": "miles",
+          "value": 0.235
+        },
+        {
+          "id": "mall_skating",
+          "label": "Mall skating",
+          "sample_count": 8,
+          "status": "available",
+          "unit": "miles",
+          "value": 3.035
+        },
+        {
+          "id": "pt_skating",
+          "label": "PT skating",
+          "sample_count": 30,
+          "status": "available",
+          "unit": "miles",
+          "value": 2.93
+        },
+        {
+          "id": "fns_sns_skating",
+          "label": "FNS/SNS skating",
+          "sample_count": 13,
+          "status": "available",
+          "unit": "miles",
+          "value": 19.43
+        }
+      ],
+      "series_id": "distance_miles",
+      "title": "Useful distance",
+      "unit": "miles"
+    },
+    {
+      "points": [
+        {
+          "id": "walking",
+          "label": "Walking",
+          "sample_count": 15,
+          "status": "available",
+          "unit": "g*s",
+          "value": 132.5473346239453
+        },
+        {
+          "id": "mall_skating",
+          "label": "Mall skating",
+          "sample_count": 14,
+          "status": "available",
+          "unit": "g*s",
+          "value": 287.58790259244915
+        },
+        {
+          "id": "pt_skating",
+          "label": "PT skating",
+          "sample_count": 38,
+          "status": "available",
+          "unit": "g*s",
+          "value": 407.9838516624019
+        },
+        {
+          "id": "fns_sns_skating",
+          "label": "FNS/SNS skating",
+          "sample_count": 15,
+          "status": "available",
+          "unit": "g*s",
+          "value": 2881.5017764714325
+        }
+      ],
+      "series_id": "absolute_burden",
+      "title": "Absolute cumulative shock",
+      "unit": "g*s"
+    },
+    {
+      "points": [
+        {
+          "id": "walking",
+          "label": "Walking",
+          "sample_count": 6,
+          "status": "available",
+          "unit": "g*s/mile",
+          "value": 565.5651079569027
+        },
+        {
+          "id": "mall_skating",
+          "label": "Mall skating",
+          "sample_count": 8,
+          "status": "available",
+          "unit": "g*s/mile",
+          "value": 96.6771696415732
+        },
+        {
+          "id": "pt_skating",
+          "label": "PT skating",
+          "sample_count": 30,
+          "status": "available",
+          "unit": "g*s/mile",
+          "value": 139.58864514467683
+        },
+        {
+          "id": "fns_sns_skating",
+          "label": "FNS/SNS skating",
+          "sample_count": 13,
+          "status": "available",
+          "unit": "g*s/mile",
+          "value": 147.30223466525183
+        }
+      ],
+      "series_id": "burden_per_mile",
+      "title": "Cumulative shock per useful mile",
+      "unit": "g*s/mile"
+    },
+    {
+      "points": [
+        {
+          "id": "walking",
+          "label": "Walking",
+          "sample_count": 6,
+          "status": "available",
+          "unit": "miles/(g*s)",
+          "value": 0.001775485464308457
+        },
+        {
+          "id": "mall_skating",
+          "label": "Mall skating",
+          "sample_count": 8,
+          "status": "available",
+          "unit": "miles/(g*s)",
+          "value": 0.010330414125415249
+        },
+        {
+          "id": "pt_skating",
+          "label": "PT skating",
+          "sample_count": 30,
+          "status": "available",
+          "unit": "miles/(g*s)",
+          "value": 0.007163908245605798
+        },
+        {
+          "id": "fns_sns_skating",
+          "label": "FNS/SNS skating",
+          "sample_count": 13,
+          "status": "available",
+          "unit": "miles/(g*s)",
+          "value": 0.0067887632680693945
+        }
+      ],
+      "series_id": "functional_output_per_burden",
+      "title": "Useful distance per unit burden",
+      "unit": "miles/(g*s)"
+    }
+  ],
+  "source_contracts": [
+    {
+      "contract": "observatory_mcp_resource.v1",
+      "version": "observatory_bundle.v1"
+    },
+    {
+      "contract": "evidence_observatory_presentation.v1",
+      "version": "evidence_observatory_presentation.v1"
+    },
+    {
+      "contract": "scientific_consumer_contract.v1.0.0",
+      "version": "scientific_consumer_contract.v1.0.0"
+    },
+    {
+      "contract": "observatory_graph.v1",
+      "version": "observatory_graph.v1"
+    }
+  ],
+  "source_labels": [
+    "Kubios/Polar H10 episodic sessions",
+    "Strava activity context"
+  ],
+  "title": "Individual case-study example — Useful mobility and measured burden",
+  "units": [
+    "miles",
+    "g*s",
+    "g*s/mile",
+    "miles/(g*s)"
+  ]
+}

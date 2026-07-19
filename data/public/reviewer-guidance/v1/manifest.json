@@ -1,0 +1,166 @@
+{
+  "bundle_id": "handicapskater-org-v1-a1dc04c95c1b6ff1",
+  "content_hash": "a1dc04c95c1b6ff16805f38d689d71a8d96d95c27855ecdc1255730fe94e5158",
+  "data_through_date": "2026-07-09",
+  "destination": "handicapskater.org",
+  "generated_at_utc": "2026-07-17T00:02:13.329478Z",
+  "generator_version": "fsi_publication_exporter.v1",
+  "graph_count": 2,
+  "graphs": [
+    {
+      "byte_size": 11759,
+      "content_hash": "0224f9e3237e14d3aa8dfebecfc3806b682c1e8e0dbbf9d925ad929423036a1c",
+      "graph_id": "mobility_output_and_burden",
+      "media_type": "application/json",
+      "path": "case-examples/mobility_output_and_burden.json",
+      "sha256": "94cda794604bea1f802c0546b0293ca92ec72e6fd329487fa45d7fa799020eb3"
+    },
+    {
+      "byte_size": 22803,
+      "content_hash": "fb48b2465a6ce2e9d12b7cf4848ec9816feeee9f7f87f27424e86abe5a2d1bc9",
+      "graph_id": "transport_coupling_profiles",
+      "media_type": "application/json",
+      "path": "case-examples/transport_coupling_profiles.json",
+      "sha256": "e97cece6c387fd638fa9a2d95d4f89a6c4540f13965c55d3c3eb8fcdad1527d4"
+    }
+  ],
+  "limitation_count": 1,
+  "limitation_resource": "limitations.json",
+  "managed_files": [
+    "case-examples/mobility_output_and_burden.json",
+    "case-examples/transport_coupling_profiles.json",
+    "evidence-quality.json",
+    "evidence-review.json",
+    "limitations.json",
+    "reviewer-guidance.json",
+    "sources.json",
+    "terminology.json"
+  ],
+  "provenance": {
+    "platform_naming": {
+      "css_role": "Cohort Similarity Score remains distinct from FSI and Tensor v0.3",
+      "public_transition_name": "FSI/CSS Evidence Observatory",
+      "scientific_score_identities_remain_distinct": true
+    },
+    "scientific_recomputation": false,
+    "server_side_projection": true,
+    "source_contracts": [
+      {
+        "contract": "observatory_mcp_resource.v1",
+        "version": "observatory_bundle.v1"
+      },
+      {
+        "contract": "evidence_observatory_presentation.v1",
+        "version": "evidence_observatory_presentation.v1"
+      },
+      {
+        "contract": "scientific_consumer_contract.v1.0.0",
+        "version": "scientific_consumer_contract.v1.0.0"
+      },
+      {
+        "contract": "observatory_graph.v1",
+        "version": "observatory_graph.v1"
+      }
+    ],
+    "source_resource": "observatory_bundle",
+    "warehouse_mutation": false,
+    "website_synchronization": false
+  },
+  "publication_contract": "fsicss_publication_bundle",
+  "publication_contract_version": "fsicss_publication_bundle.v1",
+  "resource_count": 6,
+  "resources": [
+    {
+      "byte_size": 2599,
+      "content_hash": "0ded6cd9ae1df417189b13bf223581b85655b9689f67a260b878cd8e6c6a4ff4",
+      "media_type": "application/json",
+      "path": "evidence-review.json",
+      "resource_id": "evidence-review",
+      "sha256": "f620ef062589af3e0946de3114089ce5a11cde1a1dd73e12f42dbfa15407a078"
+    },
+    {
+      "byte_size": 2991,
+      "content_hash": "3983484f3392a955ccd52eda21e5032d447579621262c89074bee9d543618f33",
+      "media_type": "application/json",
+      "path": "evidence-quality.json",
+      "resource_id": "evidence-quality",
+      "sha256": "a04ab0dbcf84a2225a747d06ad890cba9259c78ed8702c2744c6f05c1675dfb6"
+    },
+    {
+      "byte_size": 2406,
+      "content_hash": "45168a7c3fb3918b8e8a5fecb5a6e65e425a5a06ebaffdc1f63a5e4a6c7c1d8b",
+      "media_type": "application/json",
+      "path": "reviewer-guidance.json",
+      "resource_id": "reviewer-guidance",
+      "sha256": "ef0a6ad548ef35ea3914b380f87342adc85b966784e730093724b2e8386255c8"
+    },
+    {
+      "byte_size": 4290,
+      "content_hash": "1af68bafae3b66ea9e874004ca7324ccae64935ab260e93bd2020af6e487c7bd",
+      "media_type": "application/json",
+      "path": "terminology.json",
+      "resource_id": "terminology",
+      "sha256": "77685d983022b17212718146c987606384280f5cbbea1f592385e3f1b54e86d4"
+    },
+    {
+      "byte_size": 2330,
+      "content_hash": "79829ae013d4d1ee9a98abe99bd8c292f9e3fc2bad6f2a607d9852114081a61f",
+      "media_type": "application/json",
+      "path": "limitations.json",
+      "resource_id": "limitations",
+      "sha256": "d20e10f6e7e06d47c4e752ce86902d3e5e3f357e35142a43fe0cb946c39c26af"
+    },
+    {
+      "byte_size": 3200,
+      "content_hash": "b209ea1b20b5142029e145f8a0ef5ffb0a283bffdae5d3532d0e4aa555d55eb5",
+      "media_type": "application/json",
+      "path": "sources.json",
+      "resource_id": "sources",
+      "sha256": "18b711a31b9534510d316e1a36af04fb16fcfb620497718cdf8ede2bf1bc1be6"
+    }
+  ],
+  "safety": {
+    "browser_mcp_dependency": false,
+    "contains_absolute_paths": false,
+    "contains_private_identifiers": false,
+    "contains_raw_signals": false,
+    "scientific_recomputation": false,
+    "warehouse_mutation": false
+  },
+  "source_contract_version": "observatory_mcp_resource.v1",
+  "source_contracts": [
+    {
+      "contract": "observatory_mcp_resource.v1",
+      "version": "observatory_bundle.v1"
+    },
+    {
+      "contract": "evidence_observatory_presentation.v1",
+      "version": "evidence_observatory_presentation.v1"
+    },
+    {
+      "contract": "scientific_consumer_contract.v1.0.0",
+      "version": "scientific_consumer_contract.v1.0.0"
+    },
+    {
+      "contract": "observatory_graph.v1",
+      "version": "observatory_graph.v1"
+    }
+  ],
+  "source_lineage_resource": "sources.json",
+  "source_resource": "observatory_bundle",
+  "source_resource_version": "observatory_bundle.v1",
+  "status": "ok",
+  "validation": {
+    "parity_check_count": 44,
+    "parity_mismatch_count": 0,
+    "safety_error_count": 0,
+    "safety_finding_count": 0,
+    "semantic_hash_excludes": [
+      "generated_at_utc",
+      "content_hash",
+      "bundle_id"
+    ],
+    "status": "passed",
+    "strict_finite_json": true
+  }
+}

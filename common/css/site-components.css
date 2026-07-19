@@ -83,6 +83,16 @@
   color: #fff;
 }
 
+.site-org .hero .button,
+.site-org .hero .button-secondary,
+.site-org .hero .button-light,
+.site-org .hero .button-ghost,
+.site-org .hero .btn,
+.site-org .hero .btn.secondary,
+.site-org .hero .btn.outline {
+  color: #fff;
+}
+
 .button:focus-visible,
 .btn:focus-visible,
 .text-link:focus-visible {

@@ -153,3 +153,39 @@
     flex-basis: 100%;
   }
 }
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  .site-header,
+  .site-footer,
+  .button-row {
+    display: none !important;
+  }
+
+  .hero {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .hero .eyebrow,
+  .hero a {
+    color: #000 !important;
+  }
+
+  .section,
+  .hero-inner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .card,
+  .notice {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}

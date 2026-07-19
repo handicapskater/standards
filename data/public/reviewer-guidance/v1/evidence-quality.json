@@ -1,0 +1,86 @@
+{
+  "accessibility": {
+    "plain_language_summary": "Quality is communicated through scope, versions, counts, limitations, and reproducible source contracts—not through certainty claims.",
+    "sample_counts_visible": false,
+    "screen_reader_summary": "Quality is communicated through scope, versions, counts, limitations, and reproducible source contracts—not through certainty claims.",
+    "table_available": true,
+    "units_visible": false
+  },
+  "approved_values": {
+    "guardrails": {
+      "absolute_paths_exposed": false,
+      "arbitrary_sql": false,
+      "publication": false,
+      "raw_signal_arrays_exposed": false,
+      "writes": false
+    },
+    "no_recomputation": true,
+    "trust_strip": [
+      {
+        "label": "Versioned formulas",
+        "status": "verified"
+      },
+      {
+        "label": "Immutable source hashes",
+        "status": "verified_where_exposed"
+      },
+      {
+        "label": "Explicit missingness",
+        "status": "verified"
+      },
+      {
+        "label": "Deterministic output",
+        "status": "verified"
+      },
+      {
+        "label": "Read-only MCP access",
+        "status": "verified"
+      },
+      {
+        "label": "Reproducible lineage",
+        "status": "verified"
+      }
+    ],
+    "warehouse_mutation": false
+  },
+  "conclusion_strength": "not_applicable",
+  "content_hash": "3983484f3392a955ccd52eda21e5032d447579621262c89074bee9d543618f33",
+  "data_through_date": "2026-07-09",
+  "destination": "handicapskater.org",
+  "evidence_scope": "Generalized evidence-quality guidance.",
+  "formula_identities": [],
+  "intended_route": "/evidence-quality/",
+  "limitations": [
+    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are within-person evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+  ],
+  "plain_language_finding": "Quality is communicated through scope, versions, counts, limitations, and reproducible source contracts—not through certainty claims.",
+  "relation_identities": [],
+  "resource_id": "evidence-quality",
+  "resource_version": "fsi_publication_resource.v1",
+  "sample_counts": {},
+  "short_title": "Evidence quality",
+  "source_contracts": [
+    {
+      "contract": "observatory_mcp_resource.v1",
+      "version": "observatory_bundle.v1"
+    },
+    {
+      "contract": "evidence_observatory_presentation.v1",
+      "version": "evidence_observatory_presentation.v1"
+    },
+    {
+      "contract": "scientific_consumer_contract.v1.0.0",
+      "version": "scientific_consumer_contract.v1.0.0"
+    },
+    {
+      "contract": "observatory_graph.v1",
+      "version": "observatory_graph.v1"
+    }
+  ],
+  "source_labels": [
+    "Canonical scientific quality and coverage views"
+  ],
+  "summary": "Versioned formulas, explicit missingness, deterministic output, and public-safe lineage support review.",
+  "title": "Evidence quality and reproducibility",
+  "units": []
+}

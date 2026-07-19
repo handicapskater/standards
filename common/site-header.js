@@ -3,28 +3,23 @@
     brand: "HandicapSkater.org",
     primaryLinks: [
       { href: "/", label: "Home", match: ["/"] },
-      { href: "/standards.html", label: "Standards", match: ["/standards.html"] },
+      { href: "/standards/", label: "Standards", match: ["/standards/"] },
       {
-        href: "/non-standard-mobility-aids.html",
+        href: "/non-standard-mobility-aids/",
         label: "Mobility Aids",
-        match: ["/non-standard-mobility-aids.html"]
+        match: ["/non-standard-mobility-aids/"]
       },
       {
-        href: "/transportation-accommodation.html",
+        href: "/transportation-accommodation/",
         label: "Transportation",
-        match: ["/transportation-accommodation.html"]
+        match: ["/transportation-accommodation/"]
       },
       {
-        href: "/direct-threat-analysis.html",
-        label: "Direct Threat",
-        match: ["/direct-threat-analysis.html"]
+        href: "/evidence-review/",
+        label: "Evidence Review",
+        match: ["/evidence-review/"]
       },
-      {
-        href: "/dot-fta-doj-timeline.html",
-        label: "Timeline",
-        match: ["/dot-fta-doj-timeline.html"]
-      },
-      { href: "/references.html", label: "References", match: ["/references.html"] },
+      { href: "/reviewer-guidance/", label: "Reviewers", match: ["/reviewer-guidance/"] },
 
       /*
         More appears only because this object exists.
@@ -34,14 +29,29 @@
     ],
     moreLinks: [
       {
-        href: "/accommodation-framework.html",
-        label: "Framework",
-        match: ["/accommodation-framework.html"]
+        href: "/evidence-quality/",
+        label: "Evidence Quality",
+        match: ["/evidence-quality/"]
       },
       {
-        href: "/precedent-standards.html",
-        label: "Precedent Standards",
-        match: ["/precedent-standards.html"]
+        href: "/direct-threat-analysis/",
+        label: "Direct Threat",
+        match: ["/direct-threat-analysis/"]
+      },
+      {
+        href: "/timeline/",
+        label: "Timeline",
+        match: ["/timeline/"]
+      },
+      {
+        href: "/references/",
+        label: "References",
+        match: ["/references/"]
+      },
+      {
+        href: "https://handicapskater.com/evidence/",
+        label: "Individual Case Study & Evidence",
+        match: []
       }
     ]
   };

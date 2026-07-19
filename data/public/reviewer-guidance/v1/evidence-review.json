@@ -1,0 +1,58 @@
+{
+  "accessibility": {
+    "plain_language_summary": "An individualized result illustrates a review method; it does not establish a universal standard.",
+    "sample_counts_visible": false,
+    "screen_reader_summary": "An individualized result illustrates a review method; it does not establish a universal standard.",
+    "table_available": true,
+    "units_visible": false
+  },
+  "approved_values": {
+    "case_example_policy": "Individual case-study examples must link to the canonical HandicapSkater.com evidence route.",
+    "declaration": "Within-person evidence model. Wearable signals estimate physiologic, MSK, movement, and transport burden; source artifacts and validation layers remain available for audit.",
+    "review_principles": [
+      "Keep functional output beside observed burden.",
+      "Keep sample counts, units, missingness, and limitations visible.",
+      "Distinguish a case-study example from a generalized conclusion."
+    ]
+  },
+  "conclusion_strength": "not_applicable",
+  "content_hash": "0ded6cd9ae1df417189b13bf223581b85655b9689f67a260b878cd8e6c6a4ff4",
+  "data_through_date": "2026-07-09",
+  "destination": "handicapskater.org",
+  "evidence_scope": "Generalized evidence-review method.",
+  "formula_identities": [],
+  "intended_route": "/evidence-review/",
+  "limitations": [
+    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are within-person evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+  ],
+  "plain_language_finding": "An individualized result illustrates a review method; it does not establish a universal standard.",
+  "relation_identities": [],
+  "resource_id": "evidence-review",
+  "resource_version": "fsi_publication_resource.v1",
+  "sample_counts": {},
+  "short_title": "Evidence review",
+  "source_contracts": [
+    {
+      "contract": "observatory_mcp_resource.v1",
+      "version": "observatory_bundle.v1"
+    },
+    {
+      "contract": "evidence_observatory_presentation.v1",
+      "version": "evidence_observatory_presentation.v1"
+    },
+    {
+      "contract": "scientific_consumer_contract.v1.0.0",
+      "version": "scientific_consumer_contract.v1.0.0"
+    },
+    {
+      "contract": "observatory_graph.v1",
+      "version": "observatory_graph.v1"
+    }
+  ],
+  "source_labels": [
+    "Canonical scientific quality and coverage views"
+  ],
+  "summary": "Review functional output, observed burden, sample scope, quality, and limitations together.",
+  "title": "How to review individualized evidence",
+  "units": []
+}
