@@ -30,6 +30,19 @@
   background: var(--panel);
 }
 
+[data-reviewer-publication-status],
+[data-reviewer-example],
+.case-example,
+.publication-details,
+.publication-table-wrap {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.case-example {
+  overflow: hidden;
+}
+
 .publication-unavailable {
   border-left-color: var(--gold);
 }

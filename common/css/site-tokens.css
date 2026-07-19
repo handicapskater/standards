@@ -26,6 +26,18 @@
   --chrome-hero-lead: clamp(1.18rem, 2vw, 1.45rem);
   --chrome-section-y: 4rem;
 
+  /* Slice 10F shared hero system. Variants stay within one blue/teal/slate family. */
+  --hero-narrative-start: rgba(16, 48, 65, 0.98);
+  --hero-narrative-end: rgba(11, 101, 108, 0.9);
+  --hero-evidence-start: rgba(17, 43, 72, 0.98);
+  --hero-evidence-end: rgba(8, 102, 114, 0.92);
+  --hero-access-start: rgba(35, 52, 63, 0.98);
+  --hero-access-end: rgba(63, 94, 82, 0.92);
+  --hero-platform-start: rgba(27, 42, 76, 0.98);
+  --hero-platform-end: rgba(15, 96, 111, 0.92);
+  --hero-standards-start: rgba(24, 51, 71, 0.98);
+  --hero-standards-end: rgba(25, 94, 91, 0.92);
+
   /* Compatibility aliases used by the modern shared CSS. */
   --surface: var(--panel);
   --surface-alt: var(--panel-alt);

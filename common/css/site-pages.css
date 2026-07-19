@@ -128,6 +128,22 @@
   font-variant: small-caps;
 }
 
+.design-principle-qualification {
+  max-width: 64rem;
+  margin-top: 1.25rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--gold);
+  color: var(--muted);
+}
+
+.contextual-qualification {
+  max-width: 64rem;
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--teal);
+  color: var(--muted);
+}
+
 @media (max-width: 760px) {
   .image-row {
     flex-direction: column;
@@ -187,5 +203,20 @@
   .notice {
     break-inside: avoid;
     box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
