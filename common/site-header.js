@@ -1,67 +1,145 @@
 (function () {
   const config = {
     brand: "HandicapSkater.org",
+    brandHomeControl: true,
     primaryLinks: [
-      { href: "/", label: "Home", match: ["/"] },
-      { href: "/standards/", label: "Standards", match: ["/standards/"] },
       {
-        href: "/non-standard-mobility-aids/",
-        label: "Mobility Aids",
-        match: ["/non-standard-mobility-aids/"]
+        key: "standards",
+        label: "Standards",
+        match: ["/standards/", "/non-standard-mobility-aids/"],
+        menuGroups: [
+          {
+            links: [
+              { href: "/standards/", label: "Standards Overview", match: ["/standards/"] },
+              {
+                href: "/non-standard-mobility-aids/",
+                label: "Mobility-Aid Principles",
+                match: ["/non-standard-mobility-aids/"]
+              },
+              {
+                href: "/non-standard-mobility-aids/#function-before-appearance",
+                label: "Function Before Appearance",
+                match: []
+              },
+              { href: "/standards/#framework", label: "Individualized Assessment", match: [] },
+              {
+                href: "/transportation-accommodation/#review",
+                label: "Physical Accommodation",
+                match: []
+              }
+            ]
+          }
+        ]
       },
       {
-        href: "/transportation-accommodation/",
+        key: "safety-review",
+        label: "Safety Review",
+        match: ["/direct-threat-analysis/"],
+        menuGroups: [
+          {
+            links: [
+              {
+                href: "/direct-threat-analysis/",
+                label: "Direct-Threat Analysis",
+                match: ["/direct-threat-analysis/"]
+              },
+              { href: "/direct-threat-analysis/#analysis", label: "Actual Risk", match: [] },
+              {
+                href: "/direct-threat-analysis/#environment-specific-review",
+                label: "Environment-Specific Review",
+                match: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        key: "transportation",
         label: "Transportation",
-        match: ["/transportation-accommodation/"]
+        match: ["/transportation-accommodation/"],
+        menuGroups: [
+          {
+            links: [
+              {
+                href: "/transportation-accommodation/",
+                label: "Transportation Accommodation",
+                match: ["/transportation-accommodation/"]
+              },
+              {
+                href: "/transportation-accommodation/#effective-alternatives",
+                label: "Effective Alternatives",
+                match: []
+              },
+              {
+                href: "/transportation-accommodation/#avoidable-access-burden",
+                label: "Avoidable Access Burden",
+                match: []
+              }
+            ]
+          }
+        ]
       },
       {
-        href: "/evidence-review/",
-        label: "Evidence Review",
-        match: ["/evidence-review/"]
-      },
-      { href: "/reviewer-guidance/", label: "Reviewers", match: ["/reviewer-guidance/"] },
-
-      /*
-        More appears only because this object exists.
-        Remove this object if you want More hidden.
-      */
-      { key: "more", label: "More" }
-    ],
-    moreLinks: [
-      {
-        href: "/evidence-quality/",
+        key: "evidence-quality",
         label: "Evidence Quality",
-        match: ["/evidence-quality/"]
+        match: ["/evidence-quality/", "/evidence-review/", "/reviewer-guidance/"],
+        menuGroups: [
+          {
+            links: [
+              {
+                href: "/evidence-review/",
+                label: "Evidence Review Method",
+                match: ["/evidence-review/"]
+              },
+              {
+                href: "/evidence-quality/",
+                label: "Evidence Quality Overview",
+                match: ["/evidence-quality/"]
+              },
+              { href: "/references/#sources", label: "Sources and Provenance", match: [] },
+              {
+                href: "/evidence-quality/#quality",
+                label: "Sample Size and Missingness",
+                match: []
+              },
+              {
+                href: "/reviewer-guidance/",
+                label: "Reviewer Guidance",
+                match: ["/reviewer-guidance/"]
+              }
+            ]
+          }
+        ]
       },
       {
-        href: "/direct-threat-analysis/",
-        label: "Direct Threat",
-        match: ["/direct-threat-analysis/"]
-      },
-      {
-        href: "/timeline/",
-        label: "Timeline",
-        match: ["/timeline/"]
-      },
-      {
-        href: "/references/",
-        label: "References",
-        match: ["/references/"]
-      },
-      {
-        href: "https://handicapskater.com/evidence/",
-        label: "Individual Case Study & Evidence",
-        match: []
+        key: "more",
+        label: "More",
+        match: ["/timeline/", "/references/"],
+        menuGroups: [
+          {
+            links: [
+              { href: "/timeline/", label: "DOT / FTA / DOJ Timeline", match: ["/timeline/"] },
+              {
+                href: "/non-standard-mobility-aids/",
+                label: "Non-Standard Mobility Aids",
+                match: []
+              },
+              { href: "/references/", label: "References", match: ["/references/"] },
+              { href: "/evidence-quality/#terminology", label: "Terminology", match: [] },
+              {
+                href: "https://handicapskater.com/evidence/",
+                label: "Individual Case Study & Evidence on HandicapSkater.com",
+                match: []
+              }
+            ]
+          }
+        ]
       }
     ]
   };
 
-  function isMoreLink(link) {
-    const key = String(link.key || link.id || link.label || "")
-        .trim()
-        .toLowerCase();
-
-    return key === "more";
+  function isMenuLink(link) {
+    return Array.isArray(link.menuGroups) && link.menuGroups.length > 0;
   }
 
   function normalizePath(pathname) {
@@ -80,57 +158,57 @@
     return pathname;
   }
 
-  function isActive(link, path) {
-    const external = link.href.startsWith("http");
-    return !external && link.match.includes(path);
+  function linkMatchesPath(link, path) {
+    const href = link.href || "";
+    const match = Array.isArray(link.match) ? link.match : [];
+
+    return !href.startsWith("http") && match.includes(path);
   }
 
   function renderNavLink(link, path) {
-    const external = link.href.startsWith("http");
-    const active = isActive(link, path) ? ' aria-current="page"' : "";
+    const href = link.href || "#";
+    const external = href.startsWith("http");
+    const active = linkMatchesPath(link, path) ? ' aria-current="page"' : "";
     const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
     const className = external ? ' class="nav-link external-link"' : ' class="nav-link"';
 
-    return `<a${className} href="${link.href}"${active}${attrs}>${link.label}</a>`;
+    return `<a${className} href="${href}"${active}${attrs}>${link.label || ""}</a>`;
   }
 
-  function renderMoreMenu(label, links, path) {
-    if (!Array.isArray(links) || links.length === 0) {
+  function renderMenuGroup(group, path) {
+    const links = Array.isArray(group.links) ? group.links : [];
+    const groupLabel = group.label
+      ? `<p class="nav-menu-group-label">${group.label}</p>`
+      : "";
+    const menuLinks = links.map((link) => renderNavLink(link, path)).join("");
+
+    return `<div class="nav-menu-group">${groupLabel}${menuLinks}</div>`;
+  }
+
+  function renderNavMenu(item, path) {
+    const groups = Array.isArray(item.menuGroups) ? item.menuGroups : [];
+    const links = groups.flatMap((group) => (Array.isArray(group.links) ? group.links : []));
+    if (links.length === 0) {
       return "";
     }
 
-    const active = links.some((link) => isActive(link, path));
+    const active = linkMatchesPath(item, path) || links.some((link) => linkMatchesPath(link, path));
     const activeClass = active ? " is-active" : "";
-    const menuLinks = links.map((link) => renderNavLink(link, path)).join("");
+    const menuId = `nav-menu-${item.key || "section"}`;
 
     return `
       <details class="nav-more${activeClass}">
-        <summary class="nav-more-summary">${label || "More"}</summary>
-        <div class="nav-more-menu">
-          ${menuLinks}
+        <summary class="nav-more-summary" aria-controls="${menuId}">${item.label || "More"}</summary>
+        <div class="nav-more-menu" id="${menuId}">
+          ${groups.map((group) => renderMenuGroup(group, path)).join("")}
         </div>
       </details>
     `;
   }
 
   function renderPrimaryNav(path) {
-    const primaryLinks = Array.isArray(config.primaryLinks) ? config.primaryLinks : [];
-    const moreLinks = Array.isArray(config.moreLinks) ? config.moreLinks : [];
-    const moreConfig = primaryLinks.find(isMoreLink);
-    const shouldRenderMore = Boolean(moreConfig) && moreLinks.length > 0;
-
-    return primaryLinks
-        .map((link) => {
-          if (isMoreLink(link)) {
-            if (!shouldRenderMore) {
-              return "";
-            }
-
-            return renderMoreMenu(link.label || "More", moreLinks, path);
-          }
-
-          return renderNavLink(link, path);
-        })
+    return config.primaryLinks
+        .map((link) => (isMenuLink(link) ? renderNavMenu(link, path) : renderNavLink(link, path)))
         .join("");
   }
 
@@ -158,16 +236,23 @@
           details.removeAttribute("open");
         }
       });
+
+      details.addEventListener("toggle", function () {
+        if (!details.open) {
+          return;
+        }
+        header.querySelectorAll(".nav-more[open]").forEach((other) => {
+          if (other !== details) {
+            other.removeAttribute("open");
+          }
+        });
+      });
     });
 
     document.addEventListener("pointerdown", function (event) {
       const openMenu = document.querySelector(".nav-more[open]");
 
-      if (!openMenu) {
-        return;
-      }
-
-      if (!openMenu.contains(event.target)) {
+      if (openMenu && !openMenu.contains(event.target)) {
         openMenu.removeAttribute("open");
       }
     });
@@ -193,11 +278,7 @@
     document.addEventListener("focusin", function (event) {
       const openMenu = document.querySelector(".nav-more[open]");
 
-      if (!openMenu) {
-        return;
-      }
-
-      if (!openMenu.contains(event.target)) {
+      if (openMenu && !openMenu.contains(event.target)) {
         openMenu.removeAttribute("open");
       }
     });
@@ -223,11 +304,13 @@
 
     const path = normalizePath(window.location.pathname);
     const primaryNavHtml = renderPrimaryNav(path);
+    const brandCurrent = config.brandHomeControl && path === "/" ? ' aria-current="page"' : "";
+    const brandAriaLabel = config.brandHomeControl ? ` aria-label="${config.brand} home"` : "";
 
     mount.outerHTML = `
       <header class="site-header" data-site-host="handicapskater.org">
         <div class="nav-wrap">
-          <a class="brand" href="/">${config.brand}</a>
+          <a class="brand" href="/"${brandCurrent}${brandAriaLabel}>${config.brand}</a>
           <nav class="site-nav" aria-label="Primary navigation">
             ${primaryNavHtml}
           </nav>

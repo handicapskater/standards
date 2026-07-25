@@ -70,8 +70,20 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("review the standards", lower)
         self.assertIn("reviewer guidance", lower)
         self.assertIn('href="https://handicapskater.com/evidence/"', html)
-        self.assertIn("Individual Case Study &amp; Evidence", html)
+        self.assertIn("Individual Case Study &amp; Evidence on HandicapSkater.com", html)
         self.assertIn("does not establish binding law", lower)
+
+    def test_homepage_paths_align_with_review_framework(self) -> None:
+        html = read("index.html")
+        for title, href in (
+            ("Standards", "/standards/"),
+            ("Safety Review", "/direct-threat-analysis/"),
+            ("Transportation", "/transportation-accommodation/"),
+            ("Evidence Quality", "/evidence-quality/"),
+        ):
+            self.assertIn(f"<h2>{title}</h2>", html)
+            self.assertIn(f'href="{href}"', html)
+        self.assertIn('class="grid four"', html)
 
     def test_standards_page_contains_ten_step_framework(self) -> None:
         html = read("standards/index.html")
@@ -187,18 +199,69 @@ class StandardsSiteTests(unittest.TestCase):
     def test_cross_site_label_and_url_are_exact(self) -> None:
         header = read("common/site-header.js")
         footer = read("common/site-footer.js")
-        self.assertIn("Individual Case Study & Evidence", header)
-        self.assertIn("Individual Case Study &amp; Evidence", footer)
+        self.assertIn("Individual Case Study & Evidence on HandicapSkater.com", header)
+        self.assertIn("Individual Case Study &amp; Evidence on HandicapSkater.com", footer)
         for source in (header, footer):
             self.assertIn("https://handicapskater.com/evidence/", source)
 
     def test_navigation_is_route_owned_and_accessible(self) -> None:
         js = read("common/site-header.js")
-        for label in ("Standards", "Mobility Aids", "Transportation", "Evidence Review", "Reviewers", "Evidence Quality", "Direct Threat", "Timeline", "References"):
+        for label in (
+            "Standards",
+            "Safety Review",
+            "Transportation",
+            "Evidence Quality",
+            "More",
+            "Mobility-Aid Principles",
+            "Function Before Appearance",
+            "Individualized Assessment",
+            "Physical Accommodation",
+            "Direct-Threat Analysis",
+            "Actual Risk",
+            "Environment-Specific Review",
+            "Transportation Accommodation",
+            "Effective Alternatives",
+            "Avoidable Access Burden",
+            "Evidence Review Method",
+            "Sources and Provenance",
+            "Sample Size and Missingness",
+            "Reviewer Guidance",
+            "DOT / FTA / DOJ Timeline",
+            "Non-Standard Mobility Aids",
+            "References",
+            "Terminology",
+        ):
             self.assertIn(f'label: "{label}"', js)
         self.assertIn('target="_blank"', js)
         self.assertIn('rel="noopener noreferrer"', js)
         self.assertIn("wireMoreMenuCloseBehavior", js)
+        self.assertIn("menuGroups", js)
+        self.assertIn("brandHomeControl: true", js)
+        self.assertIn('config.brandHomeControl && path === "/"', js)
+        self.assertIn('aria-label="${config.brand} home"', js)
+
+    def test_navigation_top_level_order_and_canonical_urls(self) -> None:
+        js = read("common/site-header.js")
+        ordered = (
+            'label: "Standards"',
+            'label: "Safety Review"',
+            'label: "Transportation"',
+            'label: "Evidence Quality"',
+            'label: "More"',
+        )
+        positions = [js.index(label) for label in ordered]
+        self.assertEqual(positions, sorted(positions))
+        self.assertNotIn('label: "Home"', js)
+        self.assertNotRegex(js, r'href: "/[^\"]+\.html')
+
+        for path, anchor in (
+            ("non-standard-mobility-aids/index.html", 'id="function-before-appearance"'),
+            ("direct-threat-analysis/index.html", 'id="environment-specific-review"'),
+            ("transportation-accommodation/index.html", 'id="effective-alternatives"'),
+            ("transportation-accommodation/index.html", 'id="avoidable-access-burden"'),
+            ("evidence-quality/index.html", 'id="terminology"'),
+        ):
+            self.assertIn(anchor, read(path), path)
 
     def test_static_site_has_no_browser_science_dependencies(self) -> None:
         joined = "\n".join(read(page).lower() for page in CANONICAL_PAGES)
@@ -225,7 +288,10 @@ class StandardsSiteTests(unittest.TestCase):
         css = read("common/css/site-chrome.css")
         components = read("common/css/site-components.css")
         self.assertIn("nav-more-summary", js)
+        self.assertIn('<a class="brand" href="/"${brandCurrent}${brandAriaLabel}>', js)
         self.assertIn("position: absolute", css)
+        self.assertIn('.brand[aria-current="page"]', css)
+        self.assertIn(".brand:focus-visible", css)
         self.assertIn("footer-nav", footer)
         self.assertIn("footer-copy", footer)
         self.assertIn("footer-description", footer)
