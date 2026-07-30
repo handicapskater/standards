@@ -1,19 +1,19 @@
 {
-  "bundle_id": "handicapskater-org-v1-a1dc04c95c1b6ff1",
-  "content_hash": "a1dc04c95c1b6ff16805f38d689d71a8d96d95c27855ecdc1255730fe94e5158",
+  "bundle_id": "handicapskater-org-v1-8ad15c25060f025c",
+  "content_hash": "8ad15c25060f025c0774213a81eb25bcfad5bd7bad6d8e8058d100df61e5fe2f",
   "data_through_date": "2026-07-09",
   "destination": "handicapskater.org",
-  "generated_at_utc": "2026-07-17T00:02:13.329478Z",
+  "generated_at_utc": "2026-07-27T00:42:18.510525Z",
   "generator_version": "fsi_publication_exporter.v1",
   "graph_count": 2,
   "graphs": [
     {
-      "byte_size": 11759,
-      "content_hash": "0224f9e3237e14d3aa8dfebecfc3806b682c1e8e0dbbf9d925ad929423036a1c",
+      "byte_size": 11768,
+      "content_hash": "de2e53a8a3f87ecd67cb1ac3da7022bee369cd35d4937eb6fadab7d1bdaeacf0",
       "graph_id": "mobility_output_and_burden",
       "media_type": "application/json",
       "path": "case-examples/mobility_output_and_burden.json",
-      "sha256": "94cda794604bea1f802c0546b0293ca92ec72e6fd329487fa45d7fa799020eb3"
+      "sha256": "f938474c36bd050fb40a9ed143a3b8e8bbdb963c4f3f30e35d08fc57cc692ea5"
     },
     {
       "byte_size": 22803,

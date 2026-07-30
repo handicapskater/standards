@@ -5,14 +5,14 @@
       "absolute_burden_unit": "g*s",
       "burden_per_mile": 565.5651079569027,
       "burden_per_mile_unit": "g*s/mile",
-      "burden_per_minute": 5.7112189370490425,
+      "burden_per_minute": 5.828217706030042,
       "burden_per_minute_unit": "g*s/min",
-      "burden_sample_count": 15,
+      "burden_sample_count": 23,
       "cohort": "walking",
-      "data_through_date": "2026-07-13",
+      "data_through_date": "2026-07-23",
       "distance_miles": 0.235,
       "distance_sample_count": 6,
-      "duration_minutes": 5.9,
+      "duration_minutes": 21.516000000000002,
       "formula_version": "kubios_acc_session_metrics.v1",
       "fsi": 0.3198144301470399,
       "fsi_formula_version": "fsi_tensor_v0_3_msk_autonomic_gated_burden",
@@ -24,18 +24,18 @@
       "quality": "kubios|kubios+strava+whoop|kubios+whoop"
     },
     {
-      "absolute_burden": 287.58790259244915,
+      "absolute_burden": 294.9673626969087,
       "absolute_burden_unit": "g*s",
       "burden_per_mile": 96.6771696415732,
       "burden_per_mile_unit": "g*s/mile",
       "burden_per_minute": 2.1340065337131304,
       "burden_per_minute_unit": "g*s/min",
-      "burden_sample_count": 14,
+      "burden_sample_count": 22,
       "cohort": "mall_skating",
-      "data_through_date": "2026-07-13",
+      "data_through_date": "2026-07-23",
       "distance_miles": 3.035,
       "distance_sample_count": 8,
-      "duration_minutes": 34.325,
+      "duration_minutes": 37.58333333333333,
       "formula_version": "kubios_acc_session_metrics.v1",
       "fsi": 0.174258973931154,
       "fsi_formula_version": "fsi_tensor_v0_3_msk_autonomic_gated_burden",
@@ -47,18 +47,18 @@
       "quality": "kubios|kubios+strava+whoop|kubios+whoop"
     },
     {
-      "absolute_burden": 407.9838516624019,
+      "absolute_burden": 402.3214340427696,
       "absolute_burden_unit": "g*s",
       "burden_per_mile": 139.58864514467683,
       "burden_per_mile_unit": "g*s/mile",
       "burden_per_minute": 5.905874126938405,
       "burden_per_minute_unit": "g*s/min",
-      "burden_sample_count": 38,
+      "burden_sample_count": 46,
       "cohort": "pt_skating",
-      "data_through_date": "2026-07-13",
+      "data_through_date": "2026-07-23",
       "distance_miles": 2.93,
       "distance_sample_count": 30,
-      "duration_minutes": 17.116666666666667,
+      "duration_minutes": 17.425,
       "formula_version": "kubios_acc_session_metrics.v1",
       "fsi": 0.2513641736370124,
       "fsi_formula_version": "fsi_tensor_v0_3_msk_autonomic_gated_burden",
@@ -70,18 +70,18 @@
       "quality": "kubios|kubios+strava+whoop|kubios+whoop"
     },
     {
-      "absolute_burden": 2881.5017764714325,
+      "absolute_burden": 3013.183522047997,
       "absolute_burden_unit": "g*s",
       "burden_per_mile": 147.30223466525183,
       "burden_per_mile_unit": "g*s/mile",
-      "burden_per_minute": 4.635215821802628,
+      "burden_per_minute": 4.676316637597762,
       "burden_per_minute_unit": "g*s/min",
-      "burden_sample_count": 15,
+      "burden_sample_count": 19,
       "cohort": "fns_sns_skating",
-      "data_through_date": "2026-07-11",
+      "data_through_date": "2026-07-24",
       "distance_miles": 19.43,
       "distance_sample_count": 13,
-      "duration_minutes": 179.23333333333332,
+      "duration_minutes": 180.33333333333334,
       "formula_version": "kubios_acc_session_metrics.v1",
       "fsi": 0.3012970333074775,
       "fsi_formula_version": "fsi_tensor_v0_3_msk_autonomic_gated_burden",
@@ -96,7 +96,7 @@
   "alt_text": "Four aligned panels compare walking, Mall skating, PT skating, and FNS/SNS skating. Walking has the shortest median distance and the highest median cumulative shock per mile.",
   "canonical_case_route": "https://handicapskater.com/evidence/mobility-comparison/",
   "case_example_label": "Individual case-study example",
-  "content_hash": "0224f9e3237e14d3aa8dfebecfc3806b682c1e8e0dbbf9d925ad929423036a1c",
+  "content_hash": "de2e53a8a3f87ecd67cb1ac3da7022bee369cd35d4937eb6fadab7d1bdaeacf0",
   "data_through_date": "2026-07-09",
   "destination": "handicapskater.org",
   "formula_identities": [
@@ -132,10 +132,10 @@
     "v_fsi_summary"
   ],
   "sample_counts": {
-    "fns_sns_skating": 15,
-    "mall_skating": 14,
-    "pt_skating": 38,
-    "walking": 15
+    "fns_sns_skating": 19,
+    "mall_skating": 22,
+    "pt_skating": 46,
+    "walking": 23
   },
   "series": [
     {
@@ -182,7 +182,7 @@
         {
           "id": "walking",
           "label": "Walking",
-          "sample_count": 15,
+          "sample_count": 23,
           "status": "available",
           "unit": "g*s",
           "value": 132.5473346239453
@@ -190,26 +190,26 @@
         {
           "id": "mall_skating",
           "label": "Mall skating",
-          "sample_count": 14,
+          "sample_count": 22,
           "status": "available",
           "unit": "g*s",
-          "value": 287.58790259244915
+          "value": 294.9673626969087
         },
         {
           "id": "pt_skating",
           "label": "PT skating",
-          "sample_count": 38,
+          "sample_count": 46,
           "status": "available",
           "unit": "g*s",
-          "value": 407.9838516624019
+          "value": 402.3214340427696
         },
         {
           "id": "fns_sns_skating",
           "label": "FNS/SNS skating",
-          "sample_count": 15,
+          "sample_count": 19,
           "status": "available",
           "unit": "g*s",
-          "value": 2881.5017764714325
+          "value": 3013.183522047997
         }
       ],
       "series_id": "absolute_burden",
