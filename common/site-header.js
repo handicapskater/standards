@@ -128,7 +128,7 @@
               { href: "/evidence-quality/#terminology", label: "Terminology", match: [] },
               {
                 href: "https://handicapskater.com/evidence/",
-                label: "Individual Case Study & Evidence on HandicapSkater.com",
+                label: "N-of-1 Case Study & Evidence on HandicapSkater.com",
                 match: []
               }
             ]

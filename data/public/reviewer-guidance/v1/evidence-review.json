@@ -7,8 +7,8 @@
     "units_visible": false
   },
   "approved_values": {
-    "case_example_policy": "Individual case-study examples must link to the canonical HandicapSkater.com evidence route.",
-    "declaration": "Within-person evidence model. Wearable signals estimate physiologic, MSK, movement, and transport burden; source artifacts and validation layers remain available for audit.",
+    "case_example_policy": "N-of-1 case study examples must link to the canonical HandicapSkater.com evidence route.",
+    "declaration": "N-of-1 evidence model. Wearable signals estimate physiologic, MSK, movement, and transport burden; source artifacts and validation layers remain available for audit.",
     "review_principles": [
       "Keep functional output beside observed burden.",
       "Keep sample counts, units, missingness, and limitations visible.",
@@ -16,14 +16,14 @@
     ]
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "0ded6cd9ae1df417189b13bf223581b85655b9689f67a260b878cd8e6c6a4ff4",
+  "content_hash": "edf11cc9af01f6e6ed9cb4689d679c3fc05ff69f05868ad89b49d20f94033877",
   "data_through_date": "2026-07-09",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized evidence-review method.",
   "formula_identities": [],
   "intended_route": "/evidence-review/",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are within-person evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
   ],
   "plain_language_finding": "An individualized result illustrates a review method; it does not establish a universal standard.",
   "relation_identities": [],

@@ -4,6 +4,7 @@
   const ROOT = "/data/public/reviewer-guidance/v1/";
   const CONTRACT = "fsicss_publication_bundle.v1";
   const DESTINATION = "handicapskater.org";
+  const RESOURCE_VERSION = "fsi_publication_resource.v1";
   const GRAPH_VERSION = "fsi_publication_graph.v1";
   const ALLOWED_EXAMPLES = new Set(["mobility_output_and_burden", "transport_coupling_profiles"]);
   const cache = new Map();
@@ -46,11 +47,31 @@
       manifest.publication_contract_version !== CONTRACT ||
       manifest.destination !== DESTINATION ||
       manifest.status !== "ok" ||
+      !Array.isArray(manifest.resources) ||
       !Array.isArray(manifest.graphs)
     ) {
       throw new Error("Reviewer publication unavailable");
     }
     return manifest;
+  }
+
+  function resource(manifest, id) {
+    const entry = manifest.resources.find(function (item) {
+      return item && item.resource_id === id;
+    });
+    if (!entry || !safePath(entry.path)) return Promise.reject(new Error("Reviewer resource unavailable"));
+    return fetchJson(entry.path).then(function (payload) {
+      if (
+        !payload ||
+        payload.resource_id !== id ||
+        payload.destination !== DESTINATION ||
+        payload.resource_version !== RESOURCE_VERSION ||
+        payload.content_hash !== entry.content_hash
+      ) {
+        throw new Error("Reviewer resource contract mismatch");
+      }
+      return payload;
+    });
   }
 
   function graph(manifest, id) {
@@ -66,7 +87,7 @@
         payload.destination !== DESTINATION ||
         payload.graph_contract_version !== GRAPH_VERSION ||
         payload.content_hash !== entry.content_hash ||
-        payload.case_example_label !== "Individual case-study example" ||
+        payload.case_example_label !== "N-of-1 case study example" ||
         !String(payload.canonical_case_route || "").startsWith("https://handicapskater.com/")
       ) {
         throw new Error("Case-example contract mismatch");
@@ -106,7 +127,7 @@
     mount.replaceChildren();
     const note = element("div", "publication-unavailable");
     note.setAttribute("role", "status");
-    note.appendChild(element("strong", "", "Individual case-study example unavailable"));
+    note.appendChild(element("strong", "", "N-of-1 case study example unavailable"));
     note.appendChild(
       element(
         "p",
@@ -239,8 +260,8 @@
   function renderExample(mount, payload) {
     mount.replaceChildren();
     const example = element("article", "case-example");
-    example.appendChild(element("p", "case-example-label", "Individual case-study example"));
-    example.appendChild(element("h2", "", payload.title.replace(/^Individual case-study example — /, "")));
+    example.appendChild(element("p", "case-example-label", "N-of-1 case study example"));
+    example.appendChild(element("h2", "", payload.title.replace(/^N-of-1 case study example — /, "")));
     example.appendChild(element("p", "", payload.interpretation));
     example.appendChild(element("p", "publication-meta", payload.method_disclosure));
 
@@ -268,12 +289,51 @@
     details.appendChild(table(payload));
     example.appendChild(details);
 
-    const link = element("a", "button button-secondary", "Review the canonical individual evidence on HandicapSkater.com");
+    const link = element("a", "button button-secondary", "Review the canonical N-of-1 evidence on HandicapSkater.com");
     link.href = payload.canonical_case_route;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     example.appendChild(link);
     mount.appendChild(example);
+  }
+
+  function renderHypothesisRegistry(mount, payload) {
+    const values = payload.approved_values || {};
+    const hypotheses = values.canonical_hypotheses;
+    if (!Array.isArray(hypotheses) || hypotheses.map(function (item) { return item.hypothesis_id; }).join(",") !== "H1,H2,H3,H4,H5,H6") {
+      throw new Error("Canonical hypothesis registry unavailable");
+    }
+    mount.replaceChildren();
+    const wrapper = element("div", "publication-hypothesis-registry");
+    wrapper.appendChild(element("p", "publication-finding", payload.plain_language_finding));
+    wrapper.appendChild(element("p", "publication-meta", "Registry " + values.registry_version + " · Generalized review projection"));
+    const grid = element("div", "publication-hypothesis-grid");
+    hypotheses.forEach(function (hypothesis) {
+      const card = element("article", "publication-hypothesis-card");
+      card.appendChild(element("p", "case-example-label", hypothesis.hypothesis_id + " · " + hypothesis.review_status));
+      card.appendChild(element("h3", "", hypothesis.title));
+      card.appendChild(element("p", "", hypothesis.scientific_question));
+      card.appendChild(element("p", "", "Accommodation relevance: " + hypothesis.accommodation_relevance));
+      const details = element("details", "publication-details");
+      details.appendChild(element("summary", "", "Open review rules and evidence-quality limits"));
+      details.appendChild(element("h4", "", "Inclusion rules"));
+      list(details, hypothesis.inclusion_rules, "publication-source-list");
+      details.appendChild(element("h4", "", "Exclusion rules"));
+      list(details, hypothesis.exclusion_rules, "publication-source-list");
+      details.appendChild(element("h4", "", "Limitations"));
+      list(details, hypothesis.limitations, "publication-limitation-list");
+      details.appendChild(element("p", "publication-meta", "Required figure contracts: " + (hypothesis.required_figures || []).map(function (figure) { return "Level " + figure.level + " " + String(figure.figure_type).replaceAll("_", " "); }).join(" · ")));
+      card.appendChild(details);
+      grid.appendChild(card);
+    });
+    wrapper.appendChild(grid);
+    const order = element("section", "publication-registry-interpretation");
+    order.appendChild(element("h3", "", "Required interpretation order"));
+    const ordered = element("ol", "publication-source-list");
+    (values.conclusion_contract || []).forEach(function (item) { ordered.appendChild(element("li", "", item.label + ": " + item.rule)); });
+    order.appendChild(ordered);
+    wrapper.appendChild(order);
+    mount.appendChild(wrapper);
   }
 
   function start() {
@@ -288,9 +348,14 @@
             .then(function (payload) { renderExample(mount, payload); })
             .catch(function () { unavailable(mount); });
         });
+        document.querySelectorAll("[data-reviewer-hypothesis-registry]").forEach(function (mount) {
+          resource(manifest, mount.dataset.reviewerHypothesisRegistry)
+            .then(function (payload) { renderHypothesisRegistry(mount, payload); })
+            .catch(function () { unavailable(mount); });
+        });
       })
       .catch(function () {
-        document.querySelectorAll("[data-reviewer-publication-status], [data-reviewer-example]").forEach(function (mount) {
+        document.querySelectorAll("[data-reviewer-publication-status], [data-reviewer-example], [data-reviewer-hypothesis-registry]").forEach(function (mount) {
           unavailable(mount);
         });
       });

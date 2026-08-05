@@ -33,7 +33,7 @@
       "fsi": {
         "identity": "fsi_tensor_v0_3",
         "name": "Fractal Stability Index",
-        "plain_language": "FSI summarizes the established within-person fractal stability result while preserving scope, sample size, components, and formula version.",
+        "plain_language": "FSI summarizes the established N-of-1 fractal stability result while preserving scope, sample size, components, and formula version.",
         "question": "How does the persisted stability/burden pattern compare within this record?"
       },
       "identity_disclosures": {
@@ -60,14 +60,14 @@
     }
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "1af68bafae3b66ea9e874004ca7324ccae64935ab260e93bd2020af6e487c7bd",
+  "content_hash": "ec6c3d03da12edd3d1f9b533ae2608ac4a1b2ce84de95dad55a37c666518394e",
   "data_through_date": "2026-07-09",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized terminology and identity boundary.",
   "formula_identities": [],
   "intended_route": "/evidence-quality/",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are within-person evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
   ],
   "plain_language_finding": "CSS means Cohort Similarity Score and is used within the FSI platform without being relabeled as FSI or Tensor.",
   "relation_identities": [],

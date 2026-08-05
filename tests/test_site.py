@@ -70,7 +70,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("review the standards", lower)
         self.assertIn("reviewer guidance", lower)
         self.assertIn('href="https://handicapskater.com/evidence/"', html)
-        self.assertIn("Individual Case Study &amp; Evidence on HandicapSkater.com", html)
+        self.assertIn("N-of-1 Case Study &amp; Evidence on HandicapSkater.com", html)
         self.assertIn("does not establish binding law", lower)
 
     def test_homepage_paths_align_with_review_framework(self) -> None:
@@ -95,7 +95,7 @@ class StandardsSiteTests(unittest.TestCase):
             "functional output",
             "physiological and movement burden",
             "body coupling",
-            "within-person observations",
+            "n-of-1 observations",
             "source authority",
             "observations from diagnosis",
             "actual risk",
@@ -138,6 +138,17 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("missingness", lower)
         self.assertIn("reproducibility", lower)
 
+    def test_evidence_review_renders_shared_hypothesis_registry(self) -> None:
+        html = read("evidence-review/index.html")
+        reader = read("common/reviewer-publication.js")
+        self.assertIn('data-reviewer-hypothesis-registry="hypothesis-registry"', html)
+        self.assertIn("Shared Scientific Contract", html)
+        self.assertIn("renderHypothesisRegistry", reader)
+        self.assertIn('"H1,H2,H3,H4,H5,H6"', reader)
+        self.assertIn("Required interpretation order", reader)
+        self.assertNotIn("calculateFsi", reader)
+        self.assertNotIn("calculateCss", reader)
+
     def test_route_reviewer_guidance_moved_to_org(self) -> None:
         html = read("evidence-review/index.html")
         lower = html.lower()
@@ -157,13 +168,13 @@ class StandardsSiteTests(unittest.TestCase):
         for page, graph in example_pages.items():
             html = read(page)
             self.assertIn(f'data-reviewer-example="{graph}"', html)
-            self.assertIn("Individual case-study example", html)
+            self.assertIn("N-of-1 case study example", html)
             self.assertIn("not universal", html)
 
     def test_reviewer_reader_keeps_case_context_visible(self) -> None:
         js = read("common/reviewer-publication.js")
         for token in (
-            "Individual case-study example",
+            "N-of-1 case study example",
             "Samples:",
             "Limitations",
             "Source scope",
@@ -199,8 +210,8 @@ class StandardsSiteTests(unittest.TestCase):
     def test_cross_site_label_and_url_are_exact(self) -> None:
         header = read("common/site-header.js")
         footer = read("common/site-footer.js")
-        self.assertIn("Individual Case Study & Evidence on HandicapSkater.com", header)
-        self.assertIn("Individual Case Study &amp; Evidence on HandicapSkater.com", footer)
+        self.assertIn("N-of-1 Case Study & Evidence on HandicapSkater.com", header)
+        self.assertIn("N-of-1 Case Study &amp; Evidence on HandicapSkater.com", footer)
         for source in (header, footer):
             self.assertIn("https://handicapskater.com/evidence/", source)
 

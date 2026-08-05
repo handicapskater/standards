@@ -28,6 +28,7 @@
     ],
     "source_labels": [
       "Accepted Mall → Walk → PT Skate protocol",
+      "Canonical Hypothesis Registry",
       "Canonical body-coupling mapping",
       "Canonical scientific quality and coverage views",
       "Canonical scientific reviewer views",
@@ -45,14 +46,14 @@
     ]
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "b209ea1b20b5142029e145f8a0ef5ffb0a283bffdae5d3532d0e4aa555d55eb5",
+  "content_hash": "d44020ba5eacd34d23577ebb3cf4642a325ebba836c36a75543c2f5bfa6fb0eb",
   "data_through_date": "2026-07-09",
   "destination": "handicapskater.org",
   "evidence_scope": "General source and limitation guidance.",
   "formula_identities": [],
   "intended_route": "/references/",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are within-person evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
   ],
   "plain_language_finding": "General guidance references public-safe source categories; personal measurements remain canonical on HandicapSkater.com.",
   "relation_identities": [],

@@ -1,6 +1,6 @@
 {
-  "bundle_id": "handicapskater-org-v1-8ad15c25060f025c",
-  "content_hash": "8ad15c25060f025c0774213a81eb25bcfad5bd7bad6d8e8058d100df61e5fe2f",
+  "bundle_id": "handicapskater-org-v1-47e74f5c25e14efa",
+  "content_hash": "47e74f5c25e14efac0456dd3e628fe4a161d6d7f3d63f617930e6a39ed38dde2",
   "data_through_date": "2026-07-09",
   "destination": "handicapskater.org",
   "generated_at_utc": "2026-07-27T00:42:18.510525Z",
@@ -8,20 +8,20 @@
   "graph_count": 2,
   "graphs": [
     {
-      "byte_size": 11768,
-      "content_hash": "de2e53a8a3f87ecd67cb1ac3da7022bee369cd35d4937eb6fadab7d1bdaeacf0",
+      "byte_size": 11726,
+      "content_hash": "47bf7a98f2b0f0f9f238e17b5b63fc27223e5fe7ab42ee89a200505b1d47d737",
       "graph_id": "mobility_output_and_burden",
       "media_type": "application/json",
       "path": "case-examples/mobility_output_and_burden.json",
-      "sha256": "f938474c36bd050fb40a9ed143a3b8e8bbdb963c4f3f30e35d08fc57cc692ea5"
+      "sha256": "0532048c7ba85d2745b802911a636b6b795416437ce99f8e2ff2a58fcae974d0"
     },
     {
-      "byte_size": 22803,
-      "content_hash": "fb48b2465a6ce2e9d12b7cf4848ec9816feeee9f7f87f27424e86abe5a2d1bc9",
+      "byte_size": 22761,
+      "content_hash": "2e2d6a8fb13d9981f338b1c3752518a19529e544b85f655eaa2c43dcde925f1c",
       "graph_id": "transport_coupling_profiles",
       "media_type": "application/json",
       "path": "case-examples/transport_coupling_profiles.json",
-      "sha256": "e97cece6c387fd638fa9a2d95d4f89a6c4540f13965c55d3c3eb8fcdad1527d4"
+      "sha256": "6fb819aa3d5894d577ae4880b1716f67c7999b7a24ab6ddbffd8ad1ffc20391a"
     }
   ],
   "limitation_count": 1,
@@ -31,6 +31,7 @@
     "case-examples/transport_coupling_profiles.json",
     "evidence-quality.json",
     "evidence-review.json",
+    "hypothesis-registry.json",
     "limitations.json",
     "reviewer-guidance.json",
     "sources.json",
@@ -68,55 +69,63 @@
   },
   "publication_contract": "fsicss_publication_bundle",
   "publication_contract_version": "fsicss_publication_bundle.v1",
-  "resource_count": 6,
+  "resource_count": 7,
   "resources": [
     {
-      "byte_size": 2599,
-      "content_hash": "0ded6cd9ae1df417189b13bf223581b85655b9689f67a260b878cd8e6c6a4ff4",
+      "byte_size": 40510,
+      "content_hash": "e271d89081eb7a2c489f21713123f07b65ac7f828e6940bf8ad3dc053e8d2be1",
+      "media_type": "application/json",
+      "path": "hypothesis-registry.json",
+      "resource_id": "hypothesis-registry",
+      "sha256": "7c314b9484409977c92aabc8aa64f4c81aef32b87a567c1b314aef2eef72a320"
+    },
+    {
+      "byte_size": 2581,
+      "content_hash": "edf11cc9af01f6e6ed9cb4689d679c3fc05ff69f05868ad89b49d20f94033877",
       "media_type": "application/json",
       "path": "evidence-review.json",
       "resource_id": "evidence-review",
-      "sha256": "f620ef062589af3e0946de3114089ce5a11cde1a1dd73e12f42dbfa15407a078"
+      "sha256": "14ef2ffecc2d97ad4b24138179893f5a41471f31c3d7364f851b0faf88d27c81"
     },
     {
-      "byte_size": 2991,
-      "content_hash": "3983484f3392a955ccd52eda21e5032d447579621262c89074bee9d543618f33",
+      "byte_size": 2984,
+      "content_hash": "ceee94b1361fcb06cee81846c66f8615e13312743f89fe73d3f8a87a38a1716b",
       "media_type": "application/json",
       "path": "evidence-quality.json",
       "resource_id": "evidence-quality",
-      "sha256": "a04ab0dbcf84a2225a747d06ad890cba9259c78ed8702c2744c6f05c1675dfb6"
+      "sha256": "7cfd4accca8b3e196dd8dd70d00a74ce0489e082fc8fe4840e12b500224fed73"
     },
     {
-      "byte_size": 2406,
-      "content_hash": "45168a7c3fb3918b8e8a5fecb5a6e65e425a5a06ebaffdc1f63a5e4a6c7c1d8b",
+      "byte_size": 2399,
+      "content_hash": "f86f45e87f99bd420d0641a692d175d4518f65e7330ff7921356aa6e174c7b4b",
       "media_type": "application/json",
       "path": "reviewer-guidance.json",
       "resource_id": "reviewer-guidance",
-      "sha256": "ef0a6ad548ef35ea3914b380f87342adc85b966784e730093724b2e8386255c8"
+      "sha256": "17d158c2693457ae2aac4697eb07d27b792709688642c92e9548ce8c1fc1c248"
     },
     {
-      "byte_size": 4290,
-      "content_hash": "1af68bafae3b66ea9e874004ca7324ccae64935ab260e93bd2020af6e487c7bd",
+      "byte_size": 4276,
+      "content_hash": "ec6c3d03da12edd3d1f9b533ae2608ac4a1b2ce84de95dad55a37c666518394e",
       "media_type": "application/json",
       "path": "terminology.json",
       "resource_id": "terminology",
-      "sha256": "77685d983022b17212718146c987606384280f5cbbea1f592385e3f1b54e86d4"
+      "sha256": "61624f66e388d643a8b18f4d547710511c2fd83ccb17eb26c9bdff76d58b54d1"
     },
     {
-      "byte_size": 2330,
-      "content_hash": "79829ae013d4d1ee9a98abe99bd8c292f9e3fc2bad6f2a607d9852114081a61f",
+      "byte_size": 2316,
+      "content_hash": "39f82642c73c74ac19fc293332c0396954fea284c7ff76393a94a657730e111f",
       "media_type": "application/json",
       "path": "limitations.json",
       "resource_id": "limitations",
-      "sha256": "d20e10f6e7e06d47c4e752ce86902d3e5e3f357e35142a43fe0cb946c39c26af"
+      "sha256": "11126ed3d9d32f6dcc8badd6fff4e49c1b92096cc7deda2154369cf5dee18239"
     },
     {
-      "byte_size": 3200,
-      "content_hash": "b209ea1b20b5142029e145f8a0ef5ffb0a283bffdae5d3532d0e4aa555d55eb5",
+      "byte_size": 3232,
+      "content_hash": "d44020ba5eacd34d23577ebb3cf4642a325ebba836c36a75543c2f5bfa6fb0eb",
       "media_type": "application/json",
       "path": "sources.json",
       "resource_id": "sources",
-      "sha256": "18b711a31b9534510d316e1a36af04fb16fcfb620497718cdf8ede2bf1bc1be6"
+      "sha256": "61b86ae88575c18d21f148263e4e378b06cb76f5860a17ef358d4d317448d3a1"
     }
   ],
   "safety": {
@@ -151,7 +160,7 @@
   "source_resource_version": "observatory_bundle.v1",
   "status": "ok",
   "validation": {
-    "parity_check_count": 44,
+    "parity_check_count": 46,
     "parity_mismatch_count": 0,
     "safety_error_count": 0,
     "safety_finding_count": 0,
