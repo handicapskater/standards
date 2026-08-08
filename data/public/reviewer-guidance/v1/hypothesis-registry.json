@@ -32,6 +32,7 @@
           "Require compatible metric definitions, units, and session/window scope for each comparison.",
           "Retain source labels, cohort mapping provenance, sample counts, and quality state."
         ],
+        "integrated_interpretation": "Useful output, mechanical exposure, autonomic context, FSI, and CSS support a differentiated N-of-1 mobility-state interpretation without reducing the record to one score.",
         "interpretation_rules": [
           "Lead with measured cohort and paired-date findings.",
           "Interpret FSI and CSS only after compatible primary metrics and coverage are visible.",
@@ -48,6 +49,7 @@
           "Wearables estimate burden dimensions and do not directly measure pain.",
           "Controlled Mall skating, PT skating, and walking remain distinct mobility states."
         ],
+        "observed_result": "Canonical episodic and paired-protocol rows show distinct walking and controlled-skating mechanical and autonomic profiles; direction is retained per metric.",
         "primary_metrics": [
           "mean_hr_bpm",
           "rmssd_ms",
@@ -69,6 +71,13 @@
             "v_scientific_lineage"
           ]
         },
+        "publication_figure_ids": [
+          "functional_output_vs_burden_authoritative_miles",
+          "mechanical_burden_distributions",
+          "autonomic_metric_distributions",
+          "fsi_distributions",
+          "css_similarity_matrix_ranking"
+        ],
         "required_figures": [
           {
             "cohorts": [
@@ -143,6 +152,7 @@
         "review_status": "reviewed_canonical",
         "scientific_question": "How do walking and controlled inline skating differ in observed physiologic, movement, and functional mobility burden?",
         "scientific_relevance": "Tests whether controlled skating and walking occupy distinguishable multimetric mobility states while preserving metric scope.",
+        "scope": "Repeated N-of-1 observations in the current canonical corpus; session, paired-date, distance, and source coverage remain separately labeled.",
         "statistical_strategy": [
           "Report cohort distributions and sample counts before integrated scores.",
           "Use paired accepted dates where available and disclose unpaired cohort summaries separately.",
@@ -190,6 +200,7 @@
           "Require passive-passenger context for passive transport comparisons.",
           "Keep component and FSI sample counts separate."
         ],
+        "integrated_interpretation": "The observed transport pattern varies with verified vehicle and coupling context; active-controlled motorcycle and passive-passenger modes remain separate.",
         "interpretation_rules": [
           "Describe vehicle-specific measured exposure before integrated burden.",
           "Keep active controlled and passive passenger interpretations separate.",
@@ -206,6 +217,7 @@
           "Vehicle, route, duration, and seat context may differ across observations.",
           "Results are individualized and do not establish universal vehicle safety or burden."
         ],
+        "observed_result": "Verified transportation events retain vehicle subtype, body coupling, duration, route, weather, physiologic context, and mechanical metrics with visibly unequal coverage.",
         "primary_metrics": [
           "mean_hr_bpm",
           "rmssd_ms",
@@ -226,6 +238,12 @@
             "v_scientific_lineage"
           ]
         },
+        "publication_figure_ids": [
+          "transportation_body_coupling_comparison",
+          "mechanical_burden_distributions",
+          "autonomic_metric_distributions",
+          "fsi_distributions"
+        ],
         "required_figures": [
           {
             "cohorts": [
@@ -294,6 +312,7 @@
         "review_status": "reviewed_canonical",
         "scientific_question": "How does passive transportation burden differ across verified vehicle and body-coupling contexts?",
         "scientific_relevance": "Tests whether verified transportation contexts occupy distinct physiologic and mechanical burden profiles.",
+        "scope": "Descriptive N-of-1 transportation evidence with sparse vehicle subgroups and no universal safety ranking.",
         "statistical_strategy": [
           "Stratify by verified vehicle subtype and body-coupling class.",
           "Report distributions, exposure duration, sample size, and quality before cross-cohort rankings.",
@@ -337,6 +356,7 @@
           "Preserve device, axis, sampling, unit, duration, and quality provenance.",
           "Use per-minute normalization only where the established formula already provides it."
         ],
+        "integrated_interpretation": "The repeated pattern supports a mechanical-exposure distinction; it does not convert acceleration, jerk, or shock into pain or diagnosis.",
         "interpretation_rules": [
           "Use mechanical-exposure language for ACC, jerk, and shock.",
           "State whether paired-date directions are consistent or mixed.",
@@ -350,6 +370,7 @@
           "Mechanical exposure is not a direct pain measurement.",
           "The current corpus supports N-of-1, not population, inference."
         ],
+        "observed_result": "Canonical mechanical distributions and accepted-date pairs repeatedly separate several walking and controlled-skating measures, while shock-spike direction is not uniformly consistent.",
         "primary_metrics": [
           "vertical_dynamic_g_rms",
           "jerk_g_per_s_rms",
@@ -367,6 +388,11 @@
             "v_scientific_lineage"
           ]
         },
+        "publication_figure_ids": [
+          "mechanical_burden_distributions",
+          "triplet_paired_comparisons",
+          "return_toward_mall_profile"
+        ],
         "required_figures": [
           {
             "cohorts": [
@@ -407,6 +433,7 @@
         "review_status": "reviewed_canonical",
         "scientific_question": "How does ballistic mechanical loading differ between walking and controlled skating states?",
         "scientific_relevance": "Characterizes repeated mechanical-loading differences without altering established signal formulas.",
+        "scope": "Kubios/Polar H10 episodic sessions and compatible accepted-date comparisons with explicit modality windows and missingness.",
         "statistical_strategy": [
           "Show raw metric distributions and accepted paired-date direction counts.",
           "Keep absolute and exposure-normalized measurements separately labeled.",
@@ -446,6 +473,7 @@
           "Require matched metric identity, unit, duration/window scope, and quality.",
           "Keep date-level observations available beside cohort summaries."
         ],
+        "integrated_interpretation": "Mall skating functions as the controlled comparator and is consistent with a distinct lower observed mechanical-burden state in this record.",
         "interpretation_rules": [
           "Name supported mechanical patterns and mixed physiologic patterns separately.",
           "Do not use a lower FSI value as a pain diagnosis.",
@@ -461,6 +489,7 @@
           "Some metrics are mixed across accepted dates.",
           "Persisted component-axis attribution is unavailable and is not reconstructed."
         ],
+        "observed_result": "Accepted Mall-versus-walking comparisons show repeated separation in several mechanical metrics, while autonomic findings remain metric-specific and mixed.",
         "primary_metrics": [
           "mean_hr_bpm",
           "rmssd_ms",
@@ -481,6 +510,13 @@
             "v_scientific_lineage"
           ]
         },
+        "publication_figure_ids": [
+          "accepted_triplet_stage_profiles",
+          "triplet_paired_comparisons",
+          "mechanical_burden_distributions",
+          "autonomic_metric_distributions",
+          "fsi_distributions"
+        ],
         "required_figures": [
           {
             "cohorts": [
@@ -536,6 +572,7 @@
         "review_status": "reviewed_canonical",
         "scientific_question": "Does controlled Mall skating form a lower observed burden state than walking in the repeated protocol?",
         "scientific_relevance": "Tests whether a controlled skating comparator repeatedly occupies a lower multimetric burden state than walking.",
+        "scope": "Fifteen accepted Mall → Walk → PT sequences; unequal duration and the single fully distance-covered triplet remain explicit.",
         "statistical_strategy": [
           "Use accepted-date paired comparisons as the primary repeated evidence.",
           "Report cohort medians, paired direction counts, and mixed metrics together.",
@@ -579,6 +616,7 @@
           "Preserve each stage event identity, original label, source links, date, and review provenance.",
           "Evaluate each compatible metric independently across accepted dates."
         ],
+        "integrated_interpretation": "The post-walk PT stage is a distinct observed state, not universal clinical recovery and not a substitute for Mall baseline.",
         "interpretation_rules": [
           "Describe Mall, Walk, and PT measured values before return direction.",
           "Use recovery language only as bounded post-walk context, not clinical recovery proof.",
@@ -593,6 +631,7 @@
           "Stage distance and duration are unequal and remain visible.",
           "Triplet-stage FSI is unavailable in the canonical views."
         ],
+        "observed_result": "Fifteen accepted triplets preserve Mall → Walk → PT order; PT movement toward Mall is metric-specific, and 14 triplets have a valid pre-Mall readiness context.",
         "primary_metrics": [
           "mean_hr_bpm",
           "rmssd_ms",
@@ -612,6 +651,13 @@
             "v_scientific_lineage"
           ]
         },
+        "publication_figure_ids": [
+          "accepted_triplet_stage_profiles",
+          "triplet_paired_comparisons",
+          "return_toward_mall_profile",
+          "functional_output_vs_burden_authoritative_miles",
+          "readiness_before_activity_context"
+        ],
         "required_figures": [
           {
             "cohorts": [
@@ -670,6 +716,7 @@
         "review_status": "reviewed_canonical",
         "scientific_question": "What do accepted Mall Skate → Walk → PT Skate triplets show about post-walk movement and recovery context?",
         "scientific_relevance": "Tests repeated stage-specific patterns while preserving accepted membership and metric-specific direction.",
+        "scope": "Accepted repeated N-of-1 triplets only; July 8 readiness remains explicitly unavailable because source candidates conflict.",
         "statistical_strategy": [
           "Use accepted-date repeated measures with stage-specific distributions.",
           "Report return direction per metric and preserve mixed PT behavior.",
@@ -721,6 +768,7 @@
           "Require reviewer-confirmed or provenance-retained cohort identity.",
           "Expose missing components and insufficient-data state instead of reconstruction."
         ],
+        "integrated_interpretation": "FSI, CSS, and Tensor provide separately versioned multivariate context after primary measurements; no identity or formula is redefined.",
         "interpretation_rules": [
           "Primary measured findings precede integrated-index interpretation.",
           "FSI means Fractal Stability Index and CSS means Cohort Similarity Score.",
@@ -735,6 +783,7 @@
           "Current canonical views do not expose every component axis or triplet-stage FSI.",
           "Multivariate separation does not establish pain, diagnosis, causation, or population effect."
         ],
+        "observed_result": "The current v2 persistence contains 237 FSI, 237 Tensor, and 26,023 CSS results with explicit source, component, missingness, version, and legacy-crosswalk coverage.",
         "primary_metrics": [
           "mean_hr_bpm",
           "rmssd_ms",
@@ -758,6 +807,11 @@
             "v_scientific_lineage"
           ]
         },
+        "publication_figure_ids": [
+          "fsi_distributions",
+          "css_similarity_matrix_ranking",
+          "source_metric_coverage_matrix"
+        ],
         "required_figures": [
           {
             "cohorts": [
@@ -847,6 +901,7 @@
         "review_status": "reviewed_canonical",
         "scientific_question": "How do Fractal Stability Index, Cohort Similarity Score, and Tensor v0.3 integrate supported multivariate evidence without replacing primary measurements?",
         "scientific_relevance": "Defines the governed order for multivariate integration without changing any canonical calculation.",
+        "scope": "Canonical scientific_evidence_persistence.v2.0.1 results from the repaired current snapshot, with historical versions retained for audit.",
         "statistical_strategy": [
           "Present governed primary metrics and normalized stress fingerprints before FSI or CSS.",
           "Report FSI distributions with formula version, component coverage, quality, and sample count.",
@@ -1007,21 +1062,29 @@
       "Never state: One session proves population effects."
     ],
     "registry_contract_version": "hypothesis_registry.v2",
-    "registry_version": "2026-07-31",
+    "registry_version": "2026-08-08",
     "supported_figure_types": [
       "box_strip",
+      "context_timeline",
+      "coverage_matrix",
       "css_embedding",
       "css_nearest_neighbor_ranking",
       "css_similarity_matrix",
+      "distribution",
       "fsi_distribution",
+      "functional_output_burden",
+      "ordered_triplet_state",
+      "paired_comparison",
       "raincloud",
+      "return_profile",
       "stress_fingerprint_heatmap",
+      "transport_coupling",
       "violin"
     ]
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "e271d89081eb7a2c489f21713123f07b65ac7f828e6940bf8ad3dc053e8d2be1",
-  "data_through_date": "2026-07-09",
+  "content_hash": "201e1b59efe95dcfaaefd483475b30da929b8bf38cdb3562c15748496f161a6f",
+  "data_through_date": "2026-07-30",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized review of the canonical N-of-1 scientific protocol.",
   "formula_identities": [],

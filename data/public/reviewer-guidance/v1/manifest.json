@@ -1,27 +1,27 @@
 {
-  "bundle_id": "handicapskater-org-v1-47e74f5c25e14efa",
-  "content_hash": "47e74f5c25e14efac0456dd3e628fe4a161d6d7f3d63f617930e6a39ed38dde2",
-  "data_through_date": "2026-07-09",
+  "bundle_id": "handicapskater-org-v1-67e86acb82144b2a",
+  "content_hash": "67e86acb82144b2ac1d893182673923686f230651f2836b2f5b0ec6c430c1403",
+  "data_through_date": "2026-07-30",
   "destination": "handicapskater.org",
-  "generated_at_utc": "2026-07-27T00:42:18.510525Z",
+  "generated_at_utc": "2026-08-08T08:45:27.415888Z",
   "generator_version": "fsi_publication_exporter.v1",
   "graph_count": 2,
   "graphs": [
     {
-      "byte_size": 11726,
-      "content_hash": "47bf7a98f2b0f0f9f238e17b5b63fc27223e5fe7ab42ee89a200505b1d47d737",
+      "byte_size": 14896,
+      "content_hash": "aa2186c548ba44a8c87af2b4b502c3342539aafd0350e6c7eef0e814855fa3ef",
       "graph_id": "mobility_output_and_burden",
       "media_type": "application/json",
       "path": "case-examples/mobility_output_and_burden.json",
-      "sha256": "0532048c7ba85d2745b802911a636b6b795416437ce99f8e2ff2a58fcae974d0"
+      "sha256": "1481ac50bb5e9f6fd5366b44db4f2dfe62fdbe4640ae599697b5ba3c455d5b35"
     },
     {
-      "byte_size": 22761,
-      "content_hash": "2e2d6a8fb13d9981f338b1c3752518a19529e544b85f655eaa2c43dcde925f1c",
+      "byte_size": 28903,
+      "content_hash": "426e340a731d82c5b22a96ed55e8a579ed84ca0132f4606ee39727e14488f051",
       "graph_id": "transport_coupling_profiles",
       "media_type": "application/json",
       "path": "case-examples/transport_coupling_profiles.json",
-      "sha256": "6fb819aa3d5894d577ae4880b1716f67c7999b7a24ab6ddbffd8ad1ffc20391a"
+      "sha256": "abe2e393b9ddf96a40ea186fedf5dc5c3a5d4ab25dbcaa8e7f4afbe2146e5a30"
     }
   ],
   "limitation_count": 1,
@@ -72,60 +72,60 @@
   "resource_count": 7,
   "resources": [
     {
-      "byte_size": 40510,
-      "content_hash": "e271d89081eb7a2c489f21713123f07b65ac7f828e6940bf8ad3dc053e8d2be1",
+      "byte_size": 45250,
+      "content_hash": "201e1b59efe95dcfaaefd483475b30da929b8bf38cdb3562c15748496f161a6f",
       "media_type": "application/json",
       "path": "hypothesis-registry.json",
       "resource_id": "hypothesis-registry",
-      "sha256": "7c314b9484409977c92aabc8aa64f4c81aef32b87a567c1b314aef2eef72a320"
+      "sha256": "1a9b017c2c4aa331078b915804ee42cd3a9a6d3d4d1c3a6fb0b7078b801327b2"
     },
     {
       "byte_size": 2581,
-      "content_hash": "edf11cc9af01f6e6ed9cb4689d679c3fc05ff69f05868ad89b49d20f94033877",
+      "content_hash": "c55e360c08c396a29aaf5c39a1f027ee07c0ee9f78c8a7150004ca0cf97dd407",
       "media_type": "application/json",
       "path": "evidence-review.json",
       "resource_id": "evidence-review",
-      "sha256": "14ef2ffecc2d97ad4b24138179893f5a41471f31c3d7364f851b0faf88d27c81"
+      "sha256": "73cd006b60f6672caa04e702d05c7d7b45c2560b18f84065e11614e4fe7c7cc3"
     },
     {
       "byte_size": 2984,
-      "content_hash": "ceee94b1361fcb06cee81846c66f8615e13312743f89fe73d3f8a87a38a1716b",
+      "content_hash": "57cab04f0396e87ba19f19e987f4416dafd4250209d459b75b6982dacabb6150",
       "media_type": "application/json",
       "path": "evidence-quality.json",
       "resource_id": "evidence-quality",
-      "sha256": "7cfd4accca8b3e196dd8dd70d00a74ce0489e082fc8fe4840e12b500224fed73"
+      "sha256": "afda510008404edbdc81988343121ce362a4bc37d039ce41c89dcc64dac7dd5a"
     },
     {
       "byte_size": 2399,
-      "content_hash": "f86f45e87f99bd420d0641a692d175d4518f65e7330ff7921356aa6e174c7b4b",
+      "content_hash": "0da38586ca4b5036a7acd4f41f3e41eecce3d098c22973ab694395d1256d98de",
       "media_type": "application/json",
       "path": "reviewer-guidance.json",
       "resource_id": "reviewer-guidance",
-      "sha256": "17d158c2693457ae2aac4697eb07d27b792709688642c92e9548ce8c1fc1c248"
+      "sha256": "627a04a579fd6b5270f76dbcd767bc24bee6071a18fdda33bd538a2abfbd2a35"
     },
     {
-      "byte_size": 4276,
-      "content_hash": "ec6c3d03da12edd3d1f9b533ae2608ac4a1b2ce84de95dad55a37c666518394e",
+      "byte_size": 4306,
+      "content_hash": "10de92de9a4f4d0665c0adda277b02045bc9d4c5dd541fd2110af439681c8971",
       "media_type": "application/json",
       "path": "terminology.json",
       "resource_id": "terminology",
-      "sha256": "61624f66e388d643a8b18f4d547710511c2fd83ccb17eb26c9bdff76d58b54d1"
+      "sha256": "68fc6b5a316be899c70f09a4b2cf8b4352cec878505e7760d010556a96422bbc"
     },
     {
       "byte_size": 2316,
-      "content_hash": "39f82642c73c74ac19fc293332c0396954fea284c7ff76393a94a657730e111f",
+      "content_hash": "834f5780c39bc5c6c4b8411a00a341fd06f07c9e7c00981cb42547f6e00a754b",
       "media_type": "application/json",
       "path": "limitations.json",
       "resource_id": "limitations",
-      "sha256": "11126ed3d9d32f6dcc8badd6fff4e49c1b92096cc7deda2154369cf5dee18239"
+      "sha256": "885643583276b40ec633bc19a6476666ef8bc61aec565dfaa52da4bce5a590eb"
     },
     {
       "byte_size": 3232,
-      "content_hash": "d44020ba5eacd34d23577ebb3cf4642a325ebba836c36a75543c2f5bfa6fb0eb",
+      "content_hash": "62ea853727818b8409b704972214aa2365581a189d1a00ce1b2e4f3ea0f3aab4",
       "media_type": "application/json",
       "path": "sources.json",
       "resource_id": "sources",
-      "sha256": "61b86ae88575c18d21f148263e4e378b06cb76f5860a17ef358d4d317448d3a1"
+      "sha256": "66f6f54714967ab3573fb39028a1f68fd70bc4c4d411d47985725ac410341f34"
     }
   ],
   "safety": {
@@ -160,7 +160,7 @@
   "source_resource_version": "observatory_bundle.v1",
   "status": "ok",
   "validation": {
-    "parity_check_count": 46,
+    "parity_check_count": 118,
     "parity_mismatch_count": 0,
     "safety_error_count": 0,
     "safety_finding_count": 0,

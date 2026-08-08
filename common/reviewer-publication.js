@@ -313,15 +313,34 @@
       card.appendChild(element("p", "case-example-label", hypothesis.hypothesis_id + " · " + hypothesis.review_status));
       card.appendChild(element("h3", "", hypothesis.title));
       card.appendChild(element("p", "", hypothesis.scientific_question));
-      card.appendChild(element("p", "", "Accommodation relevance: " + hypothesis.accommodation_relevance));
+      const cohorts = element("div", "publication-chips");
+      (hypothesis.comparison_cohorts || []).forEach(function (cohort) { cohorts.appendChild(element("span", "publication-chip", "Cohort: " + String(cohort).replaceAll("_", " "))); });
+      (hypothesis.primary_metrics || []).forEach(function (metric) { cohorts.appendChild(element("span", "publication-chip", "Metric: " + metric)); });
+      card.appendChild(cohorts);
+      const conclusions = element("div", "publication-conclusion-grid");
+      [
+        ["N-of-1 case study observed result", hypothesis.observed_result],
+        ["Integrated interpretation", hypothesis.integrated_interpretation],
+        ["Scope", hypothesis.scope],
+        ["Accommodation relevance", hypothesis.accommodation_relevance]
+      ].forEach(function (section) {
+        const block = element("section", "");
+        block.appendChild(element("h4", "", section[0]));
+        block.appendChild(element("p", "", section[1]));
+        conclusions.appendChild(block);
+      });
+      card.appendChild(conclusions);
+      card.appendChild(element("p", "publication-meta", "Publication figures: " + (hypothesis.publication_figure_ids || []).join(" · ")));
       const details = element("details", "publication-details");
-      details.appendChild(element("summary", "", "Open review rules and evidence-quality limits"));
+      details.appendChild(element("summary", "", "Open review rules, provenance, and evidence-quality limits"));
       details.appendChild(element("h4", "", "Inclusion rules"));
       list(details, hypothesis.inclusion_rules, "publication-source-list");
       details.appendChild(element("h4", "", "Exclusion rules"));
       list(details, hypothesis.exclusion_rules, "publication-source-list");
       details.appendChild(element("h4", "", "Limitations"));
       list(details, hypothesis.limitations, "publication-limitation-list");
+      details.appendChild(element("h4", "", "Provenance"));
+      details.appendChild(element("pre", "publication-provenance", JSON.stringify(hypothesis.provenance || {}, null, 2)));
       details.appendChild(element("p", "publication-meta", "Required figure contracts: " + (hypothesis.required_figures || []).map(function (figure) { return "Level " + figure.level + " " + String(figure.figure_type).replaceAll("_", " "); }).join(" · ")));
       card.appendChild(details);
       grid.appendChild(card);
