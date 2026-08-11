@@ -1,0 +1,58 @@
+{
+  "accessibility": {
+    "plain_language_summary": "Reviewers should separate observed facts, limitations, individual context, and generalized standards.",
+    "sample_counts_visible": false,
+    "screen_reader_summary": "Reviewers should separate observed facts, limitations, individual context, and generalized standards.",
+    "table_available": true,
+    "units_visible": false
+  },
+  "approved_values": {
+    "steps": [
+      "Identify the functional task and useful output.",
+      "Review observed burden with units and sample counts.",
+      "Review source quality, missingness, and limitations.",
+      "Assess actual individualized risk and effective alternatives.",
+      "Record the decision without universalizing the case example."
+    ]
+  },
+  "conclusion_strength": "not_applicable",
+  "content_hash": "72fc1b6e8ec891aa7f6f38e2cd6e7fac4c0f2e80f8d7696b8584b9f33a7c9530",
+  "data_through_date": "2026-08-06",
+  "destination": "handicapskater.org",
+  "evidence_scope": "Generalized reviewer process; no legal guarantee.",
+  "formula_identities": [],
+  "intended_route": "/reviewer-guidance/",
+  "limitations": [
+    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+  ],
+  "plain_language_finding": "Reviewers should separate observed facts, limitations, individual context, and generalized standards.",
+  "relation_identities": [],
+  "resource_id": "reviewer-guidance",
+  "resource_version": "fsi_publication_resource.v1",
+  "sample_counts": {},
+  "short_title": "Reviewer guidance",
+  "source_contracts": [
+    {
+      "contract": "observatory_mcp_resource.v1",
+      "version": "observatory_bundle.v1"
+    },
+    {
+      "contract": "evidence_observatory_presentation.v1",
+      "version": "evidence_observatory_presentation.v1"
+    },
+    {
+      "contract": "scientific_consumer_contract.v1.0.0",
+      "version": "scientific_consumer_contract.v1.0.0"
+    },
+    {
+      "contract": "observatory_graph.v1",
+      "version": "observatory_graph.v1"
+    }
+  ],
+  "source_labels": [
+    "Canonical scientific quality and coverage views"
+  ],
+  "summary": "Use function-before-appearance, individualized evidence, actual risk, and effective alternatives.",
+  "title": "Reviewer guidance",
+  "units": []
+}
