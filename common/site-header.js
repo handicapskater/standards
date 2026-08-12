@@ -4,136 +4,51 @@
     brandHomeControl: true,
     primaryLinks: [
       {
-        key: "standards",
-        label: "Standards",
-        match: ["/standards/", "/non-standard-mobility-aids/"],
+        key: "principles",
+        label: "Principles",
+        match: [
+          "/direct-threat-analysis/",
+          "/actual-risk/",
+          "/body-coupling/",
+          "/hypothesis-registry/",
+          "/federal-source-anchors/",
+          "/non-standard-mobility-aids/"
+        ],
         menuGroups: [
           {
             links: [
-              { href: "/standards/", label: "Standards Overview", match: ["/standards/"] },
-              {
-                href: "/non-standard-mobility-aids/",
-                label: "Mobility-Aid Principles",
-                match: ["/non-standard-mobility-aids/"]
-              },
-              {
-                href: "/non-standard-mobility-aids/#function-before-appearance",
-                label: "Function Before Appearance",
-                match: []
-              },
-              { href: "/standards/#framework", label: "Individualized Assessment", match: [] },
-              {
-                href: "/transportation-accommodation/#review",
-                label: "Physical Accommodation",
-                match: []
-              }
+              { href: "/direct-threat-analysis/", label: "01 Direct Threat", match: ["/direct-threat-analysis/"] },
+              { href: "/actual-risk/", label: "02 Actual Risk", match: ["/actual-risk/"] },
+              { href: "/body-coupling/", label: "03 Body Coupling", match: ["/body-coupling/"] },
+              { href: "/hypothesis-registry/", label: "04 Hypothesis Registry", match: ["/hypothesis-registry/"] },
+              { href: "/federal-source-anchors/", label: "05 Federal Source Anchors", match: ["/federal-source-anchors/"] },
+              { href: "/non-standard-mobility-aids/", label: "06 Non-Standard Mobility Aid", match: ["/non-standard-mobility-aids/"] }
             ]
           }
         ]
       },
+      { href: "/reviewer-guidance/", label: "Reviewer Guidance", match: ["/reviewer-guidance/"] },
+      { href: "/standards/", label: "Review Framework", match: ["/standards/"] },
       {
-        key: "safety-review",
-        label: "Safety Review",
-        match: ["/direct-threat-analysis/"],
+        key: "resources",
+        label: "Resources",
+        match: ["/evidence-review/", "/evidence-quality/", "/transportation-accommodation/", "/timeline/", "/references/"],
         menuGroups: [
           {
             links: [
-              {
-                href: "/direct-threat-analysis/",
-                label: "Direct-Threat Analysis",
-                match: ["/direct-threat-analysis/"]
-              },
-              { href: "/direct-threat-analysis/#analysis", label: "Actual Risk", match: [] },
-              {
-                href: "/direct-threat-analysis/#environment-specific-review",
-                label: "Environment-Specific Review",
-                match: []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        key: "transportation",
-        label: "Transportation",
-        match: ["/transportation-accommodation/"],
-        menuGroups: [
-          {
-            links: [
-              {
-                href: "/transportation-accommodation/",
-                label: "Transportation Accommodation",
-                match: ["/transportation-accommodation/"]
-              },
-              {
-                href: "/transportation-accommodation/#effective-alternatives",
-                label: "Effective Alternatives",
-                match: []
-              },
-              {
-                href: "/transportation-accommodation/#avoidable-access-burden",
-                label: "Avoidable Access Burden",
-                match: []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        key: "evidence-quality",
-        label: "Evidence Quality",
-        match: ["/evidence-quality/", "/evidence-review/", "/reviewer-guidance/"],
-        menuGroups: [
-          {
-            links: [
-              {
-                href: "/evidence-review/",
-                label: "Evidence Review Method",
-                match: ["/evidence-review/"]
-              },
-              {
-                href: "/evidence-quality/",
-                label: "Evidence Quality Overview",
-                match: ["/evidence-quality/"]
-              },
-              { href: "/references/#sources", label: "Sources and Provenance", match: [] },
-              {
-                href: "/evidence-quality/#quality",
-                label: "Sample Size and Missingness",
-                match: []
-              },
-              {
-                href: "/reviewer-guidance/",
-                label: "Reviewer Guidance",
-                match: ["/reviewer-guidance/"]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        key: "more",
-        label: "More",
-        match: ["/timeline/", "/references/"],
-        menuGroups: [
-          {
-            links: [
+              { href: "/evidence-review/", label: "Evidence Review Method", match: ["/evidence-review/"] },
+              { href: "/evidence-quality/", label: "Evidence Quality", match: ["/evidence-quality/"] },
+              { href: "/transportation-accommodation/", label: "Transportation Accommodation", match: ["/transportation-accommodation/"] },
               { href: "/timeline/", label: "DOT / FTA / DOJ Timeline", match: ["/timeline/"] },
-              {
-                href: "/non-standard-mobility-aids/",
-                label: "Non-Standard Mobility Aids",
-                match: []
-              },
-              { href: "/references/", label: "References", match: ["/references/"] },
-              { href: "/evidence-quality/#terminology", label: "Terminology", match: [] },
-              {
-                href: "https://handicapskater.com/evidence/",
-                label: "N-of-1 Case Study & Evidence on HandicapSkater.com",
-                match: []
-              }
+              { href: "/references/", label: "References", match: ["/references/"] }
             ]
           }
         ]
+      },
+      {
+        href: "https://handicapskater.com/platform/",
+        label: "Explore Evidence",
+        match: []
       }
     ]
   };
@@ -316,6 +231,10 @@
           </nav>
         </div>
       </header>
+      <aside class="evidence-authority-strip" aria-label="Scientific evidence authority">
+        <span>Scientific evidence authority</span>
+        <a href="https://handicapskater.com/platform/">Evidence Observatory</a>
+      </aside>
     `;
 
     const header = document.querySelector(".site-header[data-site-host]");

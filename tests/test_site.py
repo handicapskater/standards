@@ -10,6 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_PAGES = (
     "index.html",
     "standards/index.html",
+    "actual-risk/index.html",
+    "body-coupling/index.html",
+    "hypothesis-registry/index.html",
+    "federal-source-anchors/index.html",
     "non-standard-mobility-aids/index.html",
     "transportation-accommodation/index.html",
     "direct-threat-analysis/index.html",
@@ -38,6 +42,16 @@ def read(path: str) -> str:
 
 
 class StandardsSiteTests(unittest.TestCase):
+    def test_principle_sequence_navigation_is_accessible_and_complete(self) -> None:
+        footer = read("common/site-footer.js")
+        css = read("common/css/site-chrome.css")
+        for label in ("Previous", "Next", "Related Principle", "Explore Evidence"):
+            self.assertIn(label, footer)
+        self.assertIn('class="sequence-nav"', footer)
+        self.assertIn('aria-label="Continue through the HandicapSkater principles"', footer)
+        self.assertIn(".sequence-nav", css)
+        self.assertIn(".sequence-nav a:focus-visible", css)
+
     def test_canonical_pages_exist(self) -> None:
         for page in CANONICAL_PAGES:
             self.assertTrue((ROOT / page).is_file(), page)
@@ -69,21 +83,23 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("less-restrictive alternatives", lower)
         self.assertIn("review the standards", lower)
         self.assertIn("reviewer guidance", lower)
-        self.assertIn('href="https://handicapskater.com/evidence/"', html)
-        self.assertIn("N-of-1 Case Study &amp; Evidence on HandicapSkater.com", html)
+        self.assertIn('href="https://handicapskater.com/platform/"', html)
+        self.assertIn("Explore the Evidence Observatory", html)
         self.assertIn("does not establish binding law", lower)
 
     def test_homepage_paths_align_with_review_framework(self) -> None:
         html = read("index.html")
         for title, href in (
-            ("Standards", "/standards/"),
-            ("Safety Review", "/direct-threat-analysis/"),
-            ("Transportation", "/transportation-accommodation/"),
-            ("Evidence Quality", "/evidence-quality/"),
+            ("Direct Threat", "/direct-threat-analysis/"),
+            ("Actual Risk", "/actual-risk/"),
+            ("Body Coupling", "/body-coupling/"),
+            ("Hypothesis Registry", "/hypothesis-registry/"),
+            ("Federal Source Anchors", "/federal-source-anchors/"),
+            ("Non-Standard Mobility Aid", "/non-standard-mobility-aids/"),
         ):
-            self.assertIn(f"<h2>{title}</h2>", html)
+            self.assertIn(f"<h3>{title}</h3>", html)
             self.assertIn(f'href="{href}"', html)
-        self.assertIn('class="grid four"', html)
+        self.assertIn('class="grid three"', html)
 
     def test_standards_page_contains_ten_step_framework(self) -> None:
         html = read("standards/index.html")
@@ -138,11 +154,13 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("missingness", lower)
         self.assertIn("reproducibility", lower)
 
-    def test_evidence_review_renders_shared_hypothesis_registry(self) -> None:
+    def test_hypothesis_registry_has_one_canonical_principle_page(self) -> None:
         html = read("evidence-review/index.html")
+        principle = read("hypothesis-registry/index.html")
         reader = read("common/reviewer-publication.js")
-        self.assertIn('data-reviewer-hypothesis-registry="hypothesis-registry"', html)
-        self.assertIn("Shared Scientific Contract", html)
+        self.assertNotIn('data-reviewer-hypothesis-registry="hypothesis-registry"', html)
+        self.assertIn('href="/hypothesis-registry/"', html)
+        self.assertIn('data-reviewer-hypothesis-registry="hypothesis-registry"', principle)
         self.assertIn("renderHypothesisRegistry", reader)
         self.assertIn('"H1,H2,H3,H4,H5,H6"', reader)
         self.assertIn("Required interpretation order", reader)
@@ -156,7 +174,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("what a mobility reviewer should notice", lower)
         for term in ("repeated function", "distance and duration", "source connection", "transportation context", "environmental context", "limits"):
             self.assertIn(term, lower)
-        self.assertIn('href="https://handicapskater.com/evidence/strava-gps-skate-maps/"', html)
+        self.assertIn('href="https://handicapskater.com/platform/"', html)
 
     def test_optional_examples_are_limited_and_labeled(self) -> None:
         example_pages = {
@@ -210,37 +228,30 @@ class StandardsSiteTests(unittest.TestCase):
     def test_cross_site_label_and_url_are_exact(self) -> None:
         header = read("common/site-header.js")
         footer = read("common/site-footer.js")
-        self.assertIn("N-of-1 Case Study & Evidence on HandicapSkater.com", header)
-        self.assertIn("N-of-1 Case Study &amp; Evidence on HandicapSkater.com", footer)
-        for source in (header, footer):
-            self.assertIn("https://handicapskater.com/evidence/", source)
+        self.assertIn("Explore Evidence", header)
+        self.assertIn("Evidence Observatory", footer)
+        self.assertIn("https://handicapskater.com/platform/", header)
+        self.assertIn("https://handicapskater.com/platform/", footer)
 
     def test_navigation_is_route_owned_and_accessible(self) -> None:
         js = read("common/site-header.js")
         for label in (
-            "Standards",
-            "Safety Review",
-            "Transportation",
+            "Principles",
+            "01 Direct Threat",
+            "02 Actual Risk",
+            "03 Body Coupling",
+            "04 Hypothesis Registry",
+            "05 Federal Source Anchors",
+            "06 Non-Standard Mobility Aid",
+            "Review Framework",
+            "Resources",
+            "Explore Evidence",
             "Evidence Quality",
-            "More",
-            "Mobility-Aid Principles",
-            "Function Before Appearance",
-            "Individualized Assessment",
-            "Physical Accommodation",
-            "Direct-Threat Analysis",
-            "Actual Risk",
-            "Environment-Specific Review",
             "Transportation Accommodation",
-            "Effective Alternatives",
-            "Avoidable Access Burden",
             "Evidence Review Method",
-            "Sources and Provenance",
-            "Sample Size and Missingness",
             "Reviewer Guidance",
             "DOT / FTA / DOJ Timeline",
-            "Non-Standard Mobility Aids",
             "References",
-            "Terminology",
         ):
             self.assertIn(f'label: "{label}"', js)
         self.assertIn('target="_blank"', js)
@@ -254,11 +265,11 @@ class StandardsSiteTests(unittest.TestCase):
     def test_navigation_top_level_order_and_canonical_urls(self) -> None:
         js = read("common/site-header.js")
         ordered = (
-            'label: "Standards"',
-            'label: "Safety Review"',
-            'label: "Transportation"',
-            'label: "Evidence Quality"',
-            'label: "More"',
+            'label: "Principles"',
+            'label: "Reviewer Guidance"',
+            'label: "Review Framework"',
+            'label: "Resources"',
+            'label: "Explore Evidence"',
         )
         positions = [js.index(label) for label in ordered]
         self.assertEqual(positions, sorted(positions))

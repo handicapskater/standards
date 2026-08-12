@@ -314,6 +314,48 @@ p {
   font-size: 0.85em;
 }
 
+/* Scientific authority and ordered principle journey. */
+
+.evidence-authority-strip {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.48rem 1rem;
+  border-bottom: 1px solid rgba(154, 215, 255, 0.25);
+  background: var(--ink);
+  color: #dfeaec;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.evidence-authority-strip span { color: #9ad7ff; font-weight: 900; letter-spacing: 0.07em; text-transform: uppercase; }
+.evidence-authority-strip a { color: #fff; }
+
+.sequence-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.sequence-nav a {
+  display: grid;
+  align-content: center;
+  min-height: 5.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.sequence-nav a span { display: block; margin-bottom: 0.22rem; color: var(--teal); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+.sequence-nav a:hover, .sequence-nav a:focus-visible { border-color: var(--blue); color: var(--blue); outline: 3px solid var(--chrome-focus); outline-offset: 2px; }
+
 /* Hero */
 
 .hero {
@@ -519,6 +561,8 @@ main > section.section > .grid {
 }
 
 @media (max-width: 760px) {
+  .evidence-authority-strip { flex-wrap: wrap; }
+  .sequence-nav { grid-template-columns: 1fr 1fr; }
   body {
     font-size: 17px;
   }
