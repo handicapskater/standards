@@ -152,8 +152,7 @@ p {
 }
 
 .site-nav a,
-.nav-link,
-.nav-more-summary {
+.nav-link {
   box-sizing: border-box;
   flex: 0 0 auto;
   min-height: 42px;
@@ -189,172 +188,16 @@ p {
   color: var(--ink);
 }
 
-.site-nav a:hover,
-.nav-more-summary:hover,
-.nav-more[open] .nav-more-summary,
-.nav-more.is-active .nav-more-summary {
+.site-nav a:hover {
   background: var(--blue);
   border-color: var(--blue);
   color: #fff;
 }
 
-.site-nav a:focus-visible,
-.nav-more-summary:focus-visible {
+.site-nav a:focus-visible {
   outline: 3px solid var(--chrome-focus);
   outline-offset: 2px;
 }
-
-/* More menu. This supports the existing <details class="nav-more"> header JS. */
-
-.nav-more {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-  margin: 0;
-  overflow: visible;
-  background: transparent;
-  border: 0;
-}
-
-.nav-more-summary {
-  border-color: var(--line);
-  background: rgba(255, 255, 255, 0.35);
-  list-style: none;
-  -webkit-appearance: none;
-  appearance: none;
-  user-select: none;
-}
-
-.nav-more-summary::-webkit-details-marker {
-  display: none;
-}
-
-.nav-more-summary::marker {
-  content: "";
-}
-
-.nav-more-summary::after {
-  content: "▾";
-  margin-left: 0.35rem;
-  font-size: 0.78em;
-  line-height: 1;
-}
-
-.nav-more[open] .nav-more-summary::after {
-  content: "▴";
-}
-
-.nav-more-menu {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  z-index: 1000;
-  display: grid;
-  gap: 0.25rem;
-  min-width: 14rem;
-  max-width: min(22rem, calc(100vw - 2rem));
-  padding: 0.65rem;
-  border: 1px solid var(--chrome-menu-line);
-  border-radius: 0.85rem;
-  background: var(--chrome-menu-bg);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
-}
-
-.nav-more-menu .nav-link,
-.nav-more-menu .nav-link:visited,
-.nav-more-menu .nav-link.external-link,
-.nav-more-menu .nav-link.external-link:visited,
-.nav-more-menu a.external-link,
-.nav-more-menu a.external-link:visited {
-  display: block;
-  min-height: auto;
-  height: auto;
-  padding: 0.58rem 0.7rem;
-  border: 1px solid transparent;
-  border-radius: 0.55rem;
-  background: transparent;
-  color: var(--chrome-menu-text);
-  line-height: 1.25;
-  text-decoration: none;
-  white-space: normal;
-}
-
-.nav-more-menu .nav-link:hover,
-.nav-more-menu .nav-link:focus-visible,
-.nav-more-menu .nav-link[aria-current="page"],
-.nav-more-menu a.external-link:hover,
-.nav-more-menu a.external-link:focus-visible {
-  background: var(--chrome-menu-hover);
-  border-color: rgba(154, 215, 255, 0.24);
-  color: var(--chrome-menu-text);
-  outline: none;
-}
-
-.nav-menu-group {
-  display: grid;
-  align-content: start;
-  gap: 0.2rem;
-}
-
-.nav-menu-group-label {
-  margin: 0;
-  padding: 0.3rem 0.7rem 0.35rem;
-  color: #9ad7ff;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.11em;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.nav-more-menu .external-link::after {
-  content: "↗";
-  margin-left: 0.4rem;
-  font-size: 0.85em;
-}
-
-/* Scientific authority and ordered principle journey. */
-
-.evidence-authority-strip {
-  display: flex;
-  justify-content: center;
-  gap: 0.55rem;
-  padding: 0.48rem 1rem;
-  border-bottom: 1px solid rgba(154, 215, 255, 0.25);
-  background: var(--ink);
-  color: #dfeaec;
-  font-size: 0.78rem;
-  line-height: 1.35;
-  text-align: center;
-}
-
-.evidence-authority-strip span { color: #9ad7ff; font-weight: 900; letter-spacing: 0.07em; text-transform: uppercase; }
-.evidence-authority-strip a { color: #fff; }
-
-.sequence-nav {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.7rem;
-  max-width: var(--content);
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.sequence-nav a {
-  display: grid;
-  align-content: center;
-  min-height: 5.5rem;
-  padding: 0.9rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--panel);
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.sequence-nav a span { display: block; margin-bottom: 0.22rem; color: var(--teal); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
-.sequence-nav a:hover, .sequence-nav a:focus-visible { border-color: var(--blue); color: var(--blue); outline: 3px solid var(--chrome-focus); outline-offset: 2px; }
 
 /* Hero */
 
@@ -554,15 +397,9 @@ main > section.section > .grid {
     width: 100%;
   }
 
-  .nav-more-menu {
-    left: 0;
-    right: auto;
-  }
 }
 
 @media (max-width: 760px) {
-  .evidence-authority-strip { flex-wrap: wrap; }
-  .sequence-nav { grid-template-columns: 1fr 1fr; }
   body {
     font-size: 17px;
   }
@@ -598,23 +435,8 @@ main > section.section > .grid {
     white-space: normal;
   }
 
-  .nav-more {
-    width: 100%;
-  }
-
-  .nav-more-menu {
-    right: auto;
-    left: 0;
-  }
-
-  .site-nav > .nav-more:nth-child(even) .nav-more-menu {
-    right: 0;
-    left: auto;
-  }
-
   .site-nav a,
-  .nav-link,
-  .nav-more-summary {
+  .nav-link {
     width: 100%;
     min-width: 0;
     padding-left: 0.7rem;

@@ -256,6 +256,200 @@ tbody tr:last-child td {
   min-height: 2.25rem;
 }
 
+/* Shared engineering-reference pattern for the six principle pages. */
+.principle-hero .hero-inner {
+  min-height: clamp(23rem, 34vw, 29rem);
+}
+
+.principle-section {
+  scroll-margin-top: 7rem;
+}
+
+.principle-heading {
+  max-width: 52rem;
+  margin-bottom: 1.5rem;
+}
+
+.principle-heading h2 {
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.principle-summary {
+  color: var(--muted);
+  font-size: clamp(1.03rem, 1.8vw, 1.18rem);
+  line-height: 1.55;
+}
+
+.purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.purpose-grid article {
+  min-height: 10rem;
+  padding: 1.2rem;
+  background: var(--panel);
+}
+
+.purpose-grid strong,
+.purpose-grid span {
+  display: block;
+}
+
+.purpose-grid strong {
+  color: var(--blue);
+  font-size: 1.12rem;
+}
+
+.purpose-grid span {
+  margin-top: 0.55rem;
+  color: var(--muted);
+}
+
+.definition-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+  gap: 2rem;
+  padding: clamp(1.2rem, 4vw, 2.4rem);
+  border-left: 5px solid var(--blue);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.definition-panel > p:first-child {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.definition-panel dl {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.definition-panel dl div {
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.definition-panel dt {
+  color: var(--blue);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.definition-panel dd {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+}
+
+.definition-panel .term-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.reference-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(16rem, 0.7fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.reference-layout > div {
+  max-width: 48rem;
+}
+
+.reference-card {
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--teal);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.reference-card > span {
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reference-card h3 {
+  margin-top: 0.7rem;
+}
+
+.reference-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reference-list--primary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.reference-list li {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  min-height: 8rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.reference-list span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.compact-checklist {
+  counter-reset: checklist;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compact-checklist li {
+  counter-increment: checklist;
+  position: relative;
+  min-height: 4.5rem;
+  padding: 1rem 1rem 1rem 3.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.compact-checklist li::before {
+  content: counter(checklist, decimal-leading-zero);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
 @media (max-width: 760px) {
   .grid.two,
   .grid.three,
@@ -272,5 +466,18 @@ tbody tr:last-child td {
   .button-row .btn {
     width: 100%;
     white-space: normal;
+  }
+
+  .purpose-grid,
+  .definition-panel,
+  .reference-layout,
+  .reference-list,
+  .reference-list--primary,
+  .compact-checklist {
+    grid-template-columns: 1fr;
+  }
+
+  .purpose-grid article {
+    min-height: 0;
   }
 }

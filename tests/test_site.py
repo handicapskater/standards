@@ -10,18 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_PAGES = (
     "index.html",
     "standards/index.html",
-    "actual-risk/index.html",
-    "body-coupling/index.html",
     "hypothesis-registry/index.html",
     "federal-source-anchors/index.html",
-    "non-standard-mobility-aids/index.html",
-    "transportation-accommodation/index.html",
     "direct-threat-analysis/index.html",
     "evidence-review/index.html",
-    "evidence-quality/index.html",
-    "reviewer-guidance/index.html",
-    "timeline/index.html",
-    "references/index.html",
 )
 
 REDIRECTS = {
@@ -36,21 +28,29 @@ REDIRECTS = {
     "references.html": "/references/",
 }
 
+MERGED_REDIRECTS = {
+    "actual-risk/index.html": "/standards/#actual-risk",
+    "body-coupling/index.html": "/standards/#body-coupling",
+    "non-standard-mobility-aids/index.html": "/standards/#non-standard-mobility-aid",
+    "timeline/index.html": "/federal-source-anchors/#timeline",
+    "references/index.html": "/federal-source-anchors/#sources",
+    "evidence-quality/index.html": "/evidence-review/#quality",
+    "transportation-accommodation/index.html": "/evidence-review/#transportation",
+    "reviewer-guidance/index.html": "/evidence-review/#decision",
+}
+
 
 def read(path: str) -> str:
     return (ROOT / path).read_text(encoding="utf-8")
 
 
 class StandardsSiteTests(unittest.TestCase):
-    def test_principle_sequence_navigation_is_accessible_and_complete(self) -> None:
+    def test_footer_has_no_sequence_or_related_navigation(self) -> None:
         footer = read("common/site-footer.js")
         css = read("common/css/site-chrome.css")
-        for label in ("Previous", "Next", "Related Principle", "Explore Evidence"):
-            self.assertIn(label, footer)
-        self.assertIn('class="sequence-nav"', footer)
-        self.assertIn('aria-label="Continue through the HandicapSkater principles"', footer)
-        self.assertIn(".sequence-nav", css)
-        self.assertIn(".sequence-nav a:focus-visible", css)
+        for token in ("Previous", "Next", "Related", "sequence-nav"):
+            self.assertNotIn(token, footer)
+        self.assertNotIn(".sequence-nav", css)
 
     def test_canonical_pages_exist(self) -> None:
         for page in CANONICAL_PAGES:
@@ -73,33 +73,27 @@ class StandardsSiteTests(unittest.TestCase):
             self.assertIn(f'url={target}', html, page)
             self.assertIn(f'href="{target}"', html, page)
             self.assertIn('rel="canonical"', html, page)
+        for page, target in MERGED_REDIRECTS.items():
+            html = read(page).lower()
+            self.assertIn('name="robots" content="noindex,follow"', html, page)
+            self.assertIn(f'url={target}', html, page)
+            self.assertIn(f'href="{target}"', html, page)
 
     def test_homepage_is_generalized_function_first_front_door(self) -> None:
         html = read("index.html")
         lower = html.lower()
-        self.assertIn("evaluate function before appearance", lower)
-        self.assertIn("non-standard mobility aids require individualized review", lower)
+        self.assertIn("function before appearance", lower)
+        self.assertIn("individualized review", lower)
         self.assertIn("actual risk", lower)
         self.assertIn("less-restrictive alternatives", lower)
-        self.assertIn("review the standards", lower)
-        self.assertIn("reviewer guidance", lower)
-        self.assertIn('href="https://handicapskater.com/platform/"', html)
-        self.assertIn("Explore the Evidence Observatory", html)
+        self.assertIn("evidence observatory remains the only scientific authority", lower)
         self.assertIn("does not establish binding law", lower)
 
-    def test_homepage_paths_align_with_review_framework(self) -> None:
+    def test_homepage_has_no_page_directory(self) -> None:
         html = read("index.html")
-        for title, href in (
-            ("Direct Threat", "/direct-threat-analysis/"),
-            ("Actual Risk", "/actual-risk/"),
-            ("Body Coupling", "/body-coupling/"),
-            ("Hypothesis Registry", "/hypothesis-registry/"),
-            ("Federal Source Anchors", "/federal-source-anchors/"),
-            ("Non-Standard Mobility Aid", "/non-standard-mobility-aids/"),
-        ):
-            self.assertIn(f"<h3>{title}</h3>", html)
-            self.assertIn(f'href="{href}"', html)
-        self.assertIn('class="grid three"', html)
+        self.assertNotIn("Six pages · one guided sequence", html)
+        self.assertNotIn("The complete standards experience", html)
+        self.assertNotIn("card--accent", html)
 
     def test_standards_page_contains_ten_step_framework(self) -> None:
         html = read("standards/index.html")
@@ -120,52 +114,62 @@ class StandardsSiteTests(unittest.TestCase):
             self.assertIn(concept, framework.lower())
 
     def test_non_standard_mobility_page_preserves_generalized_scope(self) -> None:
-        lower = read("non-standard-mobility-aids/index.html").lower()
-        self.assertIn("start with the claimed function", lower)
+        lower = read("standards/index.html").lower()
+        self.assertIn("what disability-related task", lower)
         self.assertIn("fit and control", lower)
         self.assertIn("evidence and alternatives", lower)
         self.assertIn("a non-standard mobility aid is a generalized review category", lower)
         self.assertEqual(lower.count("non-traditional mobility aid"), 1)
 
     def test_transport_page_preserves_authored_guidance_without_javascript(self) -> None:
-        html = read("transportation-accommodation/index.html")
+        html = read("evidence-review/index.html")
         lower = html.lower()
         for term in ("body coupling", "vehicle environment", "duration", "routing", "alternatives"):
             self.assertIn(term, lower)
-        self.assertIn("the standards above remain complete if this enhancement is unavailable", lower)
-        self.assertIn('data-reviewer-example="transport_coupling_profiles"', html)
+        self.assertIn("no transport category is inherently equivalent", lower)
+        self.assertNotIn('data-reviewer-example=', html)
 
     def test_direct_threat_page_is_individualized_and_bounded(self) -> None:
         lower = read("direct-threat-analysis/index.html").lower()
-        self.assertIn("document the asserted risk", lower)
-        self.assertIn("evidence to seek", lower)
-        self.assertIn("alternatives to test", lower)
+        self.assertIn("name the asserted harm", lower)
+        self.assertIn("objective evidence", lower)
+        self.assertIn("less-restrictive alternatives", lower)
         self.assertIn("duration", lower)
         self.assertIn("severity", lower)
         self.assertIn("likelihood", lower)
-        self.assertIn("imminence", lower)
-        self.assertIn("does not decide any case or establish binding law", lower)
+        self.assertIn("actual circumstances", lower)
+        self.assertIn("evidence observatory is the only scientific source", lower)
+        self.assertIn("distinguish measured setting-specific risk from generalized assumptions", lower)
 
     def test_evidence_review_contains_generalized_sequence(self) -> None:
         lower = read("evidence-review/index.html").lower()
         self.assertIn("review output and burden together", lower)
         self.assertIn("source authority", lower)
-        self.assertIn("sample size", lower)
+        self.assertIn("sample counts", lower)
         self.assertIn("missingness", lower)
         self.assertIn("reproducibility", lower)
 
     def test_hypothesis_registry_has_one_canonical_principle_page(self) -> None:
         html = read("evidence-review/index.html")
         principle = read("hypothesis-registry/index.html")
-        reader = read("common/reviewer-publication.js")
+        header = read("common/site-header.js")
         self.assertNotIn('data-reviewer-hypothesis-registry="hypothesis-registry"', html)
-        self.assertIn('href="/hypothesis-registry/"', html)
-        self.assertIn('data-reviewer-hypothesis-registry="hypothesis-registry"', principle)
-        self.assertIn("renderHypothesisRegistry", reader)
-        self.assertIn('"H1,H2,H3,H4,H5,H6"', reader)
-        self.assertIn("Required interpretation order", reader)
-        self.assertNotIn("calculateFsi", reader)
-        self.assertNotIn("calculateCss", reader)
+        self.assertIn('href: "/hypothesis-registry/"', header)
+        self.assertIn("data-reviewer-hypothesis-registry", principle)
+        self.assertIn("reviewer-publication.js", principle)
+        self.assertNotIn('href="https://handicapskater.com/platform/#hypotheses"', principle)
+        self.assertIn("evidence observatory is the only scientific source", principle.lower())
+
+    def test_merged_principles_and_sources_have_stable_section_anchors(self) -> None:
+        principles = read("standards/index.html")
+        federal = read("federal-source-anchors/index.html")
+        methods = read("evidence-review/index.html")
+        for anchor in ('id="body-coupling"', 'id="actual-risk"', 'id="non-standard-mobility-aid"', 'id="framework"'):
+            self.assertIn(anchor, principles)
+        for anchor in ('id="principle"', 'id="sources"', 'id="timeline"', 'id="evaluate"'):
+            self.assertIn(anchor, federal)
+        for anchor in ('id="review-method"', 'id="quality"', 'id="transportation"', 'id="decision"'):
+            self.assertIn(anchor, methods)
 
     def test_route_reviewer_guidance_moved_to_org(self) -> None:
         html = read("evidence-review/index.html")
@@ -174,20 +178,32 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("what a mobility reviewer should notice", lower)
         for term in ("repeated function", "distance and duration", "source connection", "transportation context", "environmental context", "limits"):
             self.assertIn(term, lower)
-        self.assertIn('href="https://handicapskater.com/platform/"', html)
+        self.assertNotIn('class="chapter-rail"', html)
 
-    def test_optional_examples_are_limited_and_labeled(self) -> None:
-        example_pages = {
-            "evidence-review/index.html": "mobility_output_and_burden",
-            "transportation-accommodation/index.html": "transport_coupling_profiles",
-        }
-        all_html = "\n".join(read(page) for page in CANONICAL_PAGES)
-        self.assertEqual(all_html.count("data-reviewer-example="), 2)
-        for page, graph in example_pages.items():
-            html = read(page)
-            self.assertIn(f'data-reviewer-example="{graph}"', html)
-            self.assertIn("N-of-1 case study example", html)
-            self.assertIn("not universal", html)
+    def test_standards_mount_only_approved_observatory_projections(self) -> None:
+        standards = read("standards/index.html")
+        self.assertEqual(standards.count("data-reviewer-example="), 4)
+        for graph_id in (
+            "walking_vs_mall_accumulated_mechanical_load",
+            "triplet_functional_output_context",
+            "fns_sns_longitudinal_functional_capacity",
+            "transportation_body_coupling_comparison",
+        ):
+            self.assertIn(f'data-reviewer-example="{graph_id}"', standards)
+        self.assertIn("performs no scientific calculation", standards)
+
+    def test_standards_sections_link_to_their_evidence_cases(self) -> None:
+        direct_threat = read("direct-threat-analysis/index.html")
+        principles = read("standards/index.html")
+        self.assertIn("#case-walking-mechanical-load", direct_threat)
+        for case_id in (
+            "case-walking-mechanical-load",
+            "case-transportation-body-coupling",
+            "case-fixed-rail-comparator",
+            "case-functional-mobility",
+            "case-longitudinal-capacity",
+        ):
+            self.assertIn(f"https://evidence.handicapskater.com/#{case_id}", principles)
 
     def test_reviewer_reader_keeps_case_context_visible(self) -> None:
         js = read("common/reviewer-publication.js")
@@ -198,12 +214,14 @@ class StandardsSiteTests(unittest.TestCase):
             "Source scope",
             "canonical_case_route",
             "https://handicapskater.com/",
+            "Inspect in Evidence Observatory",
+            "PLANNED / UNMEASURED COMPARATOR",
         ):
             self.assertIn(token, js)
 
     def test_evidence_quality_preserves_source_boundaries(self) -> None:
-        lower = read("evidence-quality/index.html").lower()
-        for term in ("source and scope", "completeness", "reproducibility", "terminology and source boundaries"):
+        lower = read("evidence-review/index.html").lower()
+        for term in ("source and scope", "completeness", "reproducibility", "source boundaries"):
             self.assertIn(term, lower)
         self.assertIn("whoop overnight recovery", lower)
         self.assertIn("kubios", lower)
@@ -211,77 +229,95 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertNotIn("comparable similarity score", lower)
 
     def test_reviewer_guidance_records_reasoning_and_alternatives(self) -> None:
-        lower = read("reviewer-guidance/index.html").lower()
+        lower = read("evidence-review/index.html").lower()
         for term in ("before review", "during review", "after review", "less-restrictive options", "record reasons"):
             self.assertIn(term, lower)
 
     def test_timeline_and_references_remain_generalized(self) -> None:
-        timeline = read("timeline/index.html").lower()
-        references = read("references/index.html").lower()
+        timeline = read("federal-source-anchors/index.html").lower()
+        references = timeline
         for year in ("2005", "2007", "2010"):
             self.assertIn(year, timeline)
         self.assertIn("roller skates analyzed as a mobility aid", timeline)
         self.assertIn("opdmd regulations", timeline)
-        self.assertIn("federal source anchors", references)
-        self.assertIn("evaluate source authority", references)
+        self.assertIn("federal source anchor", references)
+        self.assertIn("how should authority be evaluated", references)
 
-    def test_cross_site_label_and_url_are_exact(self) -> None:
+    def test_cross_site_navigation_is_not_duplicated(self) -> None:
         header = read("common/site-header.js")
-        footer = read("common/site-footer.js")
-        self.assertIn("Explore Evidence", header)
-        self.assertIn("Evidence Observatory", footer)
-        self.assertIn("https://handicapskater.com/platform/", header)
-        self.assertIn("https://handicapskater.com/platform/", footer)
+        canonical = "\n".join(read(page) for page in CANONICAL_PAGES)
+        self.assertNotIn("https://handicapskater.com/", header)
+        self.assertNotIn('class="reference-card"', canonical)
 
     def test_navigation_is_route_owned_and_accessible(self) -> None:
         js = read("common/site-header.js")
-        for label in (
-            "Principles",
-            "01 Direct Threat",
-            "02 Actual Risk",
-            "03 Body Coupling",
-            "04 Hypothesis Registry",
-            "05 Federal Source Anchors",
-            "06 Non-Standard Mobility Aid",
-            "Review Framework",
-            "Resources",
-            "Explore Evidence",
-            "Evidence Quality",
-            "Transportation Accommodation",
-            "Evidence Review Method",
-            "Reviewer Guidance",
-            "DOT / FTA / DOJ Timeline",
-            "References",
-        ):
+        for label in ("Direct Threat", "Engineering Principles", "Federal Sources", "Hypothesis Registry", "Methods"):
             self.assertIn(f'label: "{label}"', js)
-        self.assertIn('target="_blank"', js)
-        self.assertIn('rel="noopener noreferrer"', js)
-        self.assertIn("wireMoreMenuCloseBehavior", js)
-        self.assertIn("menuGroups", js)
-        self.assertIn("brandHomeControl: true", js)
-        self.assertIn('config.brandHomeControl && path === "/"', js)
-        self.assertIn('aria-label="${config.brand} home"', js)
+        self.assertNotIn('label: "Home"', js)
+        config = js[js.index("primaryLinks:"):js.index("function normalizePath")]
+        self.assertEqual(config.count("label:"), 5)
+        self.assertNotIn("menuGroups", js)
+        self.assertNotIn("renderNavMenu", js)
+
+    def test_every_page_gets_exactly_the_five_direct_menu_destinations_after_the_home_title(self) -> None:
+        header = read("common/site-header.js")
+        config = header[header.index("primaryLinks:"):header.index("function normalizePath")]
+        links = re.findall(r'\{ href: "([^"]+)", label: "([^"]+)"', config)
+        self.assertEqual(links, [
+            ("/direct-threat-analysis/", "Direct Threat"),
+            ("/standards/", "Engineering Principles"),
+            ("/federal-source-anchors/", "Federal Sources"),
+            ("/hypothesis-registry/", "Hypothesis Registry"),
+            ("/evidence-review/", "Methods"),
+        ])
+        self.assertIn('<a class="brand" href="/" aria-label="${config.brand}"${brandCurrent}>${config.brand}</a>', header)
+        self.assertNotIn('label: "Home"', header)
+        self.assertEqual(header.count("<nav"), 1)
+        for page in CANONICAL_PAGES:
+            self.assertIn('/common/site-header.js', read(page), page)
+
+    def test_all_org_page_chrome_has_no_secondary_navigation_system(self) -> None:
+        header = read("common/site-header.js")
+        footer = read("common/site-footer.js")
+        authored_pages = [path for path in ROOT.rglob("index.html") if "node_modules" not in path.parts]
+        for token in (
+            "dropdown",
+            "nested-menu",
+            "breadcrumb",
+            "sequence-nav",
+            "previous",
+            "next",
+            "related-page",
+            "principle-nav",
+            "reference-nav",
+            "section-nav",
+        ):
+            self.assertNotIn(token, header.lower())
+            self.assertNotIn(token, footer.lower())
+        self.assertNotIn("<nav", footer)
+        self.assertNotIn("<a ", footer)
+        for path in authored_pages:
+            self.assertNotIn("<nav", path.read_text(encoding="utf-8").lower(), str(path.relative_to(ROOT)))
 
     def test_navigation_top_level_order_and_canonical_urls(self) -> None:
         js = read("common/site-header.js")
         ordered = (
-            'label: "Principles"',
-            'label: "Reviewer Guidance"',
-            'label: "Review Framework"',
-            'label: "Resources"',
-            'label: "Explore Evidence"',
+            'label: "Direct Threat"',
+            'label: "Engineering Principles"',
+            'label: "Federal Sources"',
+            'label: "Hypothesis Registry"',
+            'label: "Methods"',
         )
         positions = [js.index(label) for label in ordered]
         self.assertEqual(positions, sorted(positions))
-        self.assertNotIn('label: "Home"', js)
         self.assertNotRegex(js, r'href: "/[^\"]+\.html')
 
         for path, anchor in (
-            ("non-standard-mobility-aids/index.html", 'id="function-before-appearance"'),
+            ("standards/index.html", 'id="function-before-appearance"'),
             ("direct-threat-analysis/index.html", 'id="environment-specific-review"'),
-            ("transportation-accommodation/index.html", 'id="effective-alternatives"'),
-            ("transportation-accommodation/index.html", 'id="avoidable-access-burden"'),
-            ("evidence-quality/index.html", 'id="terminology"'),
+            ("evidence-review/index.html", 'id="effective-alternatives"'),
+            ("evidence-review/index.html", 'id="avoidable-access-burden"'),
+            ("evidence-review/index.html", 'id="terminology"'),
         ):
             self.assertIn(anchor, read(path), path)
 
@@ -309,14 +345,16 @@ class StandardsSiteTests(unittest.TestCase):
         footer = read("common/site-footer.js")
         css = read("common/css/site-chrome.css")
         components = read("common/css/site-components.css")
-        self.assertIn("nav-more-summary", js)
-        self.assertIn('<a class="brand" href="/"${brandCurrent}${brandAriaLabel}>', js)
-        self.assertIn("position: absolute", css)
-        self.assertIn('.brand[aria-current="page"]', css)
-        self.assertIn(".brand:focus-visible", css)
-        self.assertIn("footer-nav", footer)
+        self.assertNotIn("nav-more-summary", js)
+        self.assertIn('<a class="brand" href="/" aria-label="${config.brand}"${brandCurrent}>', js)
+        self.assertNotIn(".nav-more", css)
+        self.assertNotIn("footer-nav", footer)
         self.assertIn("footer-copy", footer)
         self.assertIn("footer-description", footer)
+        for token in ("breadcrumb", "ecosystem-path", "evidence-authority-strip"):
+            self.assertNotIn(token, js)
+            self.assertNotIn(token, css)
+        self.assertNotIn(".chapter-rail", components)
         for button in ("button-primary", "button-secondary", "button-light"):
             self.assertIn(button, components)
 

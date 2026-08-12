@@ -1,34 +1,52 @@
 {
-  "bundle_id": "handicapskater-org-v1-56464af9ed3aa6bc",
-  "content_hash": "56464af9ed3aa6bce31ddfe8621d42fa8f0ad60b6d327a38ffce3bc54b56669f",
-  "data_through_date": "2026-08-06",
+  "bundle_id": "handicapskater-org-v1-86eb8ebdc53566f0",
+  "content_hash": "86eb8ebdc53566f08bad5fd848957bd134f9c1760f3cb1339a5c51fb844585e2",
+  "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
-  "generated_at_utc": "2026-08-09T01:51:40.117396Z",
+  "generated_at_utc": "2026-08-09T17:55:07.831858Z",
   "generator_version": "fsi_publication_exporter.v1",
-  "graph_count": 2,
+  "graph_count": 4,
   "graphs": [
     {
-      "byte_size": 14881,
-      "content_hash": "394441ff731793922b513700e158168d3b6489083eb4d48ca759975a5c6a8b39",
-      "graph_id": "mobility_output_and_burden",
+      "byte_size": 28884,
+      "content_hash": "9252fbf3a169a6ded6aa82074997f412e329d3f75aa35acf737ce807f666e46d",
+      "graph_id": "walking_vs_mall_accumulated_mechanical_load",
       "media_type": "application/json",
-      "path": "case-examples/mobility_output_and_burden.json",
-      "sha256": "a0cc36907e7234b503888f3a278693f24d86d6d6c51835d22a62ef8d881777a8"
+      "path": "case-examples/walking_vs_mall_accumulated_mechanical_load.json",
+      "sha256": "e78c7cf2730ce878ab4104791b54cff192ebe8cf9969f0fb07d5bb01878b893f"
     },
     {
-      "byte_size": 28890,
-      "content_hash": "f83a465da992a1f9413dd4811c8d72c151c229c6c8eabdf677567f924b5c51bf",
-      "graph_id": "transport_coupling_profiles",
+      "byte_size": 37849,
+      "content_hash": "fa4dc63b2881347c3523db855b281a16ec729e33596e55ee3aed7fd877665265",
+      "graph_id": "triplet_functional_output_context",
       "media_type": "application/json",
-      "path": "case-examples/transport_coupling_profiles.json",
-      "sha256": "9fabfaa98840da2b4d3a32dff7af4eeddada0a54634ad0017fbae4d29fa0a2cc"
+      "path": "case-examples/triplet_functional_output_context.json",
+      "sha256": "f10dba655393366cbb7a0d8f45581cbb3311549c5c4c747b595e3ec2f09d3864"
+    },
+    {
+      "byte_size": 1054281,
+      "content_hash": "afb416ca74f7b3a9fb3eda2b2c74894b71cd0122be27ab66f6f48e8011fd31cb",
+      "graph_id": "fns_sns_longitudinal_functional_capacity",
+      "media_type": "application/json",
+      "path": "case-examples/fns_sns_longitudinal_functional_capacity.json",
+      "sha256": "44f87340dd07d741906a9327d2c08a94a4ed9c7f0688a8fd29559c7e3b0ecafb"
+    },
+    {
+      "byte_size": 295020,
+      "content_hash": "84ae93a8493f53c47459a0abdc72d2e75084af632a7b5d2cfa7f6c6b1978ad49",
+      "graph_id": "transportation_body_coupling_comparison",
+      "media_type": "application/json",
+      "path": "case-examples/transportation_body_coupling_comparison.json",
+      "sha256": "19f62624e7b58a1833ea81d2f9c124d925a3871a63ad8db22926ed03ec2a24c8"
     }
   ],
   "limitation_count": 1,
   "limitation_resource": "limitations.json",
   "managed_files": [
-    "case-examples/mobility_output_and_burden.json",
-    "case-examples/transport_coupling_profiles.json",
+    "case-examples/fns_sns_longitudinal_functional_capacity.json",
+    "case-examples/transportation_body_coupling_comparison.json",
+    "case-examples/triplet_functional_output_context.json",
+    "case-examples/walking_vs_mall_accumulated_mechanical_load.json",
     "evidence-quality.json",
     "evidence-review.json",
     "hypothesis-registry.json",
@@ -73,59 +91,59 @@
   "resources": [
     {
       "byte_size": 45250,
-      "content_hash": "33787ac522243a2a31f68e5d5f7fe6d0c2b345b5afea35ea38b4e3f6835afbd2",
+      "content_hash": "ab4f551a9c7d3331341b281d72b5b31f7b33fa2aa6bb487b9e1deaee63502c61",
       "media_type": "application/json",
       "path": "hypothesis-registry.json",
       "resource_id": "hypothesis-registry",
-      "sha256": "18d17720066337936945a8b7d86d7027397d85da984fa2725d878396fc72ef9d"
+      "sha256": "bd98c6233a7417547a1683c4ae674f7ddb6ad9fe5ff0e5868442ab0cf397dae5"
     },
     {
       "byte_size": 2581,
-      "content_hash": "9cbbae754d6bd89c714d465e87d1056675d8010789cce1e31ebec1a058bcfc3a",
+      "content_hash": "75c10f86e3ddb9339c7ba61998c8a4ddc3cc27da697ce7e52397ba3e0962dc5e",
       "media_type": "application/json",
       "path": "evidence-review.json",
       "resource_id": "evidence-review",
-      "sha256": "41dc3758d08a9964ec98b057641ea122e335e755181de4640901fd0fad337e16"
+      "sha256": "490519cda2ef4a8ae05a6d8fd3e38261e6304e1e8e0e50952c0519019d40ccac"
     },
     {
       "byte_size": 2984,
-      "content_hash": "f9e3482c0de585f4645dec9e0759b13a76df885d3df197a0b5c82f32f0e903f8",
+      "content_hash": "93e4e4832ccdd4e882baad6063720ad5627a62a63706830ed9ed7ca5549478f0",
       "media_type": "application/json",
       "path": "evidence-quality.json",
       "resource_id": "evidence-quality",
-      "sha256": "45f8c799dad277889d3b382268f376910bdaf5723988aca1bfa2151620f6835d"
+      "sha256": "9e6ae9acf8723c2f7cacfd8b4f6ba346b22ae4f27fcfec23df13c719a031c4c9"
     },
     {
       "byte_size": 2399,
-      "content_hash": "72fc1b6e8ec891aa7f6f38e2cd6e7fac4c0f2e80f8d7696b8584b9f33a7c9530",
+      "content_hash": "32313bcca1509afd10eb770621de9ea64b579f2755d7b212a267ad2b0df4d2f5",
       "media_type": "application/json",
       "path": "reviewer-guidance.json",
       "resource_id": "reviewer-guidance",
-      "sha256": "b063f72a1526726851d8f3f88f0b455e832f36c272cc1f8dd717a78e7f26cc03"
+      "sha256": "24b73c49dafd0e6d95a3bbd54be350b2dd98021a184af3e6b62c9c0755ecc824"
     },
     {
       "byte_size": 4306,
-      "content_hash": "2666279ad31572cbce63e9213f8f2368c73d69df96959a48faa650efb745558b",
+      "content_hash": "20f9b317caeb5e5ad4731c90521b1fb0fee29b86fcaf34d09aeb07b69eaa00da",
       "media_type": "application/json",
       "path": "terminology.json",
       "resource_id": "terminology",
-      "sha256": "6edd1700e40a17ef50a81cc01c294e64378d9315c8e8806ddae6dafe8832a2e9"
+      "sha256": "f57832873a023feb79d29c034dc80635eee75f1fec5b8f58f72e346a80aa0968"
     },
     {
       "byte_size": 2316,
-      "content_hash": "8cd5bf86d0b84aabd3f13aac597327301c35bc8f3a7715924c9426b465fa75d8",
+      "content_hash": "7cce953ca2d483bf193e8e6426a450c8a948739f82ed189a527854458b5633f3",
       "media_type": "application/json",
       "path": "limitations.json",
       "resource_id": "limitations",
-      "sha256": "8107b03bd51ccee49e90275c3afb378150a0db7c0f0610c19683b55cb216bf30"
+      "sha256": "8283d3b57286d302ffab0177b554d4c4037d73bc3f4068d9d04768e0e6ea43c1"
     },
     {
       "byte_size": 3232,
-      "content_hash": "04711858792d039cc2815af4757ce71fb82688ba77a99f031f4dcaaf81cbc19e",
+      "content_hash": "2ebb18eb6bbd1d24eaa1cfbb52e5181b05a866725413a5449a135249249fa8ed",
       "media_type": "application/json",
       "path": "sources.json",
       "resource_id": "sources",
-      "sha256": "cc2a383c8ebcb96e4e28fa55c9579cafafe1222f501a227d76451ab35acef378"
+      "sha256": "29cace9e00172394955bb068e3f96400064ad8021f09a65b8e90bb6c80397fd4"
     }
   ],
   "safety": {
@@ -160,7 +178,7 @@
   "source_resource_version": "observatory_bundle.v1",
   "status": "ok",
   "validation": {
-    "parity_check_count": 118,
+    "parity_check_count": 148,
     "parity_mismatch_count": 0,
     "safety_error_count": 0,
     "safety_finding_count": 0,

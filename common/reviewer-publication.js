@@ -6,7 +6,12 @@
   const DESTINATION = "handicapskater.org";
   const RESOURCE_VERSION = "fsi_publication_resource.v1";
   const GRAPH_VERSION = "fsi_publication_graph.v1";
-  const ALLOWED_EXAMPLES = new Set(["mobility_output_and_burden", "transport_coupling_profiles"]);
+  const ALLOWED_EXAMPLES = new Set([
+    "walking_vs_mall_accumulated_mechanical_load",
+    "triplet_functional_output_context",
+    "fns_sns_longitudinal_functional_capacity",
+    "transportation_body_coupling_comparison"
+  ]);
   const cache = new Map();
 
   function element(tag, className, text) {
@@ -190,40 +195,91 @@
   }
 
   function selectedSeries(payload) {
-    const ids = payload.graph_id === "mobility_output_and_burden"
-      ? new Set(["distance_miles", "burden_per_mile"])
-      : new Set(["fsi", "cumulative_dynamic_shock"]);
     return (payload.series || []).filter(function (series) {
-      return ids.has(series.series_id);
+      return Array.isArray(series.points) && series.points.length;
+    }).slice(0, 3);
+  }
+
+  function svgNode(tag, attributes) {
+    const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    Object.keys(attributes || {}).forEach(function (key) { node.setAttribute(key, attributes[key]); });
+    return node;
+  }
+
+  function linePanel(title, unit, groups) {
+    const panel = element("section", "publication-graph-panel publication-line-panel");
+    panel.appendChild(element("h3", "", title + " (" + unit + ")"));
+    const all = groups.flatMap(function (group) { return group.points || []; }).filter(function (point) { return Number.isFinite(Number(point.value)) && Number.isFinite(Date.parse(String(point.date))); });
+    if (!all.length) return panel;
+    const width = 760, height = 340, left = 72, right = 22, top = 22, bottom = 58;
+    const dates = Array.from(new Set(all.map(function (point) { return String(point.date); }))).sort();
+    const values = all.map(function (point) { return Number(point.value); }), min = Math.min.apply(null, values), max = Math.max.apply(null, values);
+    const times = dates.map(Date.parse), firstTime = Math.min.apply(null, times), lastTime = Math.max.apply(null, times);
+    const x = function (date) { return left + ((Date.parse(String(date)) - firstTime) / (lastTime - firstTime || 1)) * (width - left - right); };
+    const y = function (value) { return top + (1 - (Number(value) - min) / (max - min || 1)) * (height - top - bottom); };
+    const svg = svgNode("svg", { viewBox: "0 0 " + width + " " + height, class: "publication-line-chart", role: "img", "aria-label": title + " by date", "data-date-min": dates[0], "data-date-max": dates[dates.length - 1] });
+    [0, .25, .5, .75, 1].forEach(function (ratio) { const yy = top + ratio * (height - top - bottom); svg.appendChild(svgNode("line", { x1: left, x2: width - right, y1: yy, y2: yy, class: "publication-grid-line" })); const label = svgNode("text", { x: left - 10, y: yy + 4, class: "publication-axis-label", "text-anchor": "end" }); label.textContent = displayNumber(max - ratio * (max - min)); svg.appendChild(label); });
+    [dates[0], dates[Math.floor((dates.length - 1) / 2)], dates[dates.length - 1]].forEach(function (date, index) { const label = svgNode("text", { x: x(date), y: height - 18, class: "publication-axis-label", "text-anchor": index === 0 ? "start" : index === 2 ? "end" : "middle" }); label.textContent = date; svg.appendChild(label); });
+    groups.forEach(function (group, index) {
+      const points = group.points.filter(function (point) { return Number.isFinite(Number(point.value)) && Number.isFinite(Date.parse(String(point.date))); }).sort(function (a, b) { return String(a.date).localeCompare(String(b.date)); });
+      if (!group.rawOnly) svg.appendChild(svgNode("polyline", { points: points.map(function (point) { return x(point.date) + "," + y(point.value); }).join(" "), class: "publication-series publication-series-" + index, fill: "none" }));
+      const trend = (group.trendPoints || []).filter(function (point) { return Number.isFinite(Number(point.value)) && Number.isFinite(Date.parse(String(point.date))); }).sort(function (a, b) { return String(a.date).localeCompare(String(b.date)); });
+      if (trend.length > 1) svg.appendChild(svgNode("polyline", { points: trend.map(function (point) { return x(point.date) + "," + y(point.value); }).join(" "), class: "publication-trend publication-series-" + index, fill: "none" }));
+      points.forEach(function (point) { const dot = svgNode("circle", { cx: x(point.date), cy: y(point.value), r: all.length > 120 ? 2 : 3.5, class: "publication-point publication-series-" + index, tabindex: "0" }); dot.setAttribute("aria-label", group.label + ", " + point.date + ", " + displayNumber(point.value) + " " + unit); const title = svgNode("title"); title.textContent = dot.getAttribute("aria-label"); dot.appendChild(title); svg.appendChild(dot); });
     });
+    panel.appendChild(svg);
+    const legend = element("div", "publication-line-legend");
+    groups.forEach(function (group, index) { legend.appendChild(element("span", "publication-legend-item publication-legend-" + index, group.label)); });
+    panel.appendChild(legend);
+    return panel;
+  }
+
+  function exampleVisual(payload) {
+    if (payload.graph_id === "walking_vs_mall_accumulated_mechanical_load") {
+      const panels = element("div", "publication-graph-panels publication-graph-panels-single");
+      (payload.panels || []).forEach(function (series) { const pairs = series.pairs || []; panels.appendChild(linePanel(series.title, series.unit, [
+        { label: "Mall", points: pairs.map(function (p) { return { date: p.date, value: p.reference_value }; }) },
+        { label: "Walk", points: pairs.map(function (p) { return { date: p.date, value: p.comparison_value }; }) }
+      ])); }); return panels;
+    }
+    if (payload.graph_id === "triplet_functional_output_context") {
+      const panels = element("div", "publication-graph-panels");
+      [["distance_miles", "Actual authoritative distance", "miles"], ["duration_seconds", "Duration", "seconds"]].forEach(function (metric) { panels.appendChild(linePanel(metric[1], metric[2], ["mall", "walk", "pt"].map(function (role) { return { label: role === "pt" ? "PT" : role[0].toUpperCase() + role.slice(1), points: (payload.accessible_table || []).filter(function (row) { return String(row.sequence_role).toLowerCase().includes(role); }).map(function (row) { return { date: row.date, value: row[metric[0]] }; }) }; }))); }); return panels;
+    }
+    if (payload.graph_id === "fns_sns_longitudinal_functional_capacity") {
+      const panels = element("div", "publication-graph-panels publication-graph-panels-single");
+      function median(points) { const values = points.map(function (p) { return Number(p.value); }).sort(function (a, b) { return a - b; }); if (!values.length) return null; const middle = Math.floor(values.length / 2); return values.length % 2 ? values[middle] : (values[middle - 1] + values[middle]) / 2; }
+      function groups(panelIndex, divisor) { return (((payload.panels || [])[panelIndex] || {}).series || []).filter(function (s) { return ["FNS", "SNS", "XMS"].includes(s.label); }).map(function (s) { const points = (s.points || []).filter(function (p) { return Number.isFinite(Number(p.value)); }).map(function (p) { return { date: p.date, value: Number(p.value) / divisor }; }); return { label: s.label, points: points, rawOnly: true, trendPoints: points.map(function (p, i) { return { date: p.date, value: median(points.slice(Math.max(0, i - 8), i + 1)) }; }) }; }); }
+      panels.appendChild(linePanel("Recorded distance", "miles", groups(0, 1))); panels.appendChild(linePanel("Recorded duration", "minutes", groups(1, 60))); return panels;
+    }
+    if (payload.graph_id === "transportation_body_coupling_comparison") {
+      const wrapper = element("div", "publication-metric-view"), select = element("select", "publication-metric-select"), chart = element("div", "publication-selected-chart");
+      select.setAttribute("aria-label", "Select transportation burden metric");
+      (payload.series || []).forEach(function (series, index) { const option = element("option", "", series.title); option.value = String(index); select.appendChild(option); });
+      function draw() {
+        chart.replaceChildren(); const series = (payload.series || [])[Number(select.value) || 0]; if (!series) return;
+        const supported = new Set(["ParaTransit bus", "ParaTransit van", "ParaTransit sedan/taxi", "SilverRide"]), points = (series.points || []).filter(function (p) { return supported.has(p.label); });
+        const field = {"Cumulative Shock":"cumulative_dynamic_shock", "Duration-normalized Cumulative Shock":"cumulative_dynamic_shock_per_min", "Jerk RMS":"jerk_rms_g_per_s", "Mean HR":"kubios_mean_hr_bpm", "RMSSD":"kubios_rmssd_ms", "SDNN":"kubios_sdnn_ms", "Shock Spike Rate":"shock_spike_rate_per_min", "Vertical RMS":"vertical_dynamic_g_rms", "Ride duration":"event_duration_seconds"}[series.title];
+        const labelFor = {paratransit_bus:"ParaTransit bus", paratransit_van:"ParaTransit van", paratransit_sedan_or_taxi:"ParaTransit sedan/taxi", paratransit_silverride:"SilverRide"};
+        const raw = (payload.accessible_table || []).filter(function (r) { return supported.has(labelFor[r.canonical_cohort]); });
+        const rawValue = function (r) { const v = field ? r[field] : null; return series.title === "Ride duration" && Number.isFinite(Number(v)) ? Number(v) / 60 : v; };
+        const values = raw.map(rawValue).concat(points.flatMap(function (p) { return [p.q1, p.value, p.q3]; })).map(Number).filter(Number.isFinite); if (!values.length) return;
+        const minimum = Math.min.apply(null, values), maximum = Math.max.apply(null, values), padding = (maximum - minimum || Math.max(1, Math.abs(maximum) * .05)) * .05, domainMin = Math.max(0, minimum - padding), domainMax = maximum + padding, width = 820, rowHeight = 48, top = 18, left = 170, right = 112, plotWidth = width - left - right, x = function (value) { return left + ((Number(value) - domainMin) / (domainMax - domainMin || 1)) * plotWidth; };
+        const panel = element("section", "publication-graph-panel"); panel.appendChild(element("h3", "", series.title + " (" + series.unit + ")"));
+        const clipId = "transport-clip-" + String(series.title).replace(/[^a-z0-9]+/gi, "-").toLowerCase(), svg = svgNode("svg", { viewBox: "0 0 " + width + " " + (top + rowHeight * points.length + 20), class: "publication-distribution-chart", role: "img", "aria-label": series.title + " transportation distribution" }), defs = svgNode("defs"), clip = svgNode("clipPath", { id: clipId }); clip.appendChild(svgNode("rect", { x: left, y: 0, width: plotWidth, height: top + rowHeight * points.length + 20 })); defs.appendChild(clip); svg.appendChild(defs);
+        points.forEach(function (point, index) { const y = top + index * rowHeight + 18, cohortRaw = raw.filter(function (r) { return labelFor[r.canonical_cohort] === point.label && Number.isFinite(Number(rawValue(r))); }), rawValues = cohortRaw.map(rawValue).map(Number), whiskerMin = Math.min.apply(null, rawValues.concat([Number(point.q1)])), whiskerMax = Math.max.apply(null, rawValues.concat([Number(point.q3)])), group = svgNode("g", { "clip-path": "url(#" + clipId + ")" }); const label = svgNode("text", { x: 4, y: y + 4, class: "publication-axis-label" }); label.textContent = point.label; svg.appendChild(label); group.appendChild(svgNode("line", { x1: x(whiskerMin), x2: x(whiskerMax), y1: y, y2: y, class: "publication-whisker" })); group.appendChild(svgNode("rect", { x: x(point.q1), y: y - 9, width: Math.max(1, x(point.q3) - x(point.q1)), height: 18, class: "publication-box" })); group.appendChild(svgNode("line", { x1: x(point.value), x2: x(point.value), y1: y - 12, y2: y + 12, class: "publication-median-line" })); cohortRaw.forEach(function (r) { const value = Number(rawValue(r)), labelText = labelFor[r.canonical_cohort] + ", " + series.title + ": " + displayNumber(value) + " " + series.unit + (r.event_date_local ? ", date " + r.event_date_local : "") + (r.mobility_event_id ? ", session " + r.mobility_event_id : ""), dot = svgNode("circle", { cx: x(value), cy: y, r: 4, class: "publication-raw-point-svg", tabindex: "0" }); dot.setAttribute("aria-label", labelText); const title = svgNode("title"); title.textContent = labelText; dot.appendChild(title); group.appendChild(dot); }); svg.appendChild(group); const valueLabel = svgNode("text", { x: width - right + 8, y: y + 4, class: "publication-axis-label" }); valueLabel.textContent = displayNumber(point.value) + " · n=" + point.sample_count; svg.appendChild(valueLabel); }); panel.appendChild(svg); chart.appendChild(panel);
+      }
+      select.addEventListener("change", draw); wrapper.appendChild(select); wrapper.appendChild(chart); draw(); return wrapper;
+    }
+    const panels = element("div", "publication-graph-panels"); selectedSeries(payload).forEach(function (series) { panels.appendChild(barPanel(series)); }); return panels;
   }
 
   function tableModel(payload) {
-    if (payload.graph_id === "mobility_output_and_burden") {
-      return {
-        columns: [
-          ["label", "Cohort"],
-          ["distance_miles", "Distance (miles)"],
-          ["distance_sample_count", "Distance n"],
-          ["absolute_burden", "Observed burden (g*s)"],
-          ["burden_sample_count", "Burden n"],
-          ["burden_per_mile", "Burden per mile (g*s/mile)"],
-          ["data_through_date", "Data through"]
-        ],
-        rows: payload.accessible_table || []
-      };
-    }
+    const rows = payload.accessible_table || [];
+    const keys = rows.length && rows[0] && typeof rows[0] === "object" ? Object.keys(rows[0]) : [];
     return {
-      columns: [
-        ["label", "Transport cohort"],
-        ["body_coupling_class", "Body coupling"],
-        ["duration_minutes", "Duration (minutes)"],
-        ["fsi", "FSI (unitless index)"],
-        ["fsi_sample_count", "FSI n"],
-        ["component_sample_count", "Component n"],
-        ["data_through_date", "Data through"]
-      ],
-      rows: payload.accessible_table || []
+      columns: keys.map(function (key) { return [key, key.replaceAll("_", " ")]; }),
+      rows: rows
     };
   }
 
@@ -262,7 +318,8 @@
     const example = element("article", "case-example");
     example.appendChild(element("p", "case-example-label", "N-of-1 case study example"));
     example.appendChild(element("h2", "", payload.title.replace(/^N-of-1 case study example — /, "")));
-    example.appendChild(element("p", "", payload.interpretation));
+    if (payload.question) example.appendChild(element("p", "publication-question", "Question: " + payload.question));
+    example.appendChild(element("p", "publication-finding", payload.finding || payload.interpretation));
     example.appendChild(element("p", "publication-meta", payload.method_disclosure));
 
     const chips = element("div", "publication-chips");
@@ -271,9 +328,16 @@
     chips.appendChild(element("span", "publication-chip", "Data through: " + payload.data_through_date));
     example.appendChild(chips);
 
-    const panels = element("div", "publication-graph-panels");
-    selectedSeries(payload).forEach(function (series) { panels.appendChild(barPanel(series)); });
-    example.appendChild(panels);
+    example.appendChild(exampleVisual(payload));
+
+    if (payload.planned_comparator) {
+      const planned = element("aside", "publication-planned-comparator");
+      planned.appendChild(element("strong", "", payload.planned_comparator.label + " — PLANNED / UNMEASURED COMPARATOR"));
+      planned.appendChild(element("p", "publication-planned-status", payload.planned_comparator.status));
+      planned.appendChild(element("p", "", payload.planned_comparator.research_question));
+      planned.appendChild(element("p", "publication-meta", "No measured value or zero bar is shown. " + payload.planned_comparator.limitation));
+      example.appendChild(planned);
+    }
 
     const source = element("div", "publication-sources");
     source.appendChild(element("h3", "", "Source scope"));
@@ -294,6 +358,11 @@
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     example.appendChild(link);
+    const inspect = element("a", "button button-secondary", "Inspect in Evidence Observatory");
+    inspect.href = "https://evidence.handicapskater.com/#" + encodeURIComponent(payload.graph_id);
+    inspect.target = "_blank";
+    inspect.rel = "noopener noreferrer";
+    example.appendChild(inspect);
     mount.appendChild(example);
   }
 
@@ -330,7 +399,14 @@
         conclusions.appendChild(block);
       });
       card.appendChild(conclusions);
-      card.appendChild(element("p", "publication-meta", "Publication figures: " + (hypothesis.publication_figure_ids || []).join(" · ")));
+      const figureLinks = element("p", "publication-meta", "Publication figures: ");
+      (hypothesis.publication_figure_ids || []).forEach(function (figureId, index) {
+        if (index) figureLinks.appendChild(document.createTextNode(" · "));
+        const figureLink = element("a", "", figureId);
+        figureLink.href = "https://evidence.handicapskater.com/#" + encodeURIComponent(figureId);
+        figureLinks.appendChild(figureLink);
+      });
+      card.appendChild(figureLinks);
       const details = element("details", "publication-details");
       details.appendChild(element("summary", "", "Open review rules, provenance, and evidence-quality limits"));
       details.appendChild(element("h4", "", "Inclusion rules"));
