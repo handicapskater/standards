@@ -130,8 +130,8 @@ p {
 
 .brand:hover,
 .brand[aria-current="page"] {
-  background: var(--blue);
-  border-color: var(--blue);
+  background: #0072ce;
+  border-color: #0072ce;
   color: #fff;
 }
 
@@ -174,8 +174,8 @@ p {
 }
 
 .site-nav a[aria-current="page"] {
-  background: var(--blue);
-  border-color: var(--blue);
+  background: #0072ce;
+  border-color: #0072ce;
   color: #fff;
 }
 
@@ -189,9 +189,13 @@ p {
 }
 
 .site-nav a:hover {
-  background: var(--blue);
-  border-color: var(--blue);
+  background: #0072ce;
+  border-color: #0072ce;
   color: #fff;
+}
+
+.site-nav a {
+  color: #005eb8;
 }
 
 .site-nav a:focus-visible {
@@ -215,11 +219,16 @@ p {
 
 .hero-inner {
   display: flex;
-  min-height: clamp(24rem, 40vw, 33rem);
+  min-height: clamp(20rem, 32vw, 26rem);
   flex-direction: column;
   justify-content: center;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.hero--standards:not(.principle-hero) .hero-inner {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .hero--narrative {
@@ -245,6 +254,12 @@ p {
 .hero--standards {
   --hero-start: var(--hero-standards-start);
   --hero-end: var(--hero-standards-end);
+}
+
+.hero {
+  --hero-start: rgba(0, 71, 171, 0.98);
+  --hero-end: rgba(0, 114, 206, 0.92);
+  --hero-image: linear-gradient(transparent, transparent);
 }
 
 .hero h1 {
@@ -321,6 +336,12 @@ main > section.section > .grid {
 
 .section.alt .eyebrow {
   color: var(--accent-deep);
+}
+
+main > section.section .eyebrow,
+main > section.section.alt .eyebrow,
+main > section.section.section-alt .eyebrow {
+  color: #005eb8;
 }
 
 .card .eyebrow {

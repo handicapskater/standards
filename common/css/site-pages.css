@@ -132,7 +132,7 @@
   max-width: 64rem;
   margin-top: 1.25rem;
   padding-left: 1rem;
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid #0072ce;
   color: var(--muted);
 }
 
@@ -140,7 +140,7 @@
   max-width: 64rem;
   margin: 0;
   padding-left: 1rem;
-  border-left: 4px solid var(--teal);
+  border-left: 4px solid #0072ce;
   color: var(--muted);
 }
 

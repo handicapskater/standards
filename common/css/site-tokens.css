@@ -58,6 +58,6 @@ body.site-com {
 body.site-org {
   --blue: #173b56;
   --teal: #0a6f74;
-  --panel-alt: #eef4f7;
+  --panel-alt: #edf5ff;
   --surface-alt: var(--panel-alt);
 }

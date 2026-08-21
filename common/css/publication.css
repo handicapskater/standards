@@ -25,7 +25,7 @@
   margin-top: 1.2rem;
   padding: 1.1rem;
   border: 1px solid var(--line);
-  border-left: 5px solid var(--teal);
+  border-left: 5px solid #0072ce;
   border-radius: var(--radius);
   background: var(--panel);
 }
@@ -44,11 +44,13 @@
 }
 
 .publication-unavailable {
-  border-left-color: var(--gold);
+  border-left-color: #0072ce;
 }
 
 .case-example {
-  border-left-color: var(--gold);
+  border-color: #b8d7f5;
+  border-left-color: #0072ce;
+  background: #edf5ff;
   box-shadow: var(--shadow);
 }
 
@@ -95,7 +97,7 @@
 .publication-conclusion-grid section {
   padding: 0.8rem;
   border: 1px solid var(--line);
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid #0072ce;
   background: var(--panel-alt);
 }
 
@@ -274,7 +276,7 @@
 .cross-site-card {
   padding: 1.2rem;
   border: 1px solid var(--line);
-  border-left: 5px solid var(--gold);
+  border-left: 5px solid #0072ce;
   border-radius: var(--radius);
   background: var(--panel);
 }
@@ -353,4 +355,4 @@
     font-size: 7.5pt;
   }
 }
-.publication-planned-comparator{margin:1rem 0;padding:1rem 1.15rem;border:2px dashed #9b6518;border-radius:.65rem;background:transparent}.publication-planned-status{font-weight:800;letter-spacing:.05em;color:#75480b}.publication-question{font-weight:700}
+.publication-planned-comparator{margin:1rem 0;padding:1rem 1.15rem;border:2px dashed #0072ce;border-radius:.65rem;background:transparent}.publication-planned-status{font-weight:800;letter-spacing:.05em;color:#005eb8}.publication-question{font-weight:700}
