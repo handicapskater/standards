@@ -45,6 +45,18 @@ def read(path: str) -> str:
 
 
 class StandardsSiteTests(unittest.TestCase):
+    def test_homepage_keeps_generalized_standards_separate_from_scientific_calculation(self) -> None:
+        html = read("index.html").lower()
+        self.assertIn("function-first review", html)
+        self.assertIn("source provenance", html)
+        self.assertIn("numerical-parity contracts", html)
+        self.assertIn("checkpoint reuse is not accelerator execution", html)
+        self.assertIn("same transportation purpose", html)
+        self.assertIn("do not directly measure pain", html)
+        self.assertIn("sole scientific authority", html)
+        self.assertNotIn("48.34x", html)
+        self.assertNotIn("calculatef", html)
+
     def test_footer_has_no_sequence_or_related_navigation(self) -> None:
         footer = read("common/site-footer.js")
         css = read("common/css/site-chrome.css")
