@@ -61,14 +61,14 @@
     }
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "20f9b317caeb5e5ad4731c90521b1fb0fee29b86fcaf34d09aeb07b69eaa00da",
+  "content_hash": "44373faf1303dc42b340939c8193853130714c24d132a2cf1cd32a833369db49",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized terminology and identity boundary.",
   "formula_identities": [],
   "intended_route": "/evidence-quality/",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result."
   ],
   "plain_language_finding": "CSS means Cohort Similarity Score and is used within the FSI platform without being relabeled as FSI or Tensor.",
   "relation_identities": [],

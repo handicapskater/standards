@@ -4690,7 +4690,7 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "199a578c7d8bb3cc2bd5e4e9d6e1a639eb4d3c10bcaacf0231ba3f9383f8a801",
+  "content_hash": "ef7fc767d86124a7ff482a0880eb956ad4906d4ebca7005672e29ded5c80e1aa",
   "coverage": {
     "FNS": 173,
     "SNS": 186,
@@ -4732,9 +4732,9 @@
   "interpretation": "Distance and duration show functional capacity over time; no unsupported ACC comparison, pain outcome, or population inference is added.",
   "limitation": "This is repeated N-of-1 functional-capacity context; subtype counts and modality coverage differ, and missing ACC values are not fabricated.",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result."
   ],
-  "long_description": "Distance and duration show functional capacity over time; no unsupported ACC comparison, pain outcome, or population inference is added. FNS, SNS, and XMS remain preserved source subtypes. No missing ACC comparison is created. N-of-1 case study example This N-of-1 case study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/longitudinal/ Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof.",
+  "long_description": "Distance and duration show functional capacity over time; no unsupported ACC comparison, pain outcome, or population inference is added. FNS, SNS, and XMS remain preserved source subtypes. No missing ACC comparison is created. N-of-1 case study example This N-of-1 case study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/longitudinal/ Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result.",
   "matrix": [],
   "method_disclosure": "This N-of-1 case study example illustrates a review method and is not universal.",
   "missingness": [

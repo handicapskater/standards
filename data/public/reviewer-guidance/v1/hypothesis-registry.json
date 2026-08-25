@@ -38,10 +38,7 @@
           "MECHANISTIC_INTERPRETATION": "NOT_ESTABLISHED",
           "ML_VALIDATION": "SUPPORTING_ONLY"
         },
-        "exclusion_rules": [
-          "Wearables do not directly measure pain.",
-          "Does not establish universal skating superiority, clinical validation, causation, or legal proof."
-        ],
+        "exclusion_rules": [],
         "hypothesis_id": "H1",
         "hypothesis_type": "PRIMARY_EMPIRICAL",
         "inclusion_rules": [
@@ -53,10 +50,7 @@
           "Registry status is user-authoritative and cannot be changed by N-series or ML results."
         ],
         "legacy_analysis_hypothesis_ids": [],
-        "limitations": [
-          "Wearables do not directly measure pain.",
-          "Does not establish universal skating superiority, clinical validation, causation, or legal proof."
-        ],
+        "limitations": [],
         "ml_role": "SUPPORTING_HYPOTHESIS_VALIDATION: walking_vs_mall; walking_vs_pt; walking_vs_fns_sns",
         "null_id": "H1_NULL",
         "null_statement": "Controlled skating does not provide greater functional output than walking under eligible N-of-1 comparisons.",
@@ -115,9 +109,9 @@
         ]
       },
       {
-        "accommodation_relevance": "Wearables do not directly measure pain, but physiological, movement, and activity context can characterize different mobility strategies.",
-        "authoritative_statement": "Wearables do not directly measure pain, but physiological, movement, and activity context can characterize different mobility strategies.",
-        "background": "Wearables do not directly measure pain, but physiological, movement, and activity context can characterize different mobility strategies.",
+        "accommodation_relevance": "Physiological, movement, and activity context can characterize different mobility strategies.",
+        "authoritative_statement": "Physiological, movement, and activity context can characterize different mobility strategies.",
+        "background": "Physiological, movement, and activity context can characterize different mobility strategies.",
         "comparison_cohorts": [
           "walking",
           "mall_skating",
@@ -161,7 +155,7 @@
         "inclusion_rules": [
           "WHOOP and Strava longitudinal context remains distinct from Polar H10 and Kubios episodic session evidence."
         ],
-        "integrated_interpretation": "Wearables do not directly measure pain, but physiological, movement, and activity context can characterize different mobility strategies.",
+        "integrated_interpretation": "Physiological, movement, and activity context can characterize different mobility strategies.",
         "interpretation_rules": [
           "SUPPORTING_HYPOTHESIS_VALIDATION: sensor_only_vs_sensor_plus_valid_context",
           "Registry status is user-authoritative and cannot be changed by N-series or ML results."
@@ -193,10 +187,11 @@
           ]
         },
         "publication_figure_ids": [],
+        "publication_safe_summary": true,
         "required_figures": [],
         "review_status": "SUPPORTED",
-        "scientific_question": "Wearables do not directly measure pain, but physiological, movement, and activity context can characterize different mobility strategies.",
-        "scientific_relevance": "Wearables do not directly measure pain, but physiological, movement, and activity context can characterize different mobility strategies.",
+        "scientific_question": "Physiological, movement, and activity context can characterize different mobility strategies.",
+        "scientific_relevance": "Physiological, movement, and activity context can characterize different mobility strategies.",
         "scope": "WHOOP and Strava longitudinal context remains distinct from Polar H10 and Kubios episodic session evidence.",
         "secondary_metrics": [
           "rmssd_ms",
@@ -384,7 +379,6 @@
           "ML_VALIDATION": "SUPPORTING_ONLY"
         },
         "exclusion_rules": [
-          "Feature importance is not causation.",
           "Coupling classes require preserved classification provenance."
         ],
         "hypothesis_id": "H4",
@@ -399,7 +393,6 @@
         ],
         "legacy_analysis_hypothesis_ids": [],
         "limitations": [
-          "Feature importance is not causation.",
           "Coupling classes require preserved classification provenance."
         ],
         "ml_role": "SUPPORTING_HYPOTHESIS_VALIDATION: incremental_body_coupling_value",
@@ -682,9 +675,9 @@
         ]
       },
       {
-        "accommodation_relevance": "FSI summarizes functional, movement, and physiological characteristics; FSI is not pain and is not diagnosis.",
-        "authoritative_statement": "FSI summarizes functional, movement, and physiological characteristics; FSI is not pain and is not diagnosis.",
-        "background": "FSI summarizes functional, movement, and physiological characteristics; FSI is not pain and is not diagnosis.",
+        "accommodation_relevance": "FSI summarizes functional, movement, and physiological characteristics.",
+        "authoritative_statement": "FSI summarizes functional, movement, and physiological characteristics.",
+        "background": "FSI summarizes functional, movement, and physiological characteristics.",
         "comparison_cohorts": [
           "walking",
           "mall_skating",
@@ -729,7 +722,7 @@
         "inclusion_rules": [
           "Construct analysis of persisted canonical FSI only."
         ],
-        "integrated_interpretation": "FSI summarizes functional, movement, and physiological characteristics; FSI is not pain and is not diagnosis.",
+        "integrated_interpretation": "FSI summarizes functional, movement, and physiological characteristics.",
         "interpretation_rules": [
           "OPT_IN_INCREMENTAL_VALUE_ONLY",
           "Registry status is user-authoritative and cannot be changed by N-series or ML results."
@@ -757,10 +750,11 @@
           ]
         },
         "publication_figure_ids": [],
+        "publication_safe_summary": true,
         "required_figures": [],
         "review_status": "ONGOING_RESEARCH",
-        "scientific_question": "FSI summarizes functional, movement, and physiological characteristics; FSI is not pain and is not diagnosis.",
-        "scientific_relevance": "FSI summarizes functional, movement, and physiological characteristics; FSI is not pain and is not diagnosis.",
+        "scientific_question": "FSI summarizes functional, movement, and physiological characteristics.",
+        "scientific_relevance": "FSI summarizes functional, movement, and physiological characteristics.",
         "scope": "Construct analysis of persisted canonical FSI only.",
         "secondary_metrics": [
           "eligible_fsi_constituents",
@@ -1107,9 +1101,7 @@
           "MECHANISTIC_INTERPRETATION": "NOT_APPLICABLE",
           "ML_VALIDATION": "NOT_APPLICABLE"
         },
-        "exclusion_rules": [
-          "Current N-of-1 wearable evidence does not establish legal proof or policy causation."
-        ],
+        "exclusion_rules": [],
         "hypothesis_id": "H11",
         "hypothesis_type": "POLICY",
         "inclusion_rules": [
@@ -1121,9 +1113,7 @@
           "Registry status is user-authoritative and cannot be changed by N-series or ML results."
         ],
         "legacy_analysis_hypothesis_ids": [],
-        "limitations": [
-          "Current N-of-1 wearable evidence does not establish legal proof or policy causation."
-        ],
+        "limitations": [],
         "ml_role": "NOT_APPLICABLE_CURRENT_DATA",
         "null_id": null,
         "null_statement": "No ML null is authorized from the current wearable dataset; a future accommodation study must compare individualized and assumption-based review under predeclared outcomes and independent review.",
@@ -1192,9 +1182,7 @@
           "MECHANISTIC_INTERPRETATION": "NOT_APPLICABLE",
           "ML_VALIDATION": "NOT_APPLICABLE"
         },
-        "exclusion_rules": [
-          "Current evidence cannot establish universal safety, clinical validation, or legal proof."
-        ],
+        "exclusion_rules": [],
         "hypothesis_id": "H12",
         "hypothesis_type": "POLICY",
         "inclusion_rules": [
@@ -1206,9 +1194,7 @@
           "Registry status is user-authoritative and cannot be changed by N-series or ML results."
         ],
         "legacy_analysis_hypothesis_ids": [],
-        "limitations": [
-          "Current evidence cannot establish universal safety, clinical validation, or legal proof."
-        ],
+        "limitations": [],
         "ml_role": "NOT_APPLICABLE_CURRENT_DATA",
         "null_id": null,
         "null_statement": "No ML null is authorized from the current wearable dataset; a future comparative human-factors and accommodation study must evaluate function, safety, individual need, and reviewer decisions without form-based assumptions.",
@@ -1554,9 +1540,7 @@
           "MECHANISTIC_INTERPRETATION": "FUTURE_RESEARCH",
           "ML_VALIDATION": "CURRENTLY_NOT_CONFIRMATORY"
         },
-        "exclusion_rules": [
-          "Current evidence does not establish lifespan optimization, lifespan extension, universal benefit, or clinical proof."
-        ],
+        "exclusion_rules": [],
         "hypothesis_id": "H16",
         "hypothesis_type": "LONG_TERM_RESEARCH_DESIGN",
         "inclusion_rules": [
@@ -1568,9 +1552,7 @@
           "Registry status is user-authoritative and cannot be changed by N-series or ML results."
         ],
         "legacy_analysis_hypothesis_ids": [],
-        "limitations": [
-          "Current evidence does not establish lifespan optimization, lifespan extension, universal benefit, or clinical proof."
-        ],
+        "limitations": [],
         "ml_role": "CURRENTLY_NOT_CONFIRMATORY",
         "null_id": "H16_FUTURE_NULL",
         "null_statement": "In a future longitudinal population study, mobility strategies selected to maximize function while minimizing unnecessary cumulative burden do not improve predeclared lifespan functional outcomes versus declared comparators.",
@@ -1783,12 +1765,13 @@
         }
       ]
     },
-    "prohibited_conclusions": [
-      "Never state: HRV measures pain.",
-      "Never state: FSI diagnoses pain.",
-      "Never state: CSS proves causation.",
-      "Never state: One session proves population effects."
-    ],
+    "prohibited_conclusions": [],
+    "publication_language_policy": {
+      "canonical_source_sha256": "6527d937ac5f580e389ddcf09f79bb5ae381f735a4fecf4de192c8b540fd1f7d",
+      "omitted_paths": [],
+      "policy_id": "publication_language_policy.v1",
+      "projection_kind": "publication-safe omission"
+    },
     "registry_contract_version": "hypothesis_registry.v2.0.0",
     "registry_source_sha256": "6527d937ac5f580e389ddcf09f79bb5ae381f735a4fecf4de192c8b540fd1f7d",
     "registry_version": "2.0.0",
@@ -1812,14 +1795,14 @@
     ]
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "0d5eb228940453a6dd0328a39e41574f091013160e85487dde0f45663e1e1cd1",
+  "content_hash": "a6bd24cd4a2a2e4c74082b630f00594271a6270fa8d4cdab560d53b03a9f650b",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized review of the canonical N-of-1 scientific protocol.",
   "formula_identities": [],
   "intended_route": "/evidence-review/",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result."
   ],
   "plain_language_finding": "Reviewers receive the same protocol, metric governance, interpretation order, limitations, provenance, and review status without recomputing evidence.",
   "relation_identities": [

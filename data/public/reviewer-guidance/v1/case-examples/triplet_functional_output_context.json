@@ -760,7 +760,7 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "6ec9ad250481516b53c13766a676d45c982026dd8f395762988dc896c246d5cb",
+  "content_hash": "0eaa2a0b21b9fb5e08d01dc077e1cbb4826cfd0294729f077b1ed1258a96ca0d",
   "coverage": {
     "accepted_triplets": 25,
     "distance_stages": 75,
@@ -809,9 +809,9 @@
   "interpretation": "Distance and duration establish functional output; additive cumulative shock per mile is supporting context and impact frequency is not treated as loading severity.",
   "limitation": "The fixed protocol intentionally uses unequal stage distances; distance and duration describe functional output but do not by themselves measure mechanical severity.",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result."
   ],
-  "long_description": "Distance and duration establish functional output; additive cumulative shock per mile is supporting context and impact frequency is not treated as loading severity. All displayed distances come from v_normalized_distance_authority. Impact count or rate is not presented as impact magnitude. N-of-1 case study example This N-of-1 case study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/mobility-comparison/ Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof.",
+  "long_description": "Distance and duration establish functional output; additive cumulative shock per mile is supporting context and impact frequency is not treated as loading severity. All displayed distances come from v_normalized_distance_authority. Impact count or rate is not presented as impact magnitude. N-of-1 case study example This N-of-1 case study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/mobility-comparison/ Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result.",
   "matrix": [],
   "method_disclosure": "This N-of-1 case study example illustrates a review method and is not universal.",
   "missingness": [

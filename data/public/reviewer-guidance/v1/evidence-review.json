@@ -1,8 +1,8 @@
 {
   "accessibility": {
-    "plain_language_summary": "An individualized result illustrates a review method; it does not establish a universal standard.",
+    "plain_language_summary": "Individualized results illustrate review methods with source scope, units, sample counts, and missingness retained.",
     "sample_counts_visible": false,
-    "screen_reader_summary": "An individualized result illustrates a review method; it does not establish a universal standard.",
+    "screen_reader_summary": "Individualized results illustrate review methods with source scope, units, sample counts, and missingness retained.",
     "table_available": true,
     "units_visible": false
   },
@@ -16,16 +16,16 @@
     ]
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "75c10f86e3ddb9339c7ba61998c8a4ddc3cc27da697ce7e52397ba3e0962dc5e",
+  "content_hash": "ee958aa58faece9cd3ce792ae718fdd47a9116f823118609a513c81b898ad842",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized evidence-review method.",
   "formula_identities": [],
   "intended_route": "/evidence-review/",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result."
   ],
-  "plain_language_finding": "An individualized result illustrates a review method; it does not establish a universal standard.",
+  "plain_language_finding": "Individualized results illustrate review methods with source scope, units, sample counts, and missingness retained.",
   "relation_identities": [],
   "resource_id": "evidence-review",
   "resource_version": "fsi_publication_resource.v1",

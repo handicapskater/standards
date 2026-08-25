@@ -6641,7 +6641,7 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "e169cbfc49fc76ee8c3c6734b750f8e7d8bdf6f73cb8ffc2ddfc1682788b1c2a",
+  "content_hash": "15a6348839292e0d76e69b9548596289ec97680fed4aa28f777ee7ef9261a4d8",
   "coverage": {
     "motorcycle": 210,
     "paratransit_bus": 15,
@@ -6702,9 +6702,9 @@
   "interpretation": "Transportation profiles vary across passive-passenger and active-controlled contexts; sparse modes and missing modalities remain visible.",
   "limitation": "This is unequal-n N-of-1 descriptive evidence with modality-specific missingness. No active/passive universal ranking or fixed-rail superiority is inferred.",
   "limitations": [
-    "Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof."
+    "Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result."
   ],
-  "long_description": "Transportation profiles vary across passive-passenger and active-controlled contexts; sparse modes and missing modalities remain visible. SilverRide remains distinct from other sedan/taxi records. Motorcycle remains active controlled and is not interpreted as passive passenger exposure. Fixed rail is a planned, unmeasured comparator and has no numeric bar. N-of-1 case study example This N-of-1 case study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/transportation/ Wearables estimate physiologic, autonomic, MSK, movement, impact, and transport burden. They do not directly measure pain. Results are N-of-1 evidence, not clinical proof, diagnosis, causation, universal proof, or legal proof.",
+  "long_description": "Transportation profiles vary across passive-passenger and active-controlled contexts; sparse modes and missing modalities remain visible. SilverRide remains distinct from other sedan/taxi records. Motorcycle remains active controlled and is not interpreted as passive passenger exposure. Fixed rail is a planned, unmeasured comparator and has no numeric bar. N-of-1 case study example This N-of-1 case study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/transportation/ Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result.",
   "matrix": [],
   "method_disclosure": "This N-of-1 case study example illustrates a review method and is not universal.",
   "missingness": [

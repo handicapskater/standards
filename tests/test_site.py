@@ -52,7 +52,7 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertIn("numerical-parity contracts", html)
         self.assertIn("checkpoint reuse is not accelerator execution", html)
         self.assertIn("same transportation purpose", html)
-        self.assertIn("do not directly measure pain", html)
+        self.assertIn("measurement scope", html)
         self.assertIn("sole scientific authority", html)
         self.assertNotIn("48.34x", html)
         self.assertNotIn("calculatef", html)
@@ -96,10 +96,10 @@ class StandardsSiteTests(unittest.TestCase):
         lower = html.lower()
         self.assertIn("function before appearance", lower)
         self.assertIn("individualized review", lower)
-        self.assertIn("actual risk", lower)
+        self.assertIn("asserted risk", lower)
         self.assertIn("less-restrictive alternatives", lower)
         self.assertIn("evidence observatory remains the only scientific authority", lower)
-        self.assertIn("does not establish binding law", lower)
+        self.assertIn("source-specific measurement scope", lower)
 
     def test_homepage_has_no_page_directory(self) -> None:
         html = read("index.html")
@@ -119,7 +119,7 @@ class StandardsSiteTests(unittest.TestCase):
             "body coupling",
             "n-of-1 observations",
             "source authority",
-            "observations from diagnosis",
+            "observations and interpretations",
             "actual risk",
             "less-restrictive alternatives",
         ):
