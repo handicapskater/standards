@@ -84,12 +84,14 @@
     const entry = manifest.graphs.find(function (item) {
       return item && item.graph_id === id;
     });
-    if (!entry || !safePath(entry.path)) return Promise.reject(new Error("Case example unavailable"));
-    return fetchJson(entry.path).then(function (payload) {
+    if (!entry || !safePath(entry.artifact_path)) return Promise.reject(new Error("Case example unavailable"));
+    return fetchJson(entry.artifact_path).then(function (payload) {
       if (
         !payload ||
         payload.graph_id !== id ||
         payload.destination !== DESTINATION ||
+        entry.destination !== DESTINATION ||
+        entry.page !== payload.intended_route ||
         payload.graph_contract_version !== GRAPH_VERSION ||
         payload.content_hash !== entry.content_hash ||
         payload.case_example_label !== "N-of-1 case study example" ||
