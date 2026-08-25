@@ -335,7 +335,7 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "9252fbf3a169a6ded6aa82074997f412e329d3f75aa35acf737ce807f666e46d",
+  "content_hash": "7b27fb6bc3dd4490297d4a640c04667e606a41bd6773f03345e51c0361e40fa9",
   "coverage": {
     "cumulative_dynamic_shock_per_min": 25
   },
@@ -797,5 +797,6 @@
   "title": "N-of-1 case study example — Walking versus controlled rolling: accumulated mechanical load",
   "units": [
     "g*s/min"
-  ]
+  ],
+  "visual": {}
 }

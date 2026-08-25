@@ -760,7 +760,7 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "fa4dc63b2881347c3523db855b281a16ec729e33596e55ee3aed7fd877665265",
+  "content_hash": "6ec9ad250481516b53c13766a676d45c982026dd8f395762988dc896c246d5cb",
   "coverage": {
     "accepted_triplets": 25,
     "distance_stages": 75,
@@ -1004,5 +1004,6 @@
   "units": [
     "miles",
     "s"
-  ]
+  ],
+  "visual": {}
 }
