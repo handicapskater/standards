@@ -335,7 +335,7 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "fd517e67a72b999c56439c6103cb4a901a5f0297a822788edc4db1eac953478d",
+  "content_hash": "fc3420d81091886908664133e4c7c0f6f3384d1d85e172d1d79457acea7a2d84",
   "coverage": {
     "cumulative_dynamic_shock_per_min": 25
   },
@@ -359,7 +359,7 @@
       "cumulative_dynamic_shock_per_min": "g*s/min"
     }
   },
-  "finding": "Walking produced materially greater accumulated dynamic shock per minute than controlled Mall skating across the accepted repeated protocol.",
+  "finding": "Walking produced materially greater accumulated dynamic shock per minute than controlled Mall skating across accepted Mobility Perturbation & Recovery Experiment dates.",
   "formula_identities": [
     "episodic_kubios_metrics.v1.0.0",
     "kubios_acc_session_metrics.v1",
@@ -375,12 +375,12 @@
   "graph_id": "walking_vs_mall_accumulated_mechanical_load",
   "graph_type": "paired_date_dumbbells",
   "intended_route": "/standards/#actual-risk",
-  "interpretation": "Walking produced materially greater accumulated dynamic shock per minute than controlled Mall skating across the accepted repeated protocol.",
+  "interpretation": "Walking produced materially greater accumulated dynamic shock per minute than controlled Mall skating across accepted Mobility Perturbation & Recovery Experiment dates.",
   "limitation": "This repeated comparison reports mechanical exposure for accepted paired dates; sample size and date coverage remain explicit.",
   "limitations": [
     "Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result."
   ],
-  "long_description": "Walking produced materially greater accumulated dynamic shock per minute than controlled Mall skating across the accepted repeated protocol. Each line joins Mall and Walk values recorded on the same accepted date. Medians are persisted; direction counts are calculated from the displayed paired records. N-of-1 case study example This N-of-1 case study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/mobility-comparison/ Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result.",
+  "long_description": "Walking produced materially greater accumulated dynamic shock per minute than controlled Mall skating across accepted Mobility Perturbation & Recovery Experiment dates. Each line joins Mall and Walk values recorded on the same accepted date. Medians are persisted; direction counts are calculated from the displayed paired records. N-of-1 case study example This N-of-1 case study example illustrates a review method and is not universal. Canonical case evidence: https://handicapskater.com/evidence/mobility-comparison/ Sample counts, date coverage, source scope, missingness, and measurement availability accompany each scientific result.",
   "matrix": [],
   "method_disclosure": "This N-of-1 case study example illustrates a review method and is not universal.",
   "missingness": [

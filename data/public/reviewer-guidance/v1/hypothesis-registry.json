@@ -55,6 +55,32 @@
         "null_id": "H1_NULL",
         "null_statement": "Controlled skating does not provide greater functional output than walking under eligible N-of-1 comparisons.",
         "observed_result": "Repeated N-of-1 walking-versus-controlled-skating evidence; distance, duration, functional output, and long-term observation retain separate scope.",
+        "phase_context": {
+          "current_gaps": [
+            "external replication"
+          ],
+          "evidence_currently_available": [
+            "repeated perturbation/recovery experiment",
+            "functional output",
+            "paired mechanical evidence",
+            "primary ML",
+            "mechanical-only ML",
+            "exposure-length-blind sensitivity"
+          ],
+          "evidence_role": "confirmatory_and_supporting",
+          "hypothesis_id": "H1",
+          "mapped_analyses": [
+            "same_day_triplet_analysis",
+            "functional_burden",
+            "hypothesis_ml_validation.v1.0.0",
+            "hypothesis_ml_exposure_blind_sensitivity.v1.0.0"
+          ],
+          "next_empirical_test": "Prospectively repeat the governed perturbation/recovery sequence with unchanged event and source provenance.",
+          "question_dimensions": [
+            "scientific",
+            "functional"
+          ]
+        },
         "primary_metrics": [
           "distance_miles",
           "duration_seconds",
@@ -168,6 +194,26 @@
         "null_id": "H2_NULL",
         "null_statement": "Adding valid wearable/context information does not improve held-out characterization/discrimination of mobility state beyond declared basic measurement features.",
         "observed_result": "WHOOP and Strava longitudinal context remains distinct from Polar H10 and Kubios episodic session evidence.",
+        "phase_context": {
+          "current_gaps": [
+            "context additions have mixed incremental value"
+          ],
+          "evidence_currently_available": [
+            "activity-level function, physiology, mechanics, and context",
+            "multiclass context ML"
+          ],
+          "evidence_role": "supporting",
+          "hypothesis_id": "H2",
+          "mapped_analyses": [
+            "functional_burden",
+            "hypothesis_ml_validation.v1.0.0"
+          ],
+          "next_empirical_test": "Evaluate predeclared context ablations with grouped date validation.",
+          "question_dimensions": [
+            "scientific",
+            "platform"
+          ]
+        },
         "primary_metrics": [
           "duration_seconds",
           "distance_miles",
@@ -282,6 +328,28 @@
         "null_id": "H3_NULL",
         "null_statement": "Transportation cohort/mode does not explain held-out mechanical/physiological differences beyond expected within-cohort variation.",
         "observed_result": "Verified vehicle cohorts remain distinct; motorcycle is an active-controlled load path, not a passive-passenger cohort.",
+        "phase_context": {
+          "current_gaps": [
+            "longitudinal passive-ride physiology",
+            "fixed rail is unmeasured and access-limited"
+          ],
+          "evidence_currently_available": [
+            "verified vehicle cohorts",
+            "passive passenger mechanics",
+            "transportation ML discrimination"
+          ],
+          "evidence_role": "supporting",
+          "hypothesis_id": "H3",
+          "mapped_analyses": [
+            "transportation_body_coupling",
+            "hypothesis_ml_validation.v1.0.0"
+          ],
+          "next_empirical_test": "Run governed post-skate ParaTransit physiology, then collect the planned fixed-rail comparator when access permits.",
+          "question_dimensions": [
+            "scientific",
+            "transportation"
+          ]
+        },
         "primary_metrics": [
           "vertical_dynamic_g_rms",
           "magnitude_dynamic_g_rms",
@@ -399,6 +467,27 @@
         "null_id": "H4_NULL",
         "null_statement": "Body-coupling context adds no incremental held-out information beyond declared basic activity/vehicle covariates.",
         "observed_result": "Body coupling is interpreted with movement, duration, load path, control, and environment.",
+        "phase_context": {
+          "current_gaps": [
+            "paired passive physiology by vehicle",
+            "fixed-rail comparator"
+          ],
+          "evidence_currently_available": [
+            "vehicle cohorts",
+            "passive passenger mechanical exposure",
+            "body-coupling classifications"
+          ],
+          "evidence_role": "supporting",
+          "hypothesis_id": "H4",
+          "mapped_analyses": [
+            "transportation_body_coupling"
+          ],
+          "next_empirical_test": "Estimate vehicle-cohort recovery trajectories while retaining motorcycle as an active-control transportation cohort.",
+          "question_dimensions": [
+            "scientific",
+            "mechanical"
+          ]
+        },
         "primary_metrics": [
           "body_coupling_class",
           "vertical_dynamic_g_rms",
@@ -504,6 +593,26 @@
         "null_id": "H5_NULL",
         "null_statement": "Repeated Mall to Walk to PT observations do not produce more stable/reproducible effect estimates than comparable single-session estimates.",
         "observed_result": "Repeated Mall to Walk to PT protocol with triplet/date as the independent unit.",
+        "phase_context": {
+          "current_gaps": [
+            "prospective repetition under the current contract"
+          ],
+          "evidence_currently_available": [
+            "Mobility Perturbation & Recovery Experiment",
+            "accepted same-day Mall → Walk → PT sequences"
+          ],
+          "evidence_role": "confirmatory",
+          "hypothesis_id": "H5",
+          "mapped_analyses": [
+            "same_day_triplet_analysis",
+            "triplet_paired_statistics"
+          ],
+          "next_empirical_test": "Collect additional accepted dates using the same stage order and review gate.",
+          "question_dimensions": [
+            "scientific",
+            "protocol"
+          ]
+        },
         "primary_metrics": [
           "repeated_effect_estimate_stability",
           "vertical_dynamic_g_rms",
@@ -621,6 +730,26 @@
         "null_id": "H6_NULL",
         "null_statement": "Respecting longitudinal versus episodic measurement scope provides no improvement in validity/stability versus indiscriminately merged scope.",
         "observed_result": "Longitudinal overnight readiness and episodic session physiology remain separately labeled and missing when unavailable.",
+        "phase_context": {
+          "current_gaps": [
+            "source-compatible cross-timescale linkage"
+          ],
+          "evidence_currently_available": [
+            "longitudinal WHOOP overnight recovery and Strava activity context",
+            "episodic Polar H10/Kubios RRI, HRV, ECG, and ACC"
+          ],
+          "evidence_role": "methodological",
+          "hypothesis_id": "H6",
+          "mapped_analyses": [
+            "longitudinal_context",
+            "episodic_session_metrics"
+          ],
+          "next_empirical_test": "Compare longitudinal and episodic signals without merging their HRV scopes.",
+          "question_dimensions": [
+            "scientific",
+            "measurement"
+          ]
+        },
         "primary_metrics": [
           "measurement_scope",
           "source_coverage",
@@ -736,6 +865,24 @@
         "null_id": "H7_NULL",
         "null_statement": "Persisted FSI provides no incremental held-out information beyond its eligible constituent/baseline features.",
         "observed_result": "Construct analysis of persisted canonical FSI only.",
+        "phase_context": {
+          "current_gaps": [
+            "prospective validation"
+          ],
+          "evidence_currently_available": [
+            "persisted governed FSI results"
+          ],
+          "evidence_role": "methodological",
+          "hypothesis_id": "H7",
+          "mapped_analyses": [
+            "fsi_persistence"
+          ],
+          "next_empirical_test": "Validate persisted FSI behavior against predeclared primary measurements without changing the formula.",
+          "question_dimensions": [
+            "scientific",
+            "index"
+          ]
+        },
         "primary_metrics": [
           "fsi"
         ],
@@ -845,6 +992,24 @@
         "null_id": "H8_NULL",
         "null_statement": "CSS does not identify appropriate same/comparable contexts better than declared permutation/naive similarity baselines.",
         "observed_result": "Comparable-context similarity within declared score scope.",
+        "phase_context": {
+          "current_gaps": [
+            "external state comparisons"
+          ],
+          "evidence_currently_available": [
+            "persisted governed CSS results"
+          ],
+          "evidence_role": "methodological",
+          "hypothesis_id": "H8",
+          "mapped_analyses": [
+            "css_persistence"
+          ],
+          "next_empirical_test": "Test predeclared CSS neighborhood stability without changing the formula.",
+          "question_dimensions": [
+            "scientific",
+            "similarity"
+          ]
+        },
         "primary_metrics": [
           "css"
         ],
@@ -953,6 +1118,24 @@
         "null_id": "H9_NULL",
         "null_statement": "Tensor v0.3 provides no incremental held-out information beyond a declared reduced scalar/baseline representation.",
         "observed_result": "Persisted Tensor v0.3 with dimensions and version retained.",
+        "phase_context": {
+          "current_gaps": [
+            "unavailable axes remain unavailable"
+          ],
+          "evidence_currently_available": [
+            "versioned Tensor v0.3 persistence and missing-axis metadata"
+          ],
+          "evidence_role": "future_research",
+          "hypothesis_id": "H9",
+          "mapped_analyses": [
+            "tensor_persistence"
+          ],
+          "next_empirical_test": "Evaluate only when provenance-complete axes meet the existing gate.",
+          "question_dimensions": [
+            "scientific",
+            "multidimensional"
+          ]
+        },
         "primary_metrics": [
           "tensor_v0_3"
         ],
@@ -1037,6 +1220,25 @@
         "null_id": null,
         "null_statement": "No ML null is authorized from the current wearable dataset; a future human-factors study must compare appearance-led and function-first review outcomes using blinded reviewers and predeclared decision criteria.",
         "observed_result": "Normative and design hypothesis.",
+        "phase_context": {
+          "current_gaps": [
+            "prospective reviewer application"
+          ],
+          "evidence_currently_available": [
+            "measured functional output and burden comparisons"
+          ],
+          "evidence_role": "policy",
+          "hypothesis_id": "H10",
+          "mapped_analyses": [
+            "functional_burden",
+            "mobility_comparison"
+          ],
+          "next_empirical_test": "Apply a predeclared function-first review rubric to measured alternatives.",
+          "question_dimensions": [
+            "policy",
+            "functional"
+          ]
+        },
         "primary_metrics": [
           "functional_capability",
           "review_decision_quality"
@@ -1118,6 +1320,25 @@
         "null_id": null,
         "null_statement": "No ML null is authorized from the current wearable dataset; a future accommodation study must compare individualized and assumption-based review under predeclared outcomes and independent review.",
         "observed_result": "Policy hypothesis.",
+        "phase_context": {
+          "current_gaps": [
+            "decision-process evaluation"
+          ],
+          "evidence_currently_available": [
+            "individualized cohort, source, and task evidence"
+          ],
+          "evidence_role": "policy",
+          "hypothesis_id": "H11",
+          "mapped_analyses": [
+            "evidence_observatory",
+            "reviewer_guidance"
+          ],
+          "next_empirical_test": "Audit whether individualized evidence changes documented review completeness.",
+          "question_dimensions": [
+            "policy",
+            "assessment"
+          ]
+        },
         "primary_metrics": [
           "decision_accuracy",
           "functional_access_outcome"
@@ -1199,6 +1420,25 @@
         "null_id": null,
         "null_statement": "No ML null is authorized from the current wearable dataset; a future comparative human-factors and accommodation study must evaluate function, safety, individual need, and reviewer decisions without form-based assumptions.",
         "observed_result": "Policy hypothesis concerning non-traditional mobility aids.",
+        "phase_context": {
+          "current_gaps": [
+            "context-specific prospective assessment"
+          ],
+          "evidence_currently_available": [
+            "functional and environmental case evidence for a non-traditional mobility aid"
+          ],
+          "evidence_role": "policy",
+          "hypothesis_id": "H12",
+          "mapped_analyses": [
+            "mobility_comparison",
+            "transportation_body_coupling"
+          ],
+          "next_empirical_test": "Evaluate the aid against the actual task, environment, and measured alternatives.",
+          "question_dimensions": [
+            "policy",
+            "assistive_technology"
+          ]
+        },
         "primary_metrics": [
           "functional_task_completion",
           "individualized_safety_outcome"
@@ -1304,6 +1544,26 @@
         "null_id": "H13_NULL",
         "null_statement": "Adding preserved movement/context features does not improve held-out interpretability/discrimination versus sensor-only features.",
         "observed_result": "Preserved non-target-derived context only.",
+        "phase_context": {
+          "current_gaps": [
+            "which contexts add stable held-out value"
+          ],
+          "evidence_currently_available": [
+            "canonical cohort and protocol context",
+            "context-increment ML with mixed results"
+          ],
+          "evidence_role": "platform",
+          "hypothesis_id": "H13",
+          "mapped_analyses": [
+            "hypothesis_ml_validation.v1.0.0",
+            "evidence_observatory"
+          ],
+          "next_empirical_test": "Run predeclared context ablations under grouped date validation.",
+          "question_dimensions": [
+            "platform",
+            "context"
+          ]
+        },
         "primary_metrics": [
           "activity_context",
           "transport_mode",
@@ -1392,6 +1652,25 @@
         "null_id": "H14_NULL",
         "null_statement": "Provenance-preserving outputs do not reduce ambiguity/reproduction failures versus equivalent provenance-stripped artifacts.",
         "observed_result": "Engineering and reproducibility validation across scientific artifacts.",
+        "phase_context": {
+          "current_gaps": [
+            "continuous cross-surface provenance audit"
+          ],
+          "evidence_currently_available": [
+            "source hashes, lineage, review state, and contract versions"
+          ],
+          "evidence_role": "platform",
+          "hypothesis_id": "H14",
+          "mapped_analyses": [
+            "scientific_evidence_persistence",
+            "publication_projection"
+          ],
+          "next_empirical_test": "Verify source-to-publication hashes across every shared artifact.",
+          "question_dimensions": [
+            "platform",
+            "provenance"
+          ]
+        },
         "primary_metrics": [
           "lineage_completeness",
           "reproduction_failure_rate",
@@ -1478,6 +1757,25 @@
         "null_id": "H15_NULL",
         "null_statement": "Publication-contract rendering does not reduce cross-surface scientific mismatches versus independent recomputation.",
         "observed_result": "Evidence Observatory is scientific authority; public surfaces are render-only consumers.",
+        "phase_context": {
+          "current_gaps": [
+            "automated cross-site contradiction detection"
+          ],
+          "evidence_currently_available": [
+            "fail-closed publication manifests, graph paths, hashes, and language policy"
+          ],
+          "evidence_role": "engineering",
+          "hypothesis_id": "H15",
+          "mapped_analyses": [
+            "publication_bundle",
+            "cross_site_scientific_consistency"
+          ],
+          "next_empirical_test": "Run deterministic .com/.org consistency audits on every publication projection.",
+          "question_dimensions": [
+            "engineering",
+            "publication"
+          ]
+        },
         "primary_metrics": [
           "cross_surface_mismatch_count",
           "publication_contract_parity"
@@ -1557,6 +1855,24 @@
         "null_id": "H16_FUTURE_NULL",
         "null_statement": "In a future longitudinal population study, mobility strategies selected to maximize function while minimizing unnecessary cumulative burden do not improve predeclared lifespan functional outcomes versus declared comparators.",
         "observed_result": "Current N-of-1 evidence motivates further study only.",
+        "phase_context": {
+          "current_gaps": [
+            "long-horizon prospective outcomes"
+          ],
+          "evidence_currently_available": [
+            "longitudinal activity and recovery context"
+          ],
+          "evidence_role": "future_research",
+          "hypothesis_id": "H16",
+          "mapped_analyses": [
+            "longitudinal_context"
+          ],
+          "next_empirical_test": "Collect prospective function, exposure, recovery, and mobility continuity outcomes across time.",
+          "question_dimensions": [
+            "scientific",
+            "long_horizon"
+          ]
+        },
         "primary_metrics": [
           "longitudinal_function",
           "cumulative_burden",
@@ -1795,7 +2111,7 @@
     ]
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "a6bd24cd4a2a2e4c74082b630f00594271a6270fa8d4cdab560d53b03a9f650b",
+  "content_hash": "6bb4829f04b633449b6ffde1fded55bfe832ea1fe14456902f9bc6594abb9bce",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized review of the canonical N-of-1 scientific protocol.",

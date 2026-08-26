@@ -1,6 +1,6 @@
 {
-  "bundle_id": "handicapskater-org-v1-6ff4016c1fd7192c",
-  "content_hash": "6ff4016c1fd7192c27c6a63371dac40178b7ca5526694d3aa2c3b8ff3b738631",
+  "bundle_id": "handicapskater-org-v1-27fed0e688d5a050",
+  "content_hash": "27fed0e688d5a050c0765e41c88ec69502cd88495f7eae859e87e9b440728a10",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "generated_at_utc": "2026-08-09T17:55:07.831858Z",
@@ -10,14 +10,14 @@
     {
       "artifact_filename": "walking_vs_mall_accumulated_mechanical_load.json",
       "artifact_path": "case-examples/walking_vs_mall_accumulated_mechanical_load.json",
-      "byte_size": 28683,
-      "content_hash": "fd517e67a72b999c56439c6103cb4a901a5f0297a822788edc4db1eac953478d",
+      "byte_size": 28767,
+      "content_hash": "fc3420d81091886908664133e4c7c0f6f3384d1d85e172d1d79457acea7a2d84",
       "destination": "handicapskater.org",
       "graph_id": "walking_vs_mall_accumulated_mechanical_load",
       "media_type": "application/json",
       "page": "/standards/#actual-risk",
       "path": "case-examples/walking_vs_mall_accumulated_mechanical_load.json",
-      "sha256": "431ab63e704c85f6d01f8408b4162a577b01638ecbaf24e5cfda75091900fb58"
+      "sha256": "fe6b2559a6c623a260b32aa37a0471e6a26bdcf226558fb73075d1b7c4b86fc1"
     },
     {
       "artifact_filename": "triplet_functional_output_context.json",
@@ -106,12 +106,12 @@
   "resource_count": 7,
   "resources": [
     {
-      "byte_size": 78480,
-      "content_hash": "a6bd24cd4a2a2e4c74082b630f00594271a6270fa8d4cdab560d53b03a9f650b",
+      "byte_size": 89699,
+      "content_hash": "6bb4829f04b633449b6ffde1fded55bfe832ea1fe14456902f9bc6594abb9bce",
       "media_type": "application/json",
       "path": "hypothesis-registry.json",
       "resource_id": "hypothesis-registry",
-      "sha256": "f7d4cd19397f650be4e154f160db77611eeec6960d0c2928c4fc145ad65e934b"
+      "sha256": "9e62f4fe88fdc528b044d8764fd0132f63946e7e5caf56ac0326df76016f53aa"
     },
     {
       "byte_size": 2528,
