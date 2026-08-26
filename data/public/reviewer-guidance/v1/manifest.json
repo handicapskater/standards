@@ -1,6 +1,6 @@
 {
-  "bundle_id": "handicapskater-org-v1-27fed0e688d5a050",
-  "content_hash": "27fed0e688d5a050c0765e41c88ec69502cd88495f7eae859e87e9b440728a10",
+  "bundle_id": "handicapskater-org-v1-1f9ae2bc1bdd0a56",
+  "content_hash": "1f9ae2bc1bdd0a56d729de108b7c7294ce206226beadffc29d7c33d09d1ec1f2",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "generated_at_utc": "2026-08-09T17:55:07.831858Z",
@@ -130,12 +130,12 @@
       "sha256": "1672808981f02fb9d81bf6b4acdf9f89ff67f178ee02da40ed5ddcfaf6072f53"
     },
     {
-      "byte_size": 2292,
-      "content_hash": "b4f212ef8edcab4e51d30820f7c4dbaea68843a036be063b328e8c33e3463517",
+      "byte_size": 3469,
+      "content_hash": "34f18dfc828f7765791e3088bb4b20e4d56b9666669eaee2b35f3665244021d8",
       "media_type": "application/json",
       "path": "reviewer-guidance.json",
       "resource_id": "reviewer-guidance",
-      "sha256": "09942bd4c712a62f6c582ac7b150a9675f6da713298b737c0fb4456831c5917f"
+      "sha256": "88c1dae004b3a0e7279eb472f6fdc3f7f04542efc21947bb9888260caee05795"
     },
     {
       "byte_size": 4199,
@@ -194,7 +194,7 @@
   "source_resource_version": "observatory_bundle.v1",
   "status": "ok",
   "validation": {
-    "parity_check_count": 184,
+    "parity_check_count": 208,
     "parity_mismatch_count": 0,
     "safety_error_count": 0,
     "safety_finding_count": 0,

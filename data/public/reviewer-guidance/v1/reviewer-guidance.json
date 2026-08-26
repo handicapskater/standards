@@ -7,6 +7,27 @@
     "units_visible": false
   },
   "approved_values": {
+    "longitudinal_review_requirements": {
+      "effective_event_authority": "Reconciled cross-source identities govern current scientific views while historical versions remain queryable.",
+      "measurement_grain": "Activity-level wearable summaries and fixed 30-second sensor windows answer different questions and must not be silently pooled.",
+      "multiplicity": "Multiple mechanical features or thresholds require a declared inference family and multiplicity policy.",
+      "paired_mobility_context": "When two transport observations bracket the same mobility event, preserve the outing identity and analyze the paired observations together.",
+      "reference_distribution_governance": [
+        "declared historical window",
+        "cohort composition",
+        "threshold",
+        "minimum reference support",
+        "sensitivity analysis"
+      ]
+    },
+    "personal_phase2_graph_ids": [],
+    "phase2_standards_framing": [
+      "paired mobility-context comparison",
+      "historical-reference sensitivity",
+      "multiplicity-aware episodic inference",
+      "longitudinal versus episodic grain separation",
+      "effective-authority provenance"
+    ],
     "steps": [
       "Identify the functional task and useful output.",
       "Review observed burden with units and sample counts.",
@@ -16,7 +37,7 @@
     ]
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "b4f212ef8edcab4e51d30820f7c4dbaea68843a036be063b328e8c33e3463517",
+  "content_hash": "34f18dfc828f7765791e3088bb4b20e4d56b9666669eaee2b35f3665244021d8",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized reviewer process; no legal guarantee.",
