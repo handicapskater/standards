@@ -195,6 +195,12 @@
         "null_statement": "Adding valid wearable/context information does not improve held-out characterization/discrimination of mobility state beyond declared basic measurement features.",
         "observed_result": "WHOOP and Strava longitudinal context remains distinct from Polar H10 and Kubios episodic session evidence.",
         "phase_context": {
+          "authority_correction_context": {
+            "canonical_status_changed": false,
+            "inference_input_changed": false,
+            "presentation_note": "descriptive wearable cohort/context completeness improved",
+            "reason": "HISTORICAL_COHORT_AUTHORITY_CORRECTION"
+          },
           "current_gaps": [
             "context additions have mixed incremental value"
           ],
@@ -329,6 +335,12 @@
         "null_statement": "Transportation cohort/mode does not explain held-out mechanical/physiological differences beyond expected within-cohort variation.",
         "observed_result": "Verified vehicle cohorts remain distinct; motorcycle is an active-controlled load path, not a passive-passenger cohort.",
         "phase_context": {
+          "authority_correction_context": {
+            "canonical_status_changed": false,
+            "inference_input_changed": false,
+            "presentation_note": "descriptive transportation cohort/context completeness improved",
+            "reason": "HISTORICAL_COHORT_AUTHORITY_CORRECTION"
+          },
           "current_gaps": [
             "longitudinal passive-ride physiology",
             "fixed rail is unmeasured and access-limited"
@@ -731,6 +743,12 @@
         "null_statement": "Respecting longitudinal versus episodic measurement scope provides no improvement in validity/stability versus indiscriminately merged scope.",
         "observed_result": "Longitudinal overnight readiness and episodic session physiology remain separately labeled and missing when unavailable.",
         "phase_context": {
+          "authority_correction_context": {
+            "canonical_status_changed": false,
+            "inference_input_changed": false,
+            "presentation_note": "longitudinal authority coverage improved without changing episodic or inferential inputs",
+            "reason": "HISTORICAL_COHORT_AUTHORITY_CORRECTION"
+          },
           "current_gaps": [
             "source-compatible cross-timescale linkage"
           ],
@@ -1545,6 +1563,12 @@
         "null_statement": "Adding preserved movement/context features does not improve held-out interpretability/discrimination versus sensor-only features.",
         "observed_result": "Preserved non-target-derived context only.",
         "phase_context": {
+          "authority_correction_context": {
+            "canonical_status_changed": false,
+            "inference_input_changed": false,
+            "presentation_note": "governed context authority improved",
+            "reason": "HISTORICAL_COHORT_AUTHORITY_CORRECTION"
+          },
           "current_gaps": [
             "which contexts add stable held-out value"
           ],
@@ -1856,6 +1880,12 @@
         "null_statement": "In a future longitudinal population study, mobility strategies selected to maximize function while minimizing unnecessary cumulative burden do not improve predeclared lifespan functional outcomes versus declared comparators.",
         "observed_result": "Current N-of-1 evidence motivates further study only.",
         "phase_context": {
+          "authority_correction_context": {
+            "canonical_status_changed": false,
+            "inference_input_changed": false,
+            "presentation_note": "long-horizon descriptive cohort coverage improved",
+            "reason": "HISTORICAL_COHORT_AUTHORITY_CORRECTION"
+          },
           "current_gaps": [
             "long-horizon prospective outcomes"
           ],
@@ -2111,7 +2141,7 @@
     ]
   },
   "conclusion_strength": "not_applicable",
-  "content_hash": "6bb4829f04b633449b6ffde1fded55bfe832ea1fe14456902f9bc6594abb9bce",
+  "content_hash": "7d47bc7372f337d163f549717587cbf20c7eb59e08dd9c9496327d5badcb41df",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "evidence_scope": "Generalized review of the canonical N-of-1 scientific protocol.",
