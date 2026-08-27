@@ -40,3 +40,14 @@ def test_org_longitudinal_method_is_generalized_and_contains_no_personal_phase2_
         "episodic_mechanical_hr_response",
     ):
         assert graph_id not in page
+
+
+def test_org_methods_separate_authority_route_readiness_and_inference():
+    page = (ROOT / "evidence-review/index.html").read_text().lower()
+    assert "cohort versus route" in page
+    assert "scientific cohort membership and route or location context are separate" in page
+    assert "dependency-aware correction" in page
+    assert "preserve immutable inference" in page
+    assert "scientific-authority completeness separately from archive-operational" in page
+    for personal_count in ("592", "585", "154", "84", "61"):
+        assert personal_count not in page
