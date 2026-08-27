@@ -2,11 +2,13 @@
   const config = {
     brand: "HandicapSkater.org",
     primaryLinks: [
-      { href: "/direct-threat-analysis/", label: "Direct Threat", match: ["/direct-threat-analysis/"] },
-      { href: "/standards/", label: "Engineering Principles", match: ["/standards/"] },
-      { href: "/federal-source-anchors/", label: "Federal Sources", match: ["/federal-source-anchors/"] },
-      { href: "/hypothesis-registry/", label: "Hypothesis Registry", match: ["/hypothesis-registry/"] },
-      { href: "/evidence-review/", label: "Methods", match: ["/evidence-review/"] }
+      { href: "/protocol/", label: "Protocol", match: ["/protocol/", "/standards/", "/non-standard-mobility-aids/"] },
+      { href: "/review-tools/", label: "Review Tools", match: ["/review-tools/"] },
+      { href: "/actual-risk/", label: "Actual Risk", match: ["/actual-risk/", "/direct-threat-analysis/"] },
+      { href: "/certification-model/", label: "Portable Record", match: ["/certification-model/"] },
+      { href: "/current-law-sources/", label: "Law & Guidance", match: ["/current-law-sources/", "/federal-source-anchors/"] },
+      { href: "/case-study/inline-skates/", label: "Case Study", match: ["/case-study/inline-skates/"] },
+      { href: "/feedback-and-pilots/", label: "Feedback / Pilots", match: ["/feedback-and-pilots/"] }
     ]
   };
 

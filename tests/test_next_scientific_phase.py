@@ -8,30 +8,16 @@ def test_org_retains_generalized_reviewer_framing_and_visual_identity():
     page = (ROOT / "index.html").read_text()
     assert 'class="site-org"' in page
     assert "FUNCTION BEFORE APPEARANCE" in page
-    assert "Evaluate the actual vehicle environment and the person’s task" in page
-    assert "long-life mobility design" in page.lower()
+    assert "A proposed protocol" in page
+    assert "data-reviewer-example" not in page
 
 
-def test_org_fixed_rail_wording_assigns_no_result():
-    page = (ROOT / "index.html").read_text()
-    assert "access-limited and unmeasured" in page
-    assert "leave comparative values unassigned" in page
-
-
-def test_org_longitudinal_method_is_generalized_and_contains_no_personal_phase2_graph():
-    page = (ROOT / "evidence-review/index.html").read_text()
-    lower = page.lower()
-    for text in (
-        "paired mobility context",
-        "reference-distribution governance",
-        "declared historical window",
-        "minimum reference support",
-        "measurement grain",
-        "multiplicity",
-        "effective-event authority",
-        "evaluated, sensitivity, screening, or future experiment",
-    ):
-        assert text in lower
+def test_org_protocol_and_evidence_review_remain_separate_from_case_science():
+    protocol = (ROOT / "protocol/index.html").read_text().lower()
+    evidence = (ROOT / "evidence-review/index.html").read_text().lower()
+    assert "eight stages" in protocol
+    assert "whoop, polar, kubios, strava, fsi, and css are not prerequisites" in protocol
+    assert "advanced instrumentation is not a prerequisite" in evidence
     for graph_id in (
         "paired_fns_sns_max_hr",
         "paired_fns_sns_outcome_summary",
@@ -39,15 +25,12 @@ def test_org_longitudinal_method_is_generalized_and_contains_no_personal_phase2_
         "temporal_context_decomposition",
         "episodic_mechanical_hr_response",
     ):
-        assert graph_id not in page
+        assert graph_id not in protocol
+        assert graph_id not in evidence
 
 
-def test_org_methods_separate_authority_route_readiness_and_inference():
-    page = (ROOT / "evidence-review/index.html").read_text().lower()
-    assert "cohort versus route" in page
-    assert "scientific cohort membership and route or location context are separate" in page
-    assert "dependency-aware correction" in page
-    assert "preserve immutable inference" in page
-    assert "scientific-authority completeness separately from archive-operational" in page
-    for personal_count in ("592", "585", "154", "84", "61"):
-        assert personal_count not in page
+def test_org_current_law_boundary_does_not_generalize_fta_or_opdmd_scope():
+    page = (ROOT / "current-law-sources/index.html").read_text().lower()
+    assert "does not classify inline skates as opdmds" in page
+    assert "not a universal device classification, skate approval, or skate prohibition" in page
+    assert "not a permit" in page

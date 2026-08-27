@@ -3,11 +3,10 @@
   if (!mount) return;
 
   const eyebrowRules = [
-    [/federal|primary source|authority|materials/i, "Primary authority"],
-    [/hypothesis|scientific claim|registry/i, "Research protocol"],
-    [/risk|threat|qualification/i, "Risk review"],
-    [/function|mobility aid|body coupled/i, "Functional mobility"],
-    [/framework|written record|decision|review/i, "Review framework"],
+    [/federal|primary source|authority|law|guidance/i, "Law & guidance"],
+    [/risk|threat|qualification/i, "Actual-risk review"],
+    [/function|mobility aid|body coupled/i, "Mobility function"],
+    [/framework|written record|decision|review|protocol/i, "Proposed standard"],
     [/terminology|settings|counts as/i, "Review method"],
     [/evidence|canonical/i, "Evidence access"],
     [/.*/, "Key principle"],
@@ -33,7 +32,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <p class="footer-copy">Copyright © 2004 to 2026 <span class="small-caps">HandicapSkater</span>.</p>
-    <p class="footer-description"><span class="small-caps">HandicapSkater</span> separates physiologic burden, mechanical motion exposure, and body coupling so mobility aid review can preserve context. This site presents generalized review standards and evidence frameworks.</p>
+    <p class="footer-description"><span class="small-caps">HandicapSkater.org</span> presents a proposed, function-first protocol for evaluating non-standard mobility aids. It separates current law and guidance, case-derived lessons, and proposed standards.</p>
   </div>
 </footer>
 `;
