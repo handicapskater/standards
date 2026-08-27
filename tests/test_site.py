@@ -135,6 +135,106 @@ class StandardsSiteTests(unittest.TestCase):
         for prohibited in ("valley radiology", "mri report", "pelvic fracture", "medical pdf"):
             self.assertNotIn(prohibited, content)
 
+    def test_review_tools_are_ten_blank_operational_sections_in_protocol_order(self) -> None:
+        html = read("review-tools/index.html")
+        tools = (
+            "Functional Intake", "Device / Adaptation Profile", "Proficiency Review",
+            "Functional Evidence Record", "Environment Review", "Actual-Risk Worksheet",
+            "Mitigation Worksheet", "Decision Record", "Portable Mobility Record", "Reassessment Record",
+        )
+        positions = [html.index(tool) for tool in tools]
+        self.assertEqual(positions, sorted(positions))
+        self.assertGreaterEqual(html.count("<form"), 10)
+        for stage in range(1, 9):
+            self.assertIn(f"STAGE {stage} · PROPOSED STANDARD", html)
+
+    def test_functional_intake_is_function_first_and_has_no_required_medical_gate(self) -> None:
+        html = read("review-tools/index.html").lower()
+        for phrase in ("functional task being limited", "mobility function requested", "what happens without the requested aid?", "conventional alternative available?", "equivalent function", "optional supporting-document reference"):
+            self.assertIn(phrase, html)
+        self.assertIn("diagnosis, icd code, medical history, and physician certification are not requested", html)
+        self.assertNotIn("required", html[html.index('id="functional-intake"'):html.index('id="device-profile"')])
+
+    def test_device_and_proficiency_forms_do_not_assume_a_specific_aid_or_mandatory_course(self) -> None:
+        html = read("review-tools/index.html").lower()
+        device = html[html.index('id="device-profile"'):html.index('id="proficiency-review"')]
+        proficiency = html[html.index('id="proficiency-review"'):html.index('id="functional-evidence"')]
+        for phrase in ("movement mechanism", "control method", "stopping method", "steering/maneuvering method", "other operating characteristics"):
+            self.assertIn(phrase, device)
+        self.assertIn("without assuming a wheel, motor, battery, handlebar, or seat", device)
+        self.assertIn("demonstration performed?", proficiency)
+        self.assertIn("not necessary", proficiency)
+        self.assertIn("proportionate to the actual setting and identified risk", proficiency)
+        self.assertIn("not a mandatory obstacle course", proficiency)
+
+    def test_evidence_environment_and_risk_contracts_are_complete_and_optional(self) -> None:
+        html = read("review-tools/index.html").lower()
+        for phrase in ("individual functional statement", "direct observation/demonstration", "professional functional documentation", "prior accommodation/decision", "prior successful-use history", "device/technical evidence", "biomechanical/rehabilitation evidence", "optional objective measurement", "other relevant evidence"):
+            self.assertIn(phrase, html)
+        for name in ("whoop", "polar", "kubios", "strava", "fsi", "css"):
+            self.assertIn(name, html)
+        self.assertIn("is not required to request or complete an nsmaep review", html)
+        for factor in ("surface", "grade", "width", "crowding", "pedestrian density", "boarding", "transfers", "platform/edge hazards", "security", "storage", "emergency egress", "indoor/outdoor conditions", "vehicle interaction"):
+            self.assertIn(factor, html)
+        self.assertGreaterEqual(html.count("not applicable"), 14)
+        for dimension in ("identified hazard", "setting-specific mechanism", "exposed person/property", "likelihood", "severity", "user control", "existing safeguards", "feasible mitigation", "residual risk", "evidence/source for hazard", "uncertainty / missing information"):
+            self.assertIn(dimension, html)
+        self.assertIn("qualitative values are not a mathematical risk score", html)
+
+    def test_mitigation_and_decision_contracts_are_complete(self) -> None:
+        html = read("review-tools/index.html").lower()
+        for phrase in ("narrowest effective condition", "potential mitigation", "would it address the concern?", "operational burden", "effect on mobility function", "residual concern", "add another mitigation"):
+            self.assertIn(phrase, html)
+        for state in ("approved", "approved with conditions", "more information needed", "denied"):
+            self.assertIn(f'value="{state.replace(" ", "-")}"', html)
+        for phrase in ("specific reasons", "scope of decision", "decision quality check", "does not determine legal validity", "does not waive legal rights"):
+            self.assertIn(phrase, html)
+
+    def test_pmr_and_reassessment_preserve_approved_boundaries(self) -> None:
+        html = read("review-tools/index.html").lower()
+        for phrase in ("portable non-standard mobility aid record", "proposed voluntary record", "not a permit", "not a universal authorization", "not a prerequisite for accommodation", "supporting evidence references", "prior scoped decision reference", "consent/release notes"):
+            self.assertIn(phrase, html)
+        self.assertNotIn("certification", html[html.index('id="portable-mobility-record"'):html.index('id="reassessment-record"')])
+        for phrase in ("what material fact changed?", "no material change identified", "what portion of the prior decision is affected?", "what prior findings remain unchanged?", "do not restart the entire review when only a bounded fact changed"):
+            self.assertIn(phrase, html)
+
+    def test_review_tools_are_local_only_printable_and_accessible(self) -> None:
+        html = read("review-tools/index.html")
+        js = read("review-tools/review-tools.js")
+        css = read("common/css/org-standards.css")
+        self.assertNotIn("action=", html.lower())
+        self.assertNotIn("method=", html.lower())
+        self.assertNotIn("fetch(", js.lower())
+        self.assertNotIn("xmlhttprequest", js.lower())
+        self.assertNotIn("localstorage", js.lower())
+        self.assertIn("does not receive the information entered", html.lower())
+        self.assertIn("window.print()", js)
+        self.assertIn("print-target", js)
+        self.assertIn("@media print", css)
+        self.assertIn(".site-header, #site-header, #site-footer", css)
+        self.assertNotIn("placeholder=", html.lower())
+        controls = re.findall(r"<(?:input|textarea|select)\\b", html, re.I)
+        labels = re.findall(r"<label(?:\\s|>)", html, re.I)
+        self.assertGreaterEqual(len(labels), len(controls))
+        self.assertIn("focus-visible", css)
+
+    def test_three_fictional_aid_categories_fit_the_general_structure(self) -> None:
+        html = read("review-tools/index.html").lower()
+        fixtures = {
+            "Aster hand-propelled glider": "unconventional manually operated aid",
+            "Bramble balance-drive adaptation": "unfamiliar powered mobility adaptation",
+            "Cedar rolling body frame": "body-worn or rolling mobility adaptation",
+        }
+        # These fictional categories have no prefilled form values or legal outcomes.
+        self.assertEqual(len(fixtures), 3)
+        fields = ("movement mechanism", "control method", "stopping method", "stability considerations", "other operating characteristics")
+        for field in fields:
+            self.assertIn(field, html)
+        self.assertIn("other setting-specific factor", html)
+        self.assertNotIn('value="inline skates"', html)
+        for prohibited in ("handicapskater", "bart", "dmv"):
+            self.assertNotIn(f'value="{prohibited}', html)
+
 
 if __name__ == "__main__":
     unittest.main()

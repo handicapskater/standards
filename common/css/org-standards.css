@@ -176,6 +176,88 @@
   margin-top: auto;
 }
 
+/* Local-only NSMAEP review forms. */
+.tool-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 1.4rem 0;
+}
+
+.tool-nav a {
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.privacy-note,
+.pmr-warning {
+  padding: 1rem;
+  border-left: 5px solid #0072ce;
+  background: #edf5ff;
+}
+
+.form-section { scroll-margin-top: 5rem; }
+.form-heading { max-width: 850px; margin-bottom: 1.4rem; }
+.form-section form { max-width: 1050px; }
+.form-section fieldset {
+  min-width: 0;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.form-section legend { padding: 0 0.35rem; color: var(--blue); font-weight: 900; }
+.form-section label { display: block; margin-top: 0.75rem; color: var(--ink); font-weight: 800; }
+.form-section label:has(input[type="checkbox"]),
+.form-section label:has(input[type="radio"]) { display: inline-flex; align-items: center; gap: 0.45rem; margin-right: 1rem; }
+.form-section input:not([type="checkbox"]):not([type="radio"]),
+.form-section textarea,
+.form-section select {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  margin-top: 0.3rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+.form-section textarea { min-height: 6rem; resize: vertical; }
+.form-section input[type="checkbox"], .form-section input[type="radio"] { width: 1.1rem; height: 1.1rem; accent-color: var(--blue); }
+.form-section input:focus-visible, .form-section textarea:focus-visible, .form-section select:focus-visible, .form-section button:focus-visible { outline: 3px solid var(--chrome-focus); outline-offset: 3px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.25rem 1rem; }
+.full-width { grid-column: 1 / -1; }
+.choice-set { background: var(--panel-alt) !important; }
+.optional { color: var(--muted); font-size: 0.9em; font-weight: 500; }
+.form-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
+.form-actions button, .form-section > form > button, .remove-row {
+  min-height: 2.65rem; padding: 0.55rem 0.85rem; border: 1px solid var(--line); border-radius: 999px; background: var(--panel-alt); color: var(--ink); font: inherit; font-weight: 800; cursor: pointer;
+}
+.evidence-list, .environment-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }
+.repeat-card { break-inside: avoid; }
+.pmr-warning { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; margin-bottom: 1rem; color: var(--blue); }
+.decision-quality label { display: block !important; }
+
+@media print {
+  @page { margin: 0.5in; }
+  .site-header, #site-header, #site-footer, .hero, .no-print, .skip-link { display: none !important; }
+  .print-active .form-section:not(.print-target) { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; line-height: 1.35; }
+  .section, .section.alt { padding: 0.2in 0; background: #fff; }
+  .form-section { break-before: page; }
+  .form-section:first-of-type { break-before: auto; }
+  .form-section fieldset, .repeat-card, .pmr-warning { break-inside: avoid; box-shadow: none; }
+  .form-section input:not([type="checkbox"]):not([type="radio"]), .form-section textarea, .form-section select { border-color: #666; }
+  .form-grid, .evidence-list, .environment-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .boundary-label { border: 1px solid #555; color: #000; background: #fff; }
+}
+
 @media (max-width: 900px) {
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -184,7 +266,12 @@
 
 @media (max-width: 620px) {
   .card-grid,
-  .review-framework {
+  .review-framework,
+  .tool-nav,
+  .form-grid,
+  .evidence-list,
+  .environment-list,
+  .pmr-warning {
     grid-template-columns: 1fr;
   }
 
