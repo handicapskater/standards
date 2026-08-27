@@ -32,18 +32,22 @@
     );
   }
 
-  function fetchJson(path) {
+  function fetchJson(path, contentHash) {
     if (!safePath(path)) return Promise.reject(new Error("Unsafe publication path"));
-    if (!cache.has(path)) {
+    if (contentHash !== undefined && !/^[a-f0-9]{64}$/.test(String(contentHash))) {
+      return Promise.reject(new Error("Invalid reviewer publication content hash"));
+    }
+    const requestPath = contentHash ? path + "?v=" + contentHash : path;
+    if (!cache.has(requestPath)) {
       cache.set(
-        path,
-        fetch(ROOT + path, { cache: "no-store", credentials: "same-origin" }).then(function (response) {
+        requestPath,
+        fetch(ROOT + requestPath, { cache: "no-store", credentials: "same-origin" }).then(function (response) {
           if (!response.ok) throw new Error("Publication resource unavailable");
           return response.json();
         })
       );
     }
-    return cache.get(path);
+    return cache.get(requestPath);
   }
 
   function validateManifest(manifest) {
@@ -65,7 +69,7 @@
       return item && item.resource_id === id;
     });
     if (!entry || !safePath(entry.path)) return Promise.reject(new Error("Reviewer resource unavailable"));
-    return fetchJson(entry.path).then(function (payload) {
+    return fetchJson(entry.path, entry.content_hash).then(function (payload) {
       if (
         !payload ||
         payload.resource_id !== id ||
@@ -85,7 +89,7 @@
       return item && item.graph_id === id;
     });
     if (!entry || !safePath(entry.artifact_path)) return Promise.reject(new Error("Case example unavailable"));
-    return fetchJson(entry.artifact_path).then(function (payload) {
+    return fetchJson(entry.artifact_path, entry.content_hash).then(function (payload) {
       if (
         !payload ||
         payload.graph_id !== id ||
@@ -130,8 +134,13 @@
       .join("; ");
   }
 
-  function unavailable(mount) {
+  function unavailable(mount, error) {
     mount.replaceChildren();
+    mount.dataset.state = "unavailable";
+    if (error) {
+      mount.dataset.reviewerPublicationError = error instanceof Error ? error.message : String(error);
+      console.error("[reviewer-publication]", mount.dataset.reviewerPublicationError);
+    }
     const note = element("div", "publication-unavailable");
     note.setAttribute("role", "status");
     note.appendChild(element("strong", "", "N-of-1 case study example unavailable"));
@@ -251,7 +260,7 @@
     if (payload.graph_id === "fns_sns_longitudinal_functional_capacity") {
       const panels = element("div", "publication-graph-panels publication-graph-panels-single");
       function median(points) { const values = points.map(function (p) { return Number(p.value); }).sort(function (a, b) { return a - b; }); if (!values.length) return null; const middle = Math.floor(values.length / 2); return values.length % 2 ? values[middle] : (values[middle - 1] + values[middle]) / 2; }
-      function groups(panelIndex, divisor) { return (((payload.panels || [])[panelIndex] || {}).series || []).filter(function (s) { return ["FNS", "SNS", "XMS"].includes(s.label); }).map(function (s) { const points = (s.points || []).filter(function (p) { return Number.isFinite(Number(p.value)); }).map(function (p) { return { date: p.date, value: Number(p.value) / divisor }; }); return { label: s.label, points: points, rawOnly: true, trendPoints: points.map(function (p, i) { return { date: p.date, value: median(points.slice(Math.max(0, i - 8), i + 1)) }; }) }; }); }
+      function groups(panelIndex, divisor) { return (((payload.panels || [])[panelIndex] || {}).series || []).map(function (s) { const points = (s.points || []).filter(function (p) { return Number.isFinite(Number(p.value)); }).map(function (p) { return { date: p.date, value: Number(p.value) / divisor }; }); return { label: s.label, points: points, rawOnly: true, trendPoints: points.map(function (p, i) { return { date: p.date, value: median(points.slice(Math.max(0, i - 8), i + 1)) }; }) }; }); }
       panels.appendChild(linePanel("Recorded distance", "miles", groups(0, 1))); panels.appendChild(linePanel("Recorded duration", "minutes", groups(1, 60))); return panels;
     }
     if (payload.graph_id === "transportation_body_coupling_comparison") {
@@ -317,6 +326,7 @@
 
   function renderExample(mount, payload) {
     mount.replaceChildren();
+    mount.dataset.state = "ready";
     const example = element("article", "case-example");
     example.appendChild(element("p", "case-example-label", "N-of-1 case study example"));
     example.appendChild(element("h2", "", payload.title.replace(/^N-of-1 case study example — /, "")));
@@ -443,17 +453,17 @@
         document.querySelectorAll("[data-reviewer-example]").forEach(function (mount) {
           graph(manifest, mount.dataset.reviewerExample)
             .then(function (payload) { renderExample(mount, payload); })
-            .catch(function () { unavailable(mount); });
+            .catch(function (error) { unavailable(mount, error); });
         });
         document.querySelectorAll("[data-reviewer-hypothesis-registry]").forEach(function (mount) {
           resource(manifest, mount.dataset.reviewerHypothesisRegistry)
             .then(function (payload) { renderHypothesisRegistry(mount, payload); })
-            .catch(function () { unavailable(mount); });
+            .catch(function (error) { unavailable(mount, error); });
         });
       })
-      .catch(function () {
+      .catch(function (error) {
         document.querySelectorAll("[data-reviewer-publication-status], [data-reviewer-example], [data-reviewer-hypothesis-registry]").forEach(function (mount) {
-          unavailable(mount);
+          unavailable(mount, error);
         });
       });
   }

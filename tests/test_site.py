@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 import re
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -203,6 +205,90 @@ class StandardsSiteTests(unittest.TestCase):
         ):
             self.assertIn(f'data-reviewer-example="{graph_id}"', standards)
         self.assertIn("performs no scientific calculation", standards)
+
+    def test_reviewer_case_examples_hydrate_from_the_synchronized_bundle(self) -> None:
+        example_ids = re.findall(
+            r'data-reviewer-example="([^"]+)"', read("standards/index.html")
+        )
+        self.assertEqual(len(example_ids), 4)
+        reader_path = ROOT / "common/reviewer-publication.js"
+        bundle_root = ROOT / "data/public/reviewer-guidance/v1"
+        harness = """
+const fs = require("fs");
+const vm = require("vm");
+const readerPath = __READER_PATH__;
+const bundleRoot = __BUNDLE_ROOT__;
+const exampleIds = __EXAMPLE_IDS__;
+
+class Element {
+  constructor(tag) {
+    this.tagName = tag;
+    this.dataset = {};
+    this.children = [];
+    this.attributes = {};
+    this._text = "";
+    this.style = { setProperty() {} };
+    this.classList = { add() {}, toggle() {} };
+  }
+  appendChild(child) { this.children.push(child); return child; }
+  append(...children) { children.forEach((child) => this.appendChild(child)); }
+  replaceChildren(...children) { this.children = []; this._text = ""; this.append(...children); }
+  setAttribute(name, value) { this.attributes[name] = String(value); }
+  getAttribute(name) { return this.attributes[name] || null; }
+  addEventListener() {}
+  get firstChild() { return this.children[0] || null; }
+  get textContent() { return this._text + this.children.map((child) => child.textContent || "").join(""); }
+  set textContent(value) { this.children = []; this._text = String(value); }
+}
+
+const mounts = exampleIds.map((exampleId) => {
+  const mount = new Element("div");
+  mount.dataset.reviewerExample = exampleId;
+  mount.textContent = "Loading approved case example…";
+  return mount;
+});
+global.document = {
+  readyState: "complete",
+  createElement(tag) { return new Element(tag); },
+  createElementNS(_namespace, tag) { return new Element(tag); },
+  addEventListener() {},
+  querySelectorAll(selector) {
+    return selector.includes("[data-reviewer-example]") ? mounts : [];
+  },
+};
+global.window = {};
+global.fetch = async (url) => {
+  const prefix = "/data/public/reviewer-guidance/v1/";
+  const relative = String(url).startsWith(prefix) ? String(url).slice(prefix.length).split("?")[0] : "";
+  const target = relative ? bundleRoot + "/" + relative : "";
+  if (!target || !fs.existsSync(target)) return { ok: false, json: async () => ({}) };
+  return { ok: true, json: async () => JSON.parse(fs.readFileSync(target, "utf8")) };
+};
+
+(async () => {
+  vm.runInThisContext(fs.readFileSync(readerPath, "utf8"), { filename: readerPath });
+  await new Promise((resolve) => setTimeout(resolve, 75));
+  for (const mount of mounts) {
+    if (mount.dataset.state !== "ready" || mount.textContent.includes("Loading approved")) {
+      throw new Error("reviewer example did not hydrate: " + mount.dataset.reviewerExample);
+    }
+  }
+})().catch((error) => { console.error(error.stack || error); process.exitCode = 1; });
+"""
+        completed = subprocess.run(
+            [
+                "node",
+                "-e",
+                harness.replace("__READER_PATH__", json.dumps(str(reader_path)))
+                .replace("__BUNDLE_ROOT__", json.dumps(str(bundle_root)))
+                .replace("__EXAMPLE_IDS__", json.dumps(example_ids)),
+            ],
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=15,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stderr)
 
     def test_standards_sections_link_to_their_evidence_cases(self) -> None:
         direct_threat = read("direct-threat-analysis/index.html")

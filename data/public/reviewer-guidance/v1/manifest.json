@@ -1,6 +1,6 @@
 {
-  "bundle_id": "handicapskater-org-v1-4afbd6c2684d836f",
-  "content_hash": "4afbd6c2684d836f76fa7090a6fb16357f79f8d02766810801f320d8a3679400",
+  "bundle_id": "handicapskater-org-v1-847c32dd58bb275c",
+  "content_hash": "847c32dd58bb275c7435ca708457fdae8cef88aa114f684319e89d4b0fd51656",
   "data_through_date": "2026-08-08",
   "destination": "handicapskater.org",
   "generated_at_utc": "2026-08-09T17:55:07.831858Z",
@@ -34,14 +34,14 @@
     {
       "artifact_filename": "fns_sns_longitudinal_functional_capacity.json",
       "artifact_path": "case-examples/fns_sns_longitudinal_functional_capacity.json",
-      "byte_size": 1552891,
-      "content_hash": "2958ec9ad0b3bf04245bb8fd2df20fb89a9b853bec484f1551aee013135b86a8",
+      "byte_size": 1563192,
+      "content_hash": "cb9b7636bc1578c8125fac5e5246db9746a785ea6b11250fadf0dd8fe14f1baf",
       "destination": "handicapskater.org",
       "graph_id": "fns_sns_longitudinal_functional_capacity",
       "media_type": "application/json",
       "page": "/standards/#non-standard-mobility-aid",
       "path": "case-examples/fns_sns_longitudinal_functional_capacity.json",
-      "sha256": "ce7054fff690ce6198df4d52a0822b0584faa02afe919b5c76c0d63fbaac7510"
+      "sha256": "a1fd0d2ba815e83b6c7fe0605292fd1774e29a03294eca8d9cb2d06822b018ab"
     },
     {
       "artifact_filename": "transportation_body_coupling_comparison.json",
