@@ -206,6 +206,18 @@ class StandardsSiteTests(unittest.TestCase):
             self.assertIn(f'data-reviewer-example="{graph_id}"', standards)
         self.assertIn("performs no scientific calculation", standards)
 
+    def test_longitudinal_case_example_uses_compact_governed_panel_roles(self) -> None:
+        reader = read("common/reviewer-publication.js")
+        css = read("common/css/publication.css")
+        self.assertIn("function reviewerTimeSeriesHierarchy(payload)", reader)
+        self.assertIn("item.presentation_role", reader)
+        self.assertIn('wrapper.dataset.initialHeightBudget = "one-chart-card"', reader)
+        self.assertIn('wrapper.dataset.presentationAuthority = usesGovernedRoles ? "governed" : "legacy-compatible"', reader)
+        self.assertIn('throw new Error("Invalid governed presentation hierarchy: " + payload.graph_id)', reader)
+        self.assertIn('"More case-example metrics (" + detailItems.length + ")"', reader)
+        self.assertIn("publication-line-chart-compact", css)
+        self.assertIn("grid-auto-flow: column", css)
+
     def test_reviewer_case_examples_hydrate_from_the_synchronized_bundle(self) -> None:
         example_ids = re.findall(
             r'data-reviewer-example="([^"]+)"', read("standards/index.html")

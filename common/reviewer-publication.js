@@ -217,19 +217,24 @@
     return node;
   }
 
-  function linePanel(title, unit, groups) {
-    const panel = element("section", "publication-graph-panel publication-line-panel");
+  function linePanel(title, unit, groups, options) {
+    const settings = options || {};
+    const compact = settings.compact === true;
+    const role = settings.role || "primary";
+    const panel = element("section", "publication-graph-panel publication-line-panel publication-line-panel-" + role);
+    panel.dataset.presentationRole = role;
+    panel.dataset.heightBudget = compact ? "compact" : "standard";
     panel.appendChild(element("h3", "", title + " (" + unit + ")"));
     const all = groups.flatMap(function (group) { return group.points || []; }).filter(function (point) { return Number.isFinite(Number(point.value)) && Number.isFinite(Date.parse(String(point.date))); });
     if (!all.length) return panel;
-    const width = 760, height = 340, left = 72, right = 22, top = 22, bottom = 58;
+    const width = 760, height = compact ? 150 : 250, left = 72, right = 22, top = 22, bottom = compact ? 42 : 58;
     const dates = Array.from(new Set(all.map(function (point) { return String(point.date); }))).sort();
     const values = all.map(function (point) { return Number(point.value); }), min = Math.min.apply(null, values), max = Math.max.apply(null, values);
     const times = dates.map(Date.parse), firstTime = Math.min.apply(null, times), lastTime = Math.max.apply(null, times);
     const x = function (date) { return left + ((Date.parse(String(date)) - firstTime) / (lastTime - firstTime || 1)) * (width - left - right); };
     const y = function (value) { return top + (1 - (Number(value) - min) / (max - min || 1)) * (height - top - bottom); };
-    const svg = svgNode("svg", { viewBox: "0 0 " + width + " " + height, class: "publication-line-chart", role: "img", "aria-label": title + " by date", "data-date-min": dates[0], "data-date-max": dates[dates.length - 1] });
-    [0, .25, .5, .75, 1].forEach(function (ratio) { const yy = top + ratio * (height - top - bottom); svg.appendChild(svgNode("line", { x1: left, x2: width - right, y1: yy, y2: yy, class: "publication-grid-line" })); const label = svgNode("text", { x: left - 10, y: yy + 4, class: "publication-axis-label", "text-anchor": "end" }); label.textContent = displayNumber(max - ratio * (max - min)); svg.appendChild(label); });
+    const svg = svgNode("svg", { viewBox: "0 0 " + width + " " + height, class: "publication-line-chart" + (compact ? " publication-line-chart-compact" : ""), role: "img", "aria-label": title + " by date", "data-date-min": dates[0], "data-date-max": dates[dates.length - 1] });
+    (compact ? [0, .5, 1] : [0, .25, .5, .75, 1]).forEach(function (ratio) { const yy = top + ratio * (height - top - bottom); svg.appendChild(svgNode("line", { x1: left, x2: width - right, y1: yy, y2: yy, class: "publication-grid-line" })); const label = svgNode("text", { x: left - 10, y: yy + 4, class: "publication-axis-label", "text-anchor": "end" }); label.textContent = displayNumber(max - ratio * (max - min)); svg.appendChild(label); });
     [dates[0], dates[Math.floor((dates.length - 1) / 2)], dates[dates.length - 1]].forEach(function (date, index) { const label = svgNode("text", { x: x(date), y: height - 18, class: "publication-axis-label", "text-anchor": index === 0 ? "start" : index === 2 ? "end" : "middle" }); label.textContent = date; svg.appendChild(label); });
     groups.forEach(function (group, index) {
       const points = group.points.filter(function (point) { return Number.isFinite(Number(point.value)) && Number.isFinite(Date.parse(String(point.date))); }).sort(function (a, b) { return String(a.date).localeCompare(String(b.date)); });
@@ -245,6 +250,42 @@
     return panel;
   }
 
+  function reviewerTimeSeriesHierarchy(payload) {
+    const sourcePanels = Array.isArray(payload.series) && payload.series.length ? payload.series : (payload.panels || []);
+    const governedRoles = sourcePanels.map(function (item) { return item.presentation_role; });
+    const usesGovernedRoles = governedRoles.some(function (role) { return role !== undefined && role !== null; });
+    if (usesGovernedRoles && (governedRoles.some(function (role) { return !["primary", "secondary", "detail"].includes(role); }) || governedRoles.filter(function (role) { return role === "primary"; }).length !== 1)) {
+      throw new Error("Invalid governed presentation hierarchy: " + payload.graph_id);
+    }
+    const assigned = sourcePanels.map(function (item, index) {
+      const role = usesGovernedRoles ? item.presentation_role : (index === 0 ? "primary" : "detail");
+      return {
+        item: item,
+        role: role,
+        groups: (item.series || []).map(function (series) { return { label: series.label || series.id || "Series", points: series.points || [], rawOnly: true }; })
+      };
+    });
+    const wrapper = element("div", "publication-time-series-hierarchy");
+    wrapper.dataset.initialHeightBudget = "one-chart-card";
+    wrapper.dataset.presentationAuthority = usesGovernedRoles ? "governed" : "legacy-compatible";
+    const primary = element("div", "publication-time-series-primary");
+    const secondary = element("div", "publication-time-series-secondary");
+    const detailItems = assigned.filter(function (entry) { return entry.role === "detail"; });
+    assigned.filter(function (entry) { return entry.role === "primary"; }).forEach(function (entry) { primary.appendChild(linePanel(entry.item.title, entry.item.unit, entry.groups, { role: "primary" })); });
+    assigned.filter(function (entry) { return entry.role === "secondary"; }).forEach(function (entry) { secondary.appendChild(linePanel(entry.item.title, entry.item.unit, entry.groups, { role: "secondary", compact: true })); });
+    wrapper.appendChild(primary);
+    if (assigned.some(function (entry) { return entry.role === "secondary"; })) wrapper.appendChild(secondary);
+    if (detailItems.length) {
+      const details = element("details", "publication-details publication-time-series-details");
+      details.appendChild(element("summary", "", "More case-example metrics (" + detailItems.length + ")"));
+      const detailGrid = element("div", "publication-time-series-detail-grid");
+      detailItems.forEach(function (entry) { detailGrid.appendChild(linePanel(entry.item.title, entry.item.unit, entry.groups, { role: "detail", compact: true })); });
+      details.appendChild(detailGrid);
+      wrapper.appendChild(details);
+    }
+    return wrapper;
+  }
+
   function exampleVisual(payload) {
     if (payload.graph_id === "walking_vs_mall_accumulated_mechanical_load") {
       const panels = element("div", "publication-graph-panels publication-graph-panels-single");
@@ -258,10 +299,7 @@
       [["distance_miles", "Actual authoritative distance", "miles"], ["duration_seconds", "Duration", "seconds"]].forEach(function (metric) { panels.appendChild(linePanel(metric[1], metric[2], ["mall", "walk", "pt"].map(function (role) { return { label: role === "pt" ? "PT" : role[0].toUpperCase() + role.slice(1), points: (payload.accessible_table || []).filter(function (row) { return String(row.sequence_role).toLowerCase().includes(role); }).map(function (row) { return { date: row.date, value: row[metric[0]] }; }) }; }))); }); return panels;
     }
     if (payload.graph_id === "fns_sns_longitudinal_functional_capacity") {
-      const panels = element("div", "publication-graph-panels publication-graph-panels-single");
-      function median(points) { const values = points.map(function (p) { return Number(p.value); }).sort(function (a, b) { return a - b; }); if (!values.length) return null; const middle = Math.floor(values.length / 2); return values.length % 2 ? values[middle] : (values[middle - 1] + values[middle]) / 2; }
-      function groups(panelIndex, divisor) { return (((payload.panels || [])[panelIndex] || {}).series || []).map(function (s) { const points = (s.points || []).filter(function (p) { return Number.isFinite(Number(p.value)); }).map(function (p) { return { date: p.date, value: Number(p.value) / divisor }; }); return { label: s.label, points: points, rawOnly: true, trendPoints: points.map(function (p, i) { return { date: p.date, value: median(points.slice(Math.max(0, i - 8), i + 1)) }; }) }; }); }
-      panels.appendChild(linePanel("Recorded distance", "miles", groups(0, 1))); panels.appendChild(linePanel("Recorded duration", "minutes", groups(1, 60))); return panels;
+      return reviewerTimeSeriesHierarchy(payload);
     }
     if (payload.graph_id === "transportation_body_coupling_comparison") {
       const wrapper = element("div", "publication-metric-view"), select = element("select", "publication-metric-select"), chart = element("div", "publication-selected-chart");
