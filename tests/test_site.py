@@ -24,7 +24,7 @@ REDIRECTS = {
     "references/index.html": "/current-law-sources/",
     "reviewer-guidance/index.html": "/review-tools/",
     "transportation-accommodation/index.html": "/protocol/#environment",
-    "hypothesis-registry/index.html": "https://evidence.handicapskater.com/",
+    "hypothesis-registry/index.html": "/evidence-review/",
 }
 
 PERSONAL_GRAPH_IDS = (
@@ -115,6 +115,13 @@ class StandardsSiteTests(unittest.TestCase):
     def test_primary_standard_pages_have_no_personal_graph_ids_or_mounts(self) -> None:
         content = "\n".join(read(page) for page in ("index.html", "protocol/index.html", "actual-risk/index.html", "review-tools/index.html", "certification-model/index.html"))
         self.assertNotIn("data-reviewer-example", content)
+        for graph_id in PERSONAL_GRAPH_IDS:
+            self.assertNotIn(graph_id, content)
+
+    def test_all_canonical_standard_pages_are_free_of_personal_graph_mounts(self) -> None:
+        content = "\n".join(read(page) for page in CANONICAL_PAGES)
+        self.assertNotIn('data-publication-graph="', content)
+        self.assertNotIn('data-hero-graph-id="', content)
         for graph_id in PERSONAL_GRAPH_IDS:
             self.assertNotIn(graph_id, content)
 
