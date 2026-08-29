@@ -1,9 +1,9 @@
 {
-  "bundle_id": "handicapskater-org-v1-7c95b9d29e337b4c",
-  "content_hash": "7c95b9d29e337b4ce49f8d4110bdf274c602145f345339051b1790fcc112eba7",
-  "data_through_date": "2026-08-08",
+  "bundle_id": "handicapskater-org-v1-9f115209790603bf",
+  "content_hash": "9f115209790603bfd4776eebd7dbe17ac1865b1c99a621379b429f2642c55ccf",
+  "data_through_date": "2026-08-27",
   "destination": "handicapskater.org",
-  "generated_at_utc": "2026-08-09T17:55:07.831858Z",
+  "generated_at_utc": "2026-08-28T19:12:11.680507Z",
   "generator_version": "fsi_publication_exporter.v1",
   "graph_count": 4,
   "graphs": [
@@ -34,26 +34,26 @@
     {
       "artifact_filename": "fns_sns_longitudinal_functional_capacity.json",
       "artifact_path": "case-examples/fns_sns_longitudinal_functional_capacity.json",
-      "byte_size": 1563428,
-      "content_hash": "6ce8c49597ecac4d3746ab31ca86ac28006bb4cc534fc492202ed7feafd2346d",
+      "byte_size": 1563501,
+      "content_hash": "fd9d816da004e6ebbafa1d346ea3d98bf6633845c2343aff785834d2a7c6e737",
       "destination": "handicapskater.org",
       "graph_id": "fns_sns_longitudinal_functional_capacity",
       "media_type": "application/json",
       "page": "/standards/#non-standard-mobility-aid",
       "path": "case-examples/fns_sns_longitudinal_functional_capacity.json",
-      "sha256": "ae544d500dd7c7a20d67d324ad086e1b60f0101d9bedcfc720023a3313e0d6d1"
+      "sha256": "3afe10ec4bc8360fd26ddb105eafd3cd1feaac21d6407487a4827b5f2d54f556"
     },
     {
       "artifact_filename": "transportation_body_coupling_comparison.json",
       "artifact_path": "case-examples/transportation_body_coupling_comparison.json",
-      "byte_size": 294822,
-      "content_hash": "15a6348839292e0d76e69b9548596289ec97680fed4aa28f777ee7ef9261a4d8",
+      "byte_size": 108143,
+      "content_hash": "f2434b80702ee5fb04e2d03ab5d563725f18acc121e6da839c265ab784a8d062",
       "destination": "handicapskater.org",
       "graph_id": "transportation_body_coupling_comparison",
       "media_type": "application/json",
       "page": "/standards/#body-coupling",
       "path": "case-examples/transportation_body_coupling_comparison.json",
-      "sha256": "23ac34f8249d3726a4126b8a6584a49700c9f8d8f8a94e8b514eed8869bfb304"
+      "sha256": "29fa27566a4000012074af7983bee27922e5cc44072fedf8dd58f5bf2123484c"
     }
   ],
   "limitation_count": 1,
@@ -107,59 +107,59 @@
   "resources": [
     {
       "byte_size": 91241,
-      "content_hash": "7d47bc7372f337d163f549717587cbf20c7eb59e08dd9c9496327d5badcb41df",
+      "content_hash": "c93ab83cabd9de270741caf8f350f91c7e528c4bd36a0c6301a1084ddc1a3206",
       "media_type": "application/json",
       "path": "hypothesis-registry.json",
       "resource_id": "hypothesis-registry",
-      "sha256": "8d3cfc3c5a81ff20fda0771f0b27dab88e724b5f4533e024d08ad42911db19a9"
+      "sha256": "a0a4a1a5a6649cd7f95fcabce8a1b6178fb29161701263ecba062cdac53c6799"
     },
     {
       "byte_size": 2528,
-      "content_hash": "ee958aa58faece9cd3ce792ae718fdd47a9116f823118609a513c81b898ad842",
+      "content_hash": "4a29677a6acd2496189ff1e7c0f99da7b3e78cee5f695c312667d2155d643d8b",
       "media_type": "application/json",
       "path": "evidence-review.json",
       "resource_id": "evidence-review",
-      "sha256": "e86b3515d0c477ee560255ec6c091da014ed9d11dcdab64b51357bc3be282f4c"
+      "sha256": "62843775a982774545eaddcd77178c3212391772bf79e9c26512b72f16838d70"
     },
     {
       "byte_size": 2877,
-      "content_hash": "7b7572a81d42f7e9a1a674001374c3d56df56cb3b1407cd1bf00db7a6ef918f9",
+      "content_hash": "5593e76f0a5f447171d052432f9b94d85c713e6fa2f168deec6bd45cf58f26cc",
       "media_type": "application/json",
       "path": "evidence-quality.json",
       "resource_id": "evidence-quality",
-      "sha256": "1672808981f02fb9d81bf6b4acdf9f89ff67f178ee02da40ed5ddcfaf6072f53"
+      "sha256": "ebe11568765bc8c08b72448274837265d0ba18dc473736cef453edb1fa23d56c"
     },
     {
       "byte_size": 3469,
-      "content_hash": "34f18dfc828f7765791e3088bb4b20e4d56b9666669eaee2b35f3665244021d8",
+      "content_hash": "f0ba83139a1914848bbaa00a14b0b06964608a8e39926b89b52fe469a365cdce",
       "media_type": "application/json",
       "path": "reviewer-guidance.json",
       "resource_id": "reviewer-guidance",
-      "sha256": "88c1dae004b3a0e7279eb472f6fdc3f7f04542efc21947bb9888260caee05795"
+      "sha256": "25b604530e35cdecbed0275be4146ceb47ba94cdacc3f1850a000bf10fe7b83c"
     },
     {
       "byte_size": 4199,
-      "content_hash": "44373faf1303dc42b340939c8193853130714c24d132a2cf1cd32a833369db49",
+      "content_hash": "62ad4dacb23edf5be2793146d961e449127a9407ac2059cb45f7d20c97748101",
       "media_type": "application/json",
       "path": "terminology.json",
       "resource_id": "terminology",
-      "sha256": "1f33d1bd667e4e28682501a04426e0474c23b97702e8cd3ce73c3084292f21a7"
+      "sha256": "4bf26aa0bfc51853487aa2d891a4eb8c319dc6ffeead00baa2e7bbf8cacb2f37"
     },
     {
       "byte_size": 2060,
-      "content_hash": "8e9d30ab8b72c0d4d686559baccad2337f3d16ce301298c44e00549ca57d03a0",
+      "content_hash": "6e682f1a187ff3001db48f1fe40ac1a42fe7fe1d99d8c473d9cab573deb9c2b6",
       "media_type": "application/json",
       "path": "limitations.json",
       "resource_id": "limitations",
-      "sha256": "ab81c1a1b1ccf422a1efcba275b5984c5a150d92e6a3f151dfef779f6d399ed3"
+      "sha256": "cd5613433ae6bdd3b8eef249ad26b7b2fd2f3c1c0016bba5f826f9c0a68322ef"
     },
     {
       "byte_size": 3125,
-      "content_hash": "7a5d5c28044d259a3bae3491eca8336285764032186b6b44cfe60798f43d8d1f",
+      "content_hash": "f3d1d655998c8de2fb36797399cc91995d867c69329b0429d3b93af0b551b9ea",
       "media_type": "application/json",
       "path": "sources.json",
       "resource_id": "sources",
-      "sha256": "600701d3ad745c053c95b6183a10cab718185caa7dc014b590593907163aeebb"
+      "sha256": "9509e369481d8c163d73b80c7da86614a5d0efdee13d4242b7cd849a78fb44eb"
     }
   ],
   "safety": {
