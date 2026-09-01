@@ -1,59 +1,59 @@
 {
-  "bundle_id": "handicapskater-org-v1-9f115209790603bf",
-  "content_hash": "9f115209790603bfd4776eebd7dbe17ac1865b1c99a621379b429f2642c55ccf",
+  "bundle_id": "handicapskater-org-v1-b04307904bc8d29e",
+  "content_hash": "b04307904bc8d29eb2c818c9f5240c52a39bd4add15518db61df576d35560f87",
   "data_through_date": "2026-08-27",
   "destination": "handicapskater.org",
-  "generated_at_utc": "2026-08-28T19:12:11.680507Z",
+  "generated_at_utc": "2026-09-01T02:22:34.133759Z",
   "generator_version": "fsi_publication_exporter.v1",
   "graph_count": 4,
   "graphs": [
     {
       "artifact_filename": "walking_vs_mall_accumulated_mechanical_load.json",
       "artifact_path": "case-examples/walking_vs_mall_accumulated_mechanical_load.json",
-      "byte_size": 28767,
-      "content_hash": "fc3420d81091886908664133e4c7c0f6f3384d1d85e172d1d79457acea7a2d84",
+      "byte_size": 41960,
+      "content_hash": "7c8a6ac24262374d101e896706afbee211a4a1f4da01fc8d53f197acd7abb0be",
       "destination": "handicapskater.org",
       "graph_id": "walking_vs_mall_accumulated_mechanical_load",
       "media_type": "application/json",
       "page": "/standards/#actual-risk",
       "path": "case-examples/walking_vs_mall_accumulated_mechanical_load.json",
-      "sha256": "fe6b2559a6c623a260b32aa37a0471e6a26bdcf226558fb73075d1b7c4b86fc1"
+      "sha256": "e14364deac1d6ce17340f12136b2ea3b2d50539df6406ee451f076bc74fd5ede"
     },
     {
       "artifact_filename": "triplet_functional_output_context.json",
       "artifact_path": "case-examples/triplet_functional_output_context.json",
-      "byte_size": 37651,
-      "content_hash": "0eaa2a0b21b9fb5e08d01dc077e1cbb4826cfd0294729f077b1ed1258a96ca0d",
+      "byte_size": 54926,
+      "content_hash": "ce7d1255f908bdb3617de015e908d1a2dad21646d8d84276b80c20fe5afb1678",
       "destination": "handicapskater.org",
       "graph_id": "triplet_functional_output_context",
       "media_type": "application/json",
       "page": "/standards/#non-standard-mobility-aid",
       "path": "case-examples/triplet_functional_output_context.json",
-      "sha256": "e7502a48de75c81ef8075a4b00b25c93ec70f56afb5529849bb0898c2d4a0c25"
+      "sha256": "15d846dd9a3f839c66344105f6045841a269310879248befad1bdf7a6639daac"
     },
     {
       "artifact_filename": "fns_sns_longitudinal_functional_capacity.json",
       "artifact_path": "case-examples/fns_sns_longitudinal_functional_capacity.json",
-      "byte_size": 1563501,
-      "content_hash": "fd9d816da004e6ebbafa1d346ea3d98bf6633845c2343aff785834d2a7c6e737",
+      "byte_size": 1574961,
+      "content_hash": "6a7e7e5b1a976e3e1b22787464f80a1bffc397b504253b9aeea1b1863dc4bf77",
       "destination": "handicapskater.org",
       "graph_id": "fns_sns_longitudinal_functional_capacity",
       "media_type": "application/json",
       "page": "/standards/#non-standard-mobility-aid",
       "path": "case-examples/fns_sns_longitudinal_functional_capacity.json",
-      "sha256": "3afe10ec4bc8360fd26ddb105eafd3cd1feaac21d6407487a4827b5f2d54f556"
+      "sha256": "5d14e636fcffb462ad4a70dfd018dd3207d5af77db66ee1a16ef2cd6c7ac871f"
     },
     {
       "artifact_filename": "transportation_body_coupling_comparison.json",
       "artifact_path": "case-examples/transportation_body_coupling_comparison.json",
-      "byte_size": 108143,
-      "content_hash": "f2434b80702ee5fb04e2d03ab5d563725f18acc121e6da839c265ab784a8d062",
+      "byte_size": 108176,
+      "content_hash": "7eee5a6fd145f24178f7a34406879967022c79940c82d982594311a245790277",
       "destination": "handicapskater.org",
       "graph_id": "transportation_body_coupling_comparison",
       "media_type": "application/json",
       "page": "/standards/#body-coupling",
       "path": "case-examples/transportation_body_coupling_comparison.json",
-      "sha256": "29fa27566a4000012074af7983bee27922e5cc44072fedf8dd58f5bf2123484c"
+      "sha256": "d376ff659df5b7585661bd31fb8167bdf06ddc40f2c705a659b53ef989e544d3"
     }
   ],
   "limitation_count": 1,

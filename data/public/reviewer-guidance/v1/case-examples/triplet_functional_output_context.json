@@ -749,9 +749,459 @@
       "distance_source_relation": "v_normalized_distance_authority",
       "duration_seconds": 1020.0,
       "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-09",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 2.037351865107771,
+      "distance_source": "strava:strava_activity:19673558119",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 2134.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-09",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.08171031177920941,
+      "distance_source": "strava:strava_activity:19673718746",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 328.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-09",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8362140101805455,
+      "distance_source": "strava:strava_activity:19675982264",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1021.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-10",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.9424684840531297,
+      "distance_source": "strava:strava_activity:19686285238",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1994.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-10",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.1434124711683767,
+      "distance_source": "strava:strava_activity:19686779717",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 317.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-10",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8244700946472598,
+      "distance_source": "strava:strava_activity:19688700597",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1069.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-11",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.984348902409926,
+      "distance_source": "strava:strava_activity:19704087742",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 2058.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-11",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.11980036586335799,
+      "distance_source": "strava:strava_activity:19704144322",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 311.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-11",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8213632386860732,
+      "distance_source": "strava:strava_activity:19704436076",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 952.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-12",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 2.067736916408176,
+      "distance_source": "strava:strava_activity:19715450255",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1906.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-12",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.11625855006760517,
+      "distance_source": "strava:strava_activity:19719295710",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 314.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-12",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8303109838542908,
+      "distance_source": "strava:strava_activity:19719565631",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 910.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-13",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 2.0166602044062674,
+      "distance_source": "strava:strava_activity:19731210313",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1931.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-13",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.12881024815079933,
+      "distance_source": "strava:strava_activity:19732798144",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 306.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-13",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8181942456056628,
+      "distance_source": "strava:strava_activity:19732968725",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1045.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-16",
+      "distance_authority": null,
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": null,
+      "distance_source": null,
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 2129.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-16",
+      "distance_authority": null,
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": null,
+      "distance_source": null,
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 333.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-16",
+      "distance_authority": null,
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": null,
+      "distance_source": null,
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1020.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-17",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.9903140658554044,
+      "distance_source": "strava:strava_activity:19787439387",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1834.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-17",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.10588165115724171,
+      "distance_source": "strava:strava_activity:19787480666",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 311.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-17",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8220467469975345,
+      "distance_source": "strava:strava_activity:19787640617",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 983.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-18",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 2.0478530382565814,
+      "distance_source": "strava:strava_activity:19796691952",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1455.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-18",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.1485077149447228,
+      "distance_source": "strava:strava_activity:19799708019",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 312.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-18",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8265827567008668,
+      "distance_source": "strava:strava_activity:19799903983",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 965.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-19",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.9705544619422573,
+      "distance_source": "strava:strava_activity:19816229753",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1813.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-19",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.12961803070070785,
+      "distance_source": "strava:strava_activity:19818292579",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 314.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-19",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8202447705400462,
+      "distance_source": "strava:strava_activity:19818401763",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 985.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-20",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.9388023940189292,
+      "distance_source": "strava:strava_activity:19829977078",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1910.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-20",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.07512377714149368,
+      "distance_source": "strava:strava_activity:19831313691",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 306.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-20",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8086872663644318,
+      "distance_source": "strava:strava_activity:19831440045",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 849.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-23",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 2.0017472957925713,
+      "distance_source": "strava:strava_activity:19871109991",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 2048.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-23",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.09345422731249503,
+      "distance_source": "strava:strava_activity:19872698617",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 307.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-23",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8078173466952994,
+      "distance_source": "strava:strava_activity:19872826155",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 965.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-24",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.9644028871391077,
+      "distance_source": "strava:strava_activity:19884309104",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1812.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-24",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.10929919271454705,
+      "distance_source": "strava:strava_activity:19886427749",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 308.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-24",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.7960734311620137,
+      "distance_source": "strava:strava_activity:19886591808",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 957.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-25",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8129125904716454,
+      "distance_source": "strava:strava_activity:19897140553",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1695.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-25",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.12601407778573134,
+      "distance_source": "strava:strava_activity:19900758800",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 299.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-25",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.7944578660621968,
+      "distance_source": "strava:strava_activity:19900971721",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 866.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-26",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 2.048412272329595,
+      "distance_source": "strava:strava_activity:19916507305",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 1811.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-26",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.14235614014157322,
+      "distance_source": "strava:strava_activity:19916547460",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 307.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-26",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.8105513799411437,
+      "distance_source": "strava:strava_activity:19916733712",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 952.0,
+      "sequence_role": "pt"
+    },
+    {
+      "date": "2026-08-27",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 2.0432548914340254,
+      "distance_source": "strava:strava_activity:19927878732",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 2494.0,
+      "sequence_role": "mall"
+    },
+    {
+      "date": "2026-08-27",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 0.14683001272568202,
+      "distance_source": "strava:strava_activity:19927916684",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 284.0,
+      "sequence_role": "walk"
+    },
+    {
+      "date": "2026-08-27",
+      "distance_authority": "miles",
+      "distance_conversion_version": "physical_distance_to_miles.v1",
+      "distance_miles": 1.7804770142368567,
+      "distance_source": "strava:strava_activity:19928073607",
+      "distance_source_relation": "v_normalized_distance_authority",
+      "duration_seconds": 869.0,
+      "sequence_role": "pt"
     }
   ],
-  "alt_text": "Recorded distance and duration medians are shown for Mall, Walk, and PT across 25 accepted dates. The supporting normalized metric is limited to additive cumulative dynamic shock per mile.",
+  "alt_text": "Recorded distance and duration medians are shown for Mall, Walk, and PT across 40 accepted dates. The supporting normalized metric is limited to additive cumulative dynamic shock per mile.",
   "canonical_case_route": "https://handicapskater.com/evidence/mobility-comparison/",
   "case_example_label": "N-of-1 case study example",
   "claim_class": "INTERPRETATION",
@@ -760,13 +1210,13 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "0eaa2a0b21b9fb5e08d01dc077e1cbb4826cfd0294729f077b1ed1258a96ca0d",
+  "content_hash": "ce7d1255f908bdb3617de015e908d1a2dad21646d8d84276b80c20fe5afb1678",
   "coverage": {
-    "accepted_triplets": 25,
-    "distance_stages": 75,
-    "duration_stages": 75
+    "accepted_triplets": 40,
+    "distance_stages": 120,
+    "duration_stages": 120
   },
-  "data_through_date": "2026-08-06",
+  "data_through_date": "2026-08-27",
   "destination": "handicapskater.org",
   "evidence": {
     "canonical_relations": [
@@ -774,11 +1224,11 @@
       "v_canonical_triplet_stage_detail",
       "v_triplet_repeated_validation_summary"
     ],
-    "distance_coverage": "75/75",
+    "distance_coverage": "120/120",
     "sample_count": {
-      "accepted_triplets": 25,
-      "distance_stages": 75,
-      "duration_stages": 75
+      "accepted_triplets": 40,
+      "distance_stages": 120,
+      "duration_stages": 120
     },
     "source_systems": [
       "Strava",
@@ -827,24 +1277,24 @@
       "points": [
         {
           "label": "Mall Skate",
-          "sample_count": 25,
+          "sample_count": 39,
           "status": "persisted median",
           "unit": "miles",
-          "value": 2.0207612542750337
+          "value": 2.0166602044062674
         },
         {
           "label": "Walk",
-          "sample_count": 25,
+          "sample_count": 39,
           "status": "persisted median",
           "unit": "miles",
-          "value": 0.1540379185556351
+          "value": 0.14235614014157322
         },
         {
           "label": "PT Skate",
-          "sample_count": 25,
+          "sample_count": 39,
           "status": "persisted median",
           "unit": "miles",
-          "value": 1.8124154935178558
+          "value": 1.8168893661019645
         }
       ],
       "title": "Recorded functional distance",
@@ -854,24 +1304,24 @@
       "points": [
         {
           "label": "Mall Skate",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "s",
-          "value": 2066.0
+          "value": 2036.0
         },
         {
           "label": "Walk",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "s",
-          "value": 322.0
+          "value": 316.5
         },
         {
           "label": "PT Skate",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "s",
-          "value": 1030.0
+          "value": 1019.0
         }
       ],
       "title": "Recorded functional duration",
@@ -897,49 +1347,49 @@
   "repeatability": [
     {
       "comparison": "Mall distance > Walk distance",
-      "count": 25,
+      "count": 39,
       "derivation_status": "DERIVED",
       "formula": "count(Mall authoritative miles > Walk authoritative miles) / accepted triplet count",
       "fraction": 1.0,
-      "paired_n": 25
+      "paired_n": 39
     },
     {
       "comparison": "PT distance > Walk distance",
-      "count": 25,
+      "count": 39,
       "derivation_status": "DERIVED",
       "formula": "count(PT authoritative miles > Walk authoritative miles) / accepted triplet count",
       "fraction": 1.0,
-      "paired_n": 25
+      "paired_n": 39
     }
   ],
   "sample_counts": {
-    "accepted_triplets": 25,
-    "distance_stages": 75,
-    "duration_stages": 75
+    "accepted_triplets": 40,
+    "distance_stages": 120,
+    "duration_stages": 120
   },
   "series": [
     {
       "points": [
         {
           "label": "Mall Skate",
-          "sample_count": 25,
+          "sample_count": 39,
           "status": "persisted median",
           "unit": "miles",
-          "value": 2.0207612542750337
+          "value": 2.0166602044062674
         },
         {
           "label": "Walk",
-          "sample_count": 25,
+          "sample_count": 39,
           "status": "persisted median",
           "unit": "miles",
-          "value": 0.1540379185556351
+          "value": 0.14235614014157322
         },
         {
           "label": "PT Skate",
-          "sample_count": 25,
+          "sample_count": 39,
           "status": "persisted median",
           "unit": "miles",
-          "value": 1.8124154935178558
+          "value": 1.8168893661019645
         }
       ],
       "series": [],
@@ -951,24 +1401,24 @@
       "points": [
         {
           "label": "Mall Skate",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "s",
-          "value": 2066.0
+          "value": 2036.0
         },
         {
           "label": "Walk",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "s",
-          "value": 322.0
+          "value": 316.5
         },
         {
           "label": "PT Skate",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "s",
-          "value": 1030.0
+          "value": 1019.0
         }
       ],
       "series": [],

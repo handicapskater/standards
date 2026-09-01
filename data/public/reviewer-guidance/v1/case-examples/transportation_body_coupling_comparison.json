@@ -790,7 +790,7 @@
       "episodic_component_support_n": 19,
       "evidence_layer": "episodic_kubios_body_coupling",
       "longitudinal_context_support_n": 15,
-      "median": 43.56666666666667,
+      "median": 41.766666666666666,
       "metric": "ride_duration_minutes",
       "metric_label": "Ride duration",
       "missing_event_n": null,
@@ -807,7 +807,7 @@
       "episodic_component_support_n": 24,
       "evidence_layer": "episodic_kubios_body_coupling",
       "longitudinal_context_support_n": 20,
-      "median": 37.075,
+      "median": 36.49166666666667,
       "metric": "ride_duration_minutes",
       "metric_label": "Ride duration",
       "missing_event_n": null,
@@ -841,7 +841,7 @@
       "episodic_component_support_n": 6,
       "evidence_layer": "episodic_kubios_body_coupling",
       "longitudinal_context_support_n": 4,
-      "median": 59.766666666666666,
+      "median": 40.40833333333333,
       "metric": "ride_duration_minutes",
       "metric_label": "Ride duration",
       "missing_event_n": null,
@@ -1031,7 +1031,7 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "f2434b80702ee5fb04e2d03ab5d563725f18acc121e6da839c265ab784a8d062",
+  "content_hash": "7eee5a6fd145f24178f7a34406879967022c79940c82d982594311a245790277",
   "coverage": {
     "episodic_kubios_body_coupling_support": {
       "motorcycle": 6,
@@ -1820,7 +1820,7 @@
           "label": "ParaTransit bus",
           "sample_count": 19,
           "unit": "min",
-          "value": 43.56666666666667
+          "value": 41.766666666666666
         },
         {
           "denominator_label": "EPISODIC BODY-COUPLING / COMPONENT SUPPORT (Kubios + WHOOP + Strava)",
@@ -1828,7 +1828,7 @@
           "label": "ParaTransit sedan/taxi",
           "sample_count": 24,
           "unit": "min",
-          "value": 37.075
+          "value": 36.49166666666667
         },
         {
           "denominator_label": "EPISODIC BODY-COUPLING / COMPONENT SUPPORT (Kubios + WHOOP + Strava)",
@@ -1844,7 +1844,7 @@
           "label": "ParaTransit van",
           "sample_count": 6,
           "unit": "min",
-          "value": 59.766666666666666
+          "value": 40.40833333333333
         }
       ],
       "title": "Ride duration",
@@ -2706,7 +2706,7 @@
           "label": "ParaTransit bus",
           "sample_count": 19,
           "unit": "min",
-          "value": 43.56666666666667
+          "value": 41.766666666666666
         },
         {
           "denominator_label": "EPISODIC BODY-COUPLING / COMPONENT SUPPORT (Kubios + WHOOP + Strava)",
@@ -2714,7 +2714,7 @@
           "label": "ParaTransit sedan/taxi",
           "sample_count": 24,
           "unit": "min",
-          "value": 37.075
+          "value": 36.49166666666667
         },
         {
           "denominator_label": "EPISODIC BODY-COUPLING / COMPONENT SUPPORT (Kubios + WHOOP + Strava)",
@@ -2730,7 +2730,7 @@
           "label": "ParaTransit van",
           "sample_count": 6,
           "unit": "min",
-          "value": 59.766666666666666
+          "value": 40.40833333333333
         }
       ],
       "series": [],

@@ -324,6 +324,201 @@
       "reference_role": "mall",
       "reference_value": 2.1491030290883675,
       "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.102213201418671,
+      "date": "2026-08-09",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.129215586663633,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.2318064510104145,
+      "date": "2026-08-10",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.2747593629136307,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.378592779536734,
+      "date": "2026-08-11",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.221895806927954,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.19125968095046,
+      "date": "2026-08-12",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.235748826762049,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.639496441855752,
+      "date": "2026-08-13",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.3086158486962374,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.557939892126527,
+      "date": "2026-08-16",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.2390462012215777,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.594272263135746,
+      "date": "2026-08-17",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.29453452241446,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.497888703138035,
+      "date": "2026-08-18",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 3.303153423911943,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.293409187656263,
+      "date": "2026-08-19",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.4607933530005375,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.514226103901964,
+      "date": "2026-08-20",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.383608265983395,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.587945640179614,
+      "date": "2026-08-23",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.265390561715763,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.7134256117440305,
+      "date": "2026-08-24",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.477018262731841,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.822209271994352,
+      "date": "2026-08-25",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.438384165497883,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 6.807264317580259,
+      "date": "2026-08-26",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.4741827689606675,
+      "unit": "g*s/min"
+    },
+    {
+      "comparison_quality": "valid",
+      "comparison_role": "walk",
+      "comparison_value": 7.260887787345763,
+      "date": "2026-08-27",
+      "direction": "walking_higher",
+      "formula_version": "kubios_acc_session_metrics.v1",
+      "metric_name": "cumulative_dynamic_shock_per_min",
+      "reference_quality": "valid",
+      "reference_role": "mall",
+      "reference_value": 2.064372060338098,
+      "unit": "g*s/min"
     }
   ],
   "alt_text": "Paired Mall and walking values are shown by accepted date for Cumulative dynamic shock with persisted medians and calculated direction counts.",
@@ -335,11 +530,11 @@
     "repeatability": "MEASURED",
     "values": "MEASURED"
   },
-  "content_hash": "fc3420d81091886908664133e4c7c0f6f3384d1d85e172d1d79457acea7a2d84",
+  "content_hash": "7c8a6ac24262374d101e896706afbee211a4a1f4da01fc8d53f197acd7abb0be",
   "coverage": {
-    "cumulative_dynamic_shock_per_min": 25
+    "cumulative_dynamic_shock_per_min": 40
   },
-  "data_through_date": "2026-08-06",
+  "data_through_date": "2026-08-27",
   "destination": "handicapskater.org",
   "evidence": {
     "canonical_relations": [
@@ -349,7 +544,7 @@
     "median_status": "persisted canonical summary",
     "repeatability_status": "DERIVED from paired accepted-date records",
     "sample_count": {
-      "cumulative_dynamic_shock_per_min": 25
+      "cumulative_dynamic_shock_per_min": 40
     },
     "source_systems": [
       "Kubios",
@@ -693,22 +888,202 @@
           "reference_role": "mall",
           "reference_value": 2.1491030290883675,
           "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.102213201418671,
+          "date": "2026-08-09",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.129215586663633,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.2318064510104145,
+          "date": "2026-08-10",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.2747593629136307,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.378592779536734,
+          "date": "2026-08-11",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.221895806927954,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.19125968095046,
+          "date": "2026-08-12",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.235748826762049,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.639496441855752,
+          "date": "2026-08-13",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.3086158486962374,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.557939892126527,
+          "date": "2026-08-16",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.2390462012215777,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.594272263135746,
+          "date": "2026-08-17",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.29453452241446,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.497888703138035,
+          "date": "2026-08-18",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 3.303153423911943,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.293409187656263,
+          "date": "2026-08-19",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.4607933530005375,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.514226103901964,
+          "date": "2026-08-20",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.383608265983395,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.587945640179614,
+          "date": "2026-08-23",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.265390561715763,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.7134256117440305,
+          "date": "2026-08-24",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.477018262731841,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.822209271994352,
+          "date": "2026-08-25",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.438384165497883,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 6.807264317580259,
+          "date": "2026-08-26",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.4741827689606675,
+          "unit": "g*s/min"
+        },
+        {
+          "comparison_quality": "valid",
+          "comparison_role": "walk",
+          "comparison_value": 7.260887787345763,
+          "date": "2026-08-27",
+          "direction": "walking_higher",
+          "formula_version": "kubios_acc_session_metrics.v1",
+          "reference_quality": "valid",
+          "reference_role": "mall",
+          "reference_value": 2.064372060338098,
+          "unit": "g*s/min"
         }
       ],
       "points": [
         {
           "label": "Mall skating",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "g*s/min",
-          "value": 2.0904119694198475
+          "value": 2.1447119710594995
         },
         {
           "label": "Walking",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "g*s/min",
-          "value": 5.9067919565411104
+          "value": 6.192412813275137
         }
       ],
       "title": "Cumulative dynamic shock",
@@ -734,36 +1109,36 @@
       "derivation_status": "DERIVED",
       "formula": "count(Walk > Mall) / count(non-null paired Mall-Walk accepted dates)",
       "metric_name": "cumulative_dynamic_shock_per_min",
-      "paired_n": 25,
+      "paired_n": 40,
       "source_metrics": [
         "cumulative_dynamic_shock_per_min"
       ],
       "source_relation": "v_triplet_stage_metric_detail",
       "tie_count": 0,
-      "walking_higher_count": 25,
+      "walking_higher_count": 40,
       "walking_higher_fraction": 1.0,
       "walking_lower_count": 0
     }
   ],
   "sample_counts": {
-    "cumulative_dynamic_shock_per_min": 25
+    "cumulative_dynamic_shock_per_min": 40
   },
   "series": [
     {
       "points": [
         {
           "label": "Mall skating",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "g*s/min",
-          "value": 2.0904119694198475
+          "value": 2.1447119710594995
         },
         {
           "label": "Walking",
-          "sample_count": 25,
+          "sample_count": 40,
           "status": "persisted median",
           "unit": "g*s/min",
-          "value": 5.9067919565411104
+          "value": 6.192412813275137
         }
       ],
       "series": [],
