@@ -122,6 +122,58 @@
   width: 100%;
 }
 
+.ecosystem-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.ecosystem-strip a {
+  display: block;
+  min-height: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel-alt);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.ecosystem-strip a:hover,
+.ecosystem-strip a:focus-visible {
+  border-color: var(--teal);
+  background: #e5f5f2;
+}
+
+.ecosystem-strip strong,
+.ecosystem-strip span {
+  display: block;
+}
+
+.ecosystem-strip span {
+  margin-top: 0.22rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.decision-output {
+  margin: 1.5rem 0 0;
+  padding: 1rem;
+  border-left: 4px solid var(--teal);
+  background: var(--panel-alt);
+}
+
+.decision-output strong,
+.decision-output span {
+  display: block;
+}
+
+.decision-output span {
+  margin-top: 0.45rem;
+  color: var(--muted);
+}
+
 .stage-list {
   display: grid;
   gap: 1.25rem;
@@ -261,6 +313,10 @@
 @media (max-width: 900px) {
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ecosystem-strip {
+    grid-template-columns: 1fr;
   }
 }
 

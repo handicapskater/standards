@@ -57,6 +57,27 @@ class StandardsSiteTests(unittest.TestCase):
         self.assertNotIn("data-reviewer-example", lower)
         self.assertNotIn("personal hrv", lower)
 
+    def test_home_explains_the_generalized_problem_and_documented_decision_early(self) -> None:
+        html = read("index.html")
+        lower = html.lower()
+        for phrase in (
+            "why this standard exists",
+            "rejected by category",
+            "skates used for mobility are the motivating case",
+            "designed to generalize beyond skates",
+            "documented individualized decision",
+            "https://handicapskater.com/story/",
+            "https://handicapskater.com/evidence/",
+        ):
+            self.assertIn(phrase, lower)
+        self.assertIn("not a universal authorization or legal conclusion", lower)
+        self.assertLess(html.index('id="problem"'), html.index('id="method"'))
+        css = read("common/css/org-standards.css")
+        self.assertIn(".ecosystem-strip", css)
+        self.assertIn(".decision-output", css)
+        self.assertIn("@media (max-width: 900px)", css)
+        self.assertIn("@media (max-width: 1100px)", read("common/css/site-chrome.css"))
+
     def test_protocol_has_all_eight_stages_in_order(self) -> None:
         html = read("protocol/index.html")
         stages = ("Mobility Function", "Device / Adaptation Function", "User Proficiency", "Functional Evidence", "Environment", "Actual Risk", "Mitigation Before Exclusion", "Documented Decision")
