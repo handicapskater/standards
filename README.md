@@ -21,6 +21,30 @@ The site should use public source anchors rather than visible citation TODOs. Do
 
 ## Pages publication boundary
 
+### Registered-only Review Tools (2026-09-14)
+
+`review-tools-entry.html` renders the public `/review-tools/` shell through a
+Jekyll permalink. `_config.yml` excludes the entire `review-tools/` source
+directory, the local `nsmaep/` bundle, tests, scripts and this engineering README
+from the public artifact. Only `nsmaep-entry.html` renders the approved lightweight
+`/nsmaep/` redirect. `common/registered-review.js` embeds the existing authenticated
+Cloud Run panel; it contains no questionnaire or answer data. No client-side
+visibility flag grants access. Server authorization requires an active session,
+APPROVED account, explicit NSMAEP grant and current synthetic-demo eligibility.
+
+The original committed questionnaire remains the source for the private portal
+package: ten forms,197 unchanged field IDs/wording/options/order. Do not edit it
+or the unrelated working-tree changes merely to update the public shell.
+The publication guard rejects questionnaire controls/schema even if renamed.
+Source form tests test the retained authoring source, NOT public availability.
+
+**Historical-public-source limitation:** this repository is public. Excluding
+files from Pages does not remove their GitHub source/history or previously
+downloaded copies. Making repository source confidential is a separate approval
+and hosting/plan review; no visibility change or history rewrite is performed.
+There is no private applicant data in this source. Operational Firestore details
+are recorded in the platform's NSMAEP_FIRESTORE_DATA_AUTHORITY.md.
+
 Pages is configured as **Deploy from a branch**, `main` / repository root.
 GitHub's managed `pages build and deployment` uses Jekyll (last observed:
 github-pages 232 / Jekyll 3.10.0), then uploads/deploys its `_site` artifact.
@@ -30,7 +54,7 @@ There is no custom workflow or copy step in this repository. Keep that mechanism
 the three demo files remain committed source for the local API. Because Jekyll 3
 replaces default exclusions, the config retains its seven default exclusions.
 Do not add `.nojekyll`, use `.gitignore` as publication control, re-include the
-demo, add a redirect, or deploy a source-tree copy that bypasses Jekyll.
+demo, add an unreviewed redirect, or deploy a source-tree copy that bypasses Jekyll.
 
 ```text
 NSMAEP_SOURCE_ONLY=true

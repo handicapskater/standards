@@ -1,0 +1,5 @@
+#registered-review { scroll-margin-top: 9rem; }
+#registered-review-panel iframe { display: block; width: 100%; min-height: 230px; border: 1px solid #83958b; border-radius: 8px; margin-top: 1rem; }
+#review-access-links .button { color: #fff; }
+#review-access-links[hidden] { display: none; }
+#registered-review a:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }

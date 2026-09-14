@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import re
 import subprocess
 import tarfile
 from pathlib import Path, PurePosixPath
@@ -15,6 +16,8 @@ from pathlib import Path, PurePosixPath
 ROOT = Path(__file__).resolve().parents[1]
 DEMO_FILES = ("nsmaep/index.html", "nsmaep/nsmaep.css", "nsmaep/nsmaep.js")
 REDIRECT_SOURCE = "nsmaep-entry.html"
+REVIEW_SOURCE = "review-tools-entry.html"
+SOURCE_ONLY = ("review-tools/", "nsmaep/", "tests/", "scripts/")
 PUBLIC_REQUIRED = (
     "index.html",
     "protocol/index.html",
@@ -92,12 +95,23 @@ def validate(artifact: Path, repository: Path = ROOT, revision: str = "HEAD") ->
     for name, content in files.items():
         if hashlib.sha256(content).digest() in demo_hashes:
             raise ValueError(f"Renamed NSMAEP source published: {name}")
+    # Check all artifact bytes, not only expected HTML filenames. A renamed
+    # schema, script, source test or form archive must not bypass publication.
+    authored = git(repository, "show", f"{revision}:review-tools/index.html")
+    fields = set(re.findall(rb'\bname=["\x27]([^"\x27]+)', authored)) - {b"viewport", b"description"}
+    for name, content in files.items():
+        if name.startswith(SOURCE_ONLY) and name not in {"review-tools/index.html", "nsmaep/index.html"}:
+            raise ValueError(f"Protected review source published: {name}")
+        if b"data-review-form" in content or b'"question_id"' in content:
+            raise ValueError(f"Protected questionnaire published: {name}")
+        if any(re.search(rb'\bname=["\x27]' + re.escape(field) + rb'["\x27]', content) for field in fields):
+            raise ValueError(f"Protected form control published: {name}")
     public = [
         name
         for name in tracked
         if name
-        and not name.startswith("nsmaep/")
-        and name != REDIRECT_SOURCE
+        and not name.startswith(SOURCE_ONLY)
+        and name not in {REDIRECT_SOURCE, REVIEW_SOURCE}
         and (
             Path(name).suffix in {".html", ".css", ".js", ".json", ".svg", ".ico"}
             or name == "CNAME"
@@ -110,6 +124,10 @@ def validate(artifact: Path, repository: Path = ROOT, revision: str = "HEAD") ->
         expected = git(repository, "show", f"{revision}:{REDIRECT_SOURCE}").split(b"---\n", 2)[2]
         if files.get("nsmaep/index.html") != expected:
             raise ValueError("NSMAEP approved redirect missing or changed")
+    if REVIEW_SOURCE in tracked:
+        expected = git(repository, "show", f"{revision}:{REVIEW_SOURCE}").split(b"---\n", 2)[2]
+        if files.get("review-tools/index.html") != expected:
+            raise ValueError("Registered-only review shell missing or changed")
     return len(public)
 
 

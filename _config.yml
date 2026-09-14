@@ -11,3 +11,9 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - nsmaep/
+  # Authoritative questionnaire source remains available to the private build,
+  # never to Pages. The entry shell below is rendered from review-tools-entry.html.
+  - review-tools/
+  - scripts/
+  - tests/
+  - README.md

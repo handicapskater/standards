@@ -51,6 +51,10 @@ class PagesPublicationTests(unittest.TestCase):
             "vendor/gems/",
             "vendor/ruby/",
             "nsmaep/",
+            "review-tools/",
+            "scripts/",
+            "tests/",
+            "README.md",
         }
         self.assertTrue(required.issubset(config["exclude"]))
         self.assertNotIn(
@@ -135,6 +139,26 @@ class PagesPublicationTests(unittest.TestCase):
             artifact, "Set PAGES_ARTIFACT to a real Jekyll build or Pages artifact.tar"
         )
         self.assertGreater(guard.validate(Path(artifact), REPOSITORY), 0)
+
+    def test_review_shell_contains_no_questionnaire(self):
+        shell = (ROOT / guard.REVIEW_SOURCE).read_text()
+        self.assertNotIn("data-review-form", shell)
+        self.assertNotIn("<input", shell)
+        self.assertNotIn("<textarea", shell)
+        self.assertIn("Sign in", shell)
+        self.assertIn("Request access", shell)
+        self.assertIn("/common/registered-review.js", shell)
+
+    def test_renamed_questionnaire_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in guard.PUBLIC_REQUIRED:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"placeholder")
+            (root / "innocent.txt").write_bytes(b'<input name="intake-limited-task">')
+            with self.assertRaisesRegex(ValueError, "Protected form"):
+                guard.validate(root, REPOSITORY)
 
 
 if __name__ == "__main__":
