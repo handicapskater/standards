@@ -11,6 +11,7 @@
   const target = window.location.origin + "/review-tools/#registered-review";
   for (const [label, path] of [["Request access", "/register"], ["Sign in", "/signin"]]) {
     const a = document.createElement("a"); a.className = "button button-primary"; a.textContent = label;
+    a.style.color = "#fff"; // Keep the dark access buttons readable when focused/visited.
     a.href = portal + path + "?return_to=" + encodeURIComponent(target); links.append(a);
   }
   const frame = document.createElement("iframe"); frame.title = "Your registered mobility-aid review";
@@ -20,6 +21,10 @@
   section.append(heading, text, links, frame);
   const hero = document.querySelector("main > .hero");
   if (hero) hero.after(section); else document.querySelector("main")?.prepend(section);
+  const header = document.querySelector(".site-header");
+  const offset = () => { section.style.scrollMarginTop = ((header?.getBoundingClientRect().height || 96) + 16) + "px"; };
+  offset();
+  if (header) new ResizeObserver(offset).observe(header);
   window.addEventListener("message", (event) => {
     if (event.origin !== portal || event.source !== frame.contentWindow) return;
     if (event.data?.type === "hs-size" && Number.isFinite(event.data.height)) frame.style.height = Math.max(230, Math.min(5000, event.data.height + 24)) + "px";
