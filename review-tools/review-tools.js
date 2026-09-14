@@ -10,6 +10,9 @@
     container.append(fragment);
   };
   document.addEventListener("DOMContentLoaded", () => {
+    const registeredAccess = document.createElement("script");
+    registeredAccess.src = "/review-tools/registered-access.js";
+    document.head.append(registeredAccess);
     addRow("hazard-template", "[data-hazard-list]");
     addRow("mitigation-template", "[data-mitigation-list]");
     document.addEventListener("click", (event) => {
