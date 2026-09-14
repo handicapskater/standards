@@ -1,0 +1,13 @@
+# NSMAEP_SOURCE_ONLY=true
+# PUBLICATION_EXCLUDED=true
+# PUBLIC_REGISTRATION_DISABLED=true
+# Jekyll 3 replaces its default exclude list: retain those defaults explicitly.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - nsmaep/
