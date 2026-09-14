@@ -23,6 +23,11 @@
   window.addEventListener("message", (event) => {
     if (event.origin !== portal || event.source !== frame.contentWindow) return;
     if (event.data?.type === "hs-size" && Number.isFinite(event.data.height)) frame.style.height = Math.max(230, Math.min(5000, event.data.height + 24)) + "px";
+    // Presentation hint only; all case authorization and answers stay server-side.
+    if (event.data?.type === "hs-review-access" && typeof event.data.available === "boolean") {
+      links.hidden = event.data.available;
+      heading.textContent = event.data.available ? "Start or continue my mobility-aid review" : "Save and resume a mobility-aid review";
+    }
   });
   if (window.location.hash === "#registered-review") section.scrollIntoView({block:"start"});
 })();

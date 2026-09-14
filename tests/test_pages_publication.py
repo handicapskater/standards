@@ -104,6 +104,17 @@ class PagesPublicationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "NSMAEP"):
                 guard.validate(archive, REPOSITORY)
 
+    def test_only_redirect_not_private_bundle_allowed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "nsmaep").mkdir()
+            redirect = (ROOT / guard.REDIRECT_SOURCE).read_bytes().split(b"---\n", 2)[2]
+            (root / "nsmaep/index.html").write_bytes(redirect)
+            self.assertEqual(guard.read_artifact(root)["nsmaep/index.html"], redirect)
+            (root / "nsmaep/nsmaep.js").write_text("private demo")
+            with self.assertRaisesRegex(ValueError, "NSMAEP"):
+                guard.read_artifact(root)
+
     def test_renamed_demo_is_not_allowed(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -14,6 +14,7 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 DEMO_FILES = ("nsmaep/index.html", "nsmaep/nsmaep.css", "nsmaep/nsmaep.js")
+REDIRECT_SOURCE = "nsmaep-entry.html"
 PUBLIC_REQUIRED = (
     "index.html",
     "protocol/index.html",
@@ -32,13 +33,16 @@ def git(repository: Path, *args: str) -> bytes:
 
 def read_artifact(artifact: Path) -> dict[str, bytes]:
     files = {}
+    nsmaep_present = False
     if artifact.is_dir():
         for path in artifact.rglob("*"):
             relative = path.relative_to(artifact).as_posix()
             if path.is_symlink():
                 raise ValueError(f"Artifact symlink forbidden: {relative}")
             if "nsmaep" in path.relative_to(artifact).parts:
-                raise ValueError(f"NSMAEP directory/file published: {relative}")
+                nsmaep_present = True
+                if relative not in {"nsmaep", "nsmaep/index.html"}:
+                    raise ValueError(f"NSMAEP demo published: {relative}")
             if path.is_file():
                 files[relative] = path.read_bytes()
     else:
@@ -53,7 +57,9 @@ def read_artifact(artifact: Path) -> dict[str, bytes]:
                 ):
                     raise ValueError(f"Unsafe artifact member: {member.name}")
                 if "nsmaep" in path.parts:
-                    raise ValueError(f"NSMAEP directory/file published: {member.name}")
+                    nsmaep_present = True
+                    if path.as_posix() not in {"nsmaep", "nsmaep/index.html"}:
+                        raise ValueError(f"NSMAEP demo published: {member.name}")
                 if member.isfile():
                     name = path.as_posix()
                     if name in files:
@@ -62,6 +68,11 @@ def read_artifact(artifact: Path) -> dict[str, bytes]:
                     if stream is None:
                         raise ValueError(f"Unreadable member: {name}")
                     files[name] = stream.read()
+    if nsmaep_present:
+        # Only the exact small redirect is permitted, never the local app bundle.
+        expected = (ROOT / REDIRECT_SOURCE).read_bytes().split(b"---\n", 2)[2]
+        if files.get("nsmaep/index.html") != expected:
+            raise ValueError("NSMAEP route is not the approved redirect")
     return files
 
 
@@ -86,6 +97,7 @@ def validate(artifact: Path, repository: Path = ROOT, revision: str = "HEAD") ->
         for name in tracked
         if name
         and not name.startswith("nsmaep/")
+        and name != REDIRECT_SOURCE
         and (
             Path(name).suffix in {".html", ".css", ".js", ".json", ".svg", ".ico"}
             or name == "CNAME"
@@ -94,6 +106,10 @@ def validate(artifact: Path, repository: Path = ROOT, revision: str = "HEAD") ->
     for name in public:
         if files.get(name) != git(repository, "show", f"{revision}:{name}"):
             raise ValueError(f"Committed public asset missing or changed: {name}")
+    if REDIRECT_SOURCE in tracked:
+        expected = git(repository, "show", f"{revision}:{REDIRECT_SOURCE}").split(b"---\n", 2)[2]
+        if files.get("nsmaep/index.html") != expected:
+            raise ValueError("NSMAEP approved redirect missing or changed")
     return len(public)
 
 
