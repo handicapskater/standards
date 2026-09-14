@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>NSMAEP workspace · Synthetic demo</title>
+  <link rel="stylesheet" href="/nsmaep/nsmaep.css">
+  <script src="/nsmaep/nsmaep.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to workspace</a>
+<header><a href="https://handicapskater.org/review-tools/">HandicapSkater.org · Review tools</a><span>LOCAL PORTFOLIO DEMO</span></header>
+<main id="main">
+  <p class="eyebrow">FUNCTION FIRST · PROPOSED FRAMEWORK</p>
+  <h1>Your mobility-aid review workspace</h1>
+  <p class="lead">Save progress, return to your forms, and follow a scoped review.</p>
+  <aside class="notice"><strong>SYNTHETIC_DEMO_DATA</strong> — Use fictional information only. This local workspace saves to a separate demo database. It is not a real application service, medical record system, permit, or accommodation decision. Public printable review tools remain unchanged.</aside>
+  <p id="message" role="status" aria-live="polite">Connecting to the local demo…</p>
+  <section id="auth" aria-labelledby="auth-title">
+    <h2 id="auth-title">Sign in or create a demo account</h2>
+    <p>Use an <code>@example.test</code> address. Authentication runs in the local Firebase emulator; no real email is sent.</p>
+    <form id="auth-form">
+      <label>Email<input id="email" type="email" autocomplete="username" required placeholder="applicant@example.test"></label>
+      <label>Password<input id="password" type="password" autocomplete="current-password" required minlength="8"></label>
+      <label class="check"><input id="consent" type="checkbox" required> I will use synthetic information only and understand that this demo stores my fictional case locally.</label>
+      <div class="actions"><button type="submit">Sign in</button><button type="button" id="signup">Create demo account</button><button type="button" id="reset">Reset password</button></div>
+    </form>
+  </section>
+  <section id="workspace" hidden aria-labelledby="workspace-title">
+    <div class="heading"><h2 id="workspace-title" tabindex="-1">My cases</h2><button id="signout">Sign out</button></div>
+    <p id="identity"></p>
+    <div class="actions"><button id="new-case">Create synthetic case</button><button id="my-cases">My cases</button><button id="review-cases" hidden>Reviewer / admin queue</button><button id="verify-email">Verify email (emulator)</button></div>
+    <div id="case-list" class="cards"></div>
+  </section>
+  <section id="case" hidden aria-labelledby="case-title">
+    <h2 id="case-title" tabindex="-1">Case</h2>
+    <p id="case-status"></p>
+    <nav id="sections" aria-label="Case sections"></nav>
+    <div class="actions"><button id="guidance">Workflow guidance · local CX tool preview</button><button id="preview">Submission preview</button><button id="demo-document" hidden>Add synthetic document fixture</button></div>
+    <p id="guidance-text" role="status"></p>
+    <div id="form-container"></div>
+    <div class="actions" id="save-actions"><button id="save">Save draft section</button><button id="complete">Mark section reviewed</button></div>
+    <section id="submission" hidden><h3>Submission preview</h3><p>Completion is workflow progress, not legal eligibility. No acknowledgement waives rights. Reviewer-only decision records do not block applicant submission.</p><div id="preview-content"></div><button id="submit-case">Submit synthetic case</button></section>
+    <section id="review-actions" hidden><h3>Review workflow</h3><p>A status change is not an accommodation decision.</p><div class="actions"><button data-status="REVIEWING">Start review</button><button data-status="NEEDS_INFORMATION">Request information</button><button data-status="COMPLETED">Complete review</button></div></section>
+    <h3>Review timeline</h3><ol id="timeline"></ol>
+  </section>
+  <footer><p>.com explains the individual case. .org offers the generalized framework. Neither domain implies a legal or tax entity.</p><p>Ask Evidence and the private Evidence Observatory are not part of registration or applicant case guidance.</p></footer>
+</main>
+</body>
+</html>
